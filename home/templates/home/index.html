@@ -1,6 +1,42 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
 {% block content %}
-<h1 class="text-success">It Works!</h1>
+<div class="container-fluid">
+    <div class="row">
+        
+
+        <div class="col-4 pink-orange-gradient d-flex align-items-end mb-5 container-fluid">
+            <ul id="featured" class="mb-5 row g-0 text-center">
+                <li class="col d-flex justify-content-center">
+                    <p class="d-flex align-items-center justify-content-center">
+                        <span>Circle here</span>
+                    </p>
+                </li>
+                <li class="w-100"></li>
+                <li class="col d-flex justify-content-center">
+                    <p class="d-flex align-items-center justify-content-center">
+                        <span>Circle here</span>
+                    </p>
+                </li>
+                <li class="col d-flex justify-content-center">
+                    <p class="d-flex align-items-center justify-content-center">
+                        <span>Circle here</span>
+                    </p>
+                </li>
+                <li class="w-100"></li>
+                <li class="col d-flex justify-content-center">
+                    <p class="d-flex align-items-center justify-content-center">
+                        <span>Circle here</span>
+                    </p>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+</div>
 {% endblock %}

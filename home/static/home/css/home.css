@@ -1,0 +1,46 @@
+.pink-orange-gradient {
+    overflow: hidden;
+    width: 100%!important;
+    height: 100vh;
+    background-image: linear-gradient(to bottom left, #fdfbf8 48%, #ff8f00 65%, #ee2677 100%,#fdfbf8 0%);
+    mix-blend-mode: multiply;
+    position: absolute;
+    z-index: 1;
+    animation: left-slide 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  #featured > li > p {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    background: #fff;
+    animation: glow 2.5s infinite ease-in-out alternate-reverse 8s;
+  }
+
+  #featured > li {
+    list-style-type: none;
+    position: relative;
+  }
+
+  /* Animations */
+  @keyframes left-slide {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 0%;
+    }
+  }
+
+  @keyframes glow {
+    0% {
+      box-shadow: 0 1 17px 1px #a5f8d3, 0 0 4px 2px #a5f8d3;
+    }
+    50% {
+      box-shadow: 0 0 17px 4px #a5f8d3, 0 0 4px 2px #a5f8d3;
+      mix-blend-mode: luminosity;
+    }
+    100% {
+      box-shadow: 0 0 17px 8px #fdfbf8, 0 0 4px 2px #fdfbf8;
+    }
+  }
