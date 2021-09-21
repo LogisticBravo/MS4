@@ -9,6 +9,7 @@
     animation: left-slide 4s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
+  /* Circles */
   #featured > li > p {
     height: 150px;
     width: 150px;
@@ -20,6 +21,69 @@
   #featured > li {
     list-style-type: none;
     position: relative;
+  }
+
+  #featured {
+    animation: spin 60s infinite linear 8s, fade-in 10s ease;
+  }
+
+  #featured > li > p > span {
+    animation: spin 60s infinite linear reverse 8s;
+    position: absolute;
+  }
+
+  /* logo neon sign */
+  .logo-container {
+    width: 28rem!important;
+    position: absolute;
+    top: 10vh;
+    left: 20vw;
+    z-index: 2;
+    animation: neon-slide 4s ease-in-out;
+  }
+  
+  .logo {
+    font-family: Monoton;
+    font-weight: 700;
+    font-size: 4rem;
+    padding: 5px;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    color: #FF8F00;
+    mix-blend-mode: luminosity;
+    animation: neon 1.5s 3 ease-in-out alternate forwards 5s, glow-pink 3s infinite ease-in-out alternate 5s;
+    text-shadow: 3px -4px 11px orangered, 0px 3px 10px white, -3px -1px 5px black, -1px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    background: repeating-linear-gradient(
+        45deg,
+        #2b2b2b 99%,
+        #2b2b2b 99%,
+        #454545 100%,
+        #454545 100%
+      )
+  }
+  
+  .ropes {
+    width: 70%;
+    height: 30vh;
+    top: -29.5vh;
+    margin-left: 10%;
+    border-left: 10px double #454545;
+    border-right: 10px double #454545;
+    position: absolute;
+  }
+  
+   #sphere {
+    margin-left: 3.5rem;
+    margin-top: 5rem;
+    font-family: Monoton;
+  }
+
+  .flicker {
+    animation: flicker 2s 4 ease alternate-reverse;
+  }
+  
+  .flickering {
+    animation: flickering .5s 8 ease alternate-reverse forwards;
   }
 
   /* Animations */
@@ -44,3 +108,102 @@
       box-shadow: 0 0 17px 8px #fdfbf8, 0 0 4px 2px #fdfbf8;
     }
   }
+
+  @keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
+
+  /* Neon animation attributed to https://codepen.io/FelixRilling/pen/qzfoc */
+@keyframes neon {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF8F00,
+      0 0 70px #FF8F00, 0 0 80px #FF8F00, 0 0 100px #FF8F00, 0 0 150px #FF8F00;
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF8F00,
+      0 0 35px #FF8F00, 0 0 40px #FF8F00, 0 0 50px #FF8F00, 0 0 75px #FF8F00;
+    color: #454545;
+  }
+}
+
+@keyframes neon-slide {
+  0% {
+    top: -6vh;
+    transform: translateZ(0);
+  }
+  50% {
+    top: 15vh;
+    transform: rotateX(-60deg);
+  }
+  60% {
+    top: 14vh;
+  }
+  65% {
+    top: 13vh;
+  }
+  70% {
+    top: 12vh;
+    transform: rotateX(30deg);
+  }
+  80% {
+    top: 13vh;
+    transform: rotateX(25deg);
+  }
+  85% {
+    top: 12vh;
+    transform: rotateX(20deg);
+  }
+  90% {
+    top: 11vh;
+    transform: rotateX(15deg);
+  }
+  95% {
+    top: 12vh;
+    transform: rotateX(10deg);
+  }
+  98% {
+    top: 11vh;
+    transform: rotateX(5deg);
+  }
+  100% {
+    top: 10vh;
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes glow-pink {
+  0% {
+    box-shadow: 0 1 17px 1px #ee2677, 0 0 4px 2px #ee2677;
+  }
+  50% {
+    box-shadow: 0 0 17px 4px #ee2677, 0 0 4px 2px #ee2677;
+  }
+  100% {
+    box-shadow: 0 0 17px 8px #ee2677, 0 0 4px 2px #ee2677;
+  }
+}
+
+@keyframes flicker {
+  0%   { opacity:1; }
+  50%  { opacity:0.3;}
+  100% { opacity:1; }
+}
+
+@keyframes flickering {
+  0%  { opacity:1; }
+  25% {opacity: 0.3;}
+  50% { opacity:0.6;}
+  60% {opacity: 0.8;}
+  65% {opacity: 1;}
+  70% {opacity: 0.3;}
+  75% {opacity: 1;}
+  80% {opacity: 0.3;}
+  90%{opacity: 1;}
+  95%{opacity: 0.3;}
+  100% { opacity:1; }
+}
