@@ -15,7 +15,7 @@
     width: 150px;
     border-radius: 50%;
     background: #fff;
-    animation: glow 2.5s infinite ease-in-out alternate-reverse 8s;
+   /* animation: glow 2.5s infinite ease-in-out alternate-reverse 8s;*/
   }
 
   #featured > li {
@@ -206,4 +206,22 @@
   90%{opacity: 1;}
   95%{opacity: 0.3;}
   100% { opacity:1; }
+}
+
+@keyframes no-flicker {
+  100%{opacity: 1;}
+  50%{opacity: 0.6;}
+  100%{opacity: 0.3;}
+}
+
+/* Responsive Media Queries */
+
+@media only screen and (max-width: 521px) {
+  .logo {
+    font-size: 3rem;
+  }
+  .logo-container {
+    position: fixed;
+    left: 0vw;
+  }
 }
