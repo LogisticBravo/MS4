@@ -2,50 +2,81 @@
 {% load static %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'home/css/index.css' %}">
 {% endblock %}
 
-{% block corejs %}
-    <script src="{% static 'home/js/home.js' %}" defer></script>
+{% block extra_js %}
+<script src="{% static 'home/js/home.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid mb-5">
     <div class="row">
-        <span class="logo-container">
-            <span class="ropes"></span>
-            <p class="logo ps-4">
-              R<span class="flicker" id="flick">E</span>TRO <span class="flickering" id="sphere">SPHERE</span>
-            </p>
-          </span>
-
-        <div class="col-4 pink-orange-gradient d-flex align-items-end mb-5 container-fluid">
-            <ul id="featured" class="mb-5 row g-0 text-center">
-                <li class="col d-flex justify-content-center">
-                    <p class="d-flex align-items-center justify-content-center">
-                        <span>Circle here</span>
+        <div class="col-lg-8 align-items-start ms-0 mt-5 pink-orange-gradient">
+            <span class="logo-container ms-5 pt-3">
+                <p class="logo">
+                    R<span class="flicker" id="flick">E</span>TRO <span class="flickering" id="sphere">SPHERE</span>
+                </p>
+            </span>
+            <section class="text-end mt-5" id="about">
+                <h1 class="text-center"> Welcome to the <b>RetroSphere!</b></h1>
+                <p class="fs-5"> Your No.1 stop shop for retro gaming consoles, games and accessories!<br>
+                    All the classic gaming consoles from your childhood and over 80,000 popular games.<br>
+                    It's time to reacquaint yourself with your inner child! </p>
+            </section>
+            <ul id="featured" class="mt-6 pt-5 ps-2 row justify-content-start g-0">
+                <li class="d-flex">
+                    <p class="d-flex">
+                        <span class="hexagon me-1">
+                            <a href="" class="d-flex">Games</a>
+                        </span>
+                        <span class="hexagon me-1">
+                            <a href="#" class="d-flex">Consoles</a>
+                        </span>
+                        <span class="hexagon">
+                            <a href="" class="d-flex">Specials</a>
+                        </span>
                     </p>
                 </li>
-                <li class="w-100"></li>
-                <li class="col d-flex justify-content-center">
-                    <p class="d-flex align-items-center justify-content-center">
-                        <span>Circle here</span>
+                <li class="d-flex">
+                    <p class="d-flex">
+                        <span class="hexagon ms-8 me-1 mt-6">
+                            <a href="" class="d-flex">Sign Up!</a>
+                        </span>
+                        <span class="hexagon mt-6">
+                            <a href="" class="d-flex">Login</a>
+                        </span>
                     </p>
                 </li>
-                <li class="col d-flex justify-content-center">
-                    <p class="d-flex align-items-center justify-content-center">
-                        <span>Circle here</span>
-                    </p>
-                </li>
-                <li class="w-100"></li>
-                <li class="col d-flex justify-content-center">
-                    <p class="d-flex align-items-center justify-content-center">
-                        <span>Circle here</span>
+                <li class="d-flex">
+                    <p class="d-flex">
+                        <span class="hexagon me-1 mt-6">
+                            <a href="" class="d-flex">Blog</a>
+                        </span>
+                        <span class="hexagon me-1 mt-6">
+                        </span>
+                        <span class="hexagon mt-6">
+                            <a href="" class="d-flex">Contact</a>
+                        </span>
                     </p>
                 </li>
             </ul>
         </div>
-        
+        <div class="col-lg-2 offset-1 mt-5 align-self-center">
+            <div class="hexagon hex-lg d-flex align-items-center" id="cta">
+                <ul class="d-flex text-center">
+                    <li class="d-flex"><a href="#" class="" id="shop">SHOP NOW!</a></li>
+                    <li class="d-flex"></li>
+                    <li class="d-flex"></li>
+                    <li class="d-flex"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row container">
+        <div class="col">
+            <h2 class="text-center mt-3 fs-1">Specials</h2>
+        </div>
     </div>
 </div>
 {% endblock %}
