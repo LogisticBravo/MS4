@@ -39,9 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'django.contrib.sites',
+    'loginregister',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.steam',
+    'allauth.socialaccount.providers.twitch',
     'home',
 
     # Other
