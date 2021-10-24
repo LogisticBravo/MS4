@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
+body {
+  font-family: "geo", "sans-serif";
+  font-size: 1;
+  letter-spacing: 0.1em;
+}
+
 .bg-onyx {
   --bs-bg-opacity: 1;
   background-color: #454545;
@@ -52,6 +58,10 @@ h1, #transition {
   height: 100%;
 }
 
+#login_form, #signup_form {
+  padding: .375rem .75rem;
+}
+
 #login > .col-6 {
   height: inherit;
 }
@@ -92,6 +102,27 @@ h1, #transition {
   border-radius: 1.3rem;
 }
 
+.btn-outline-green {
+  border: 2px solid #0ff000;
+  border-radius: 1.3em;
+  color: #00ffff;
+}
+
+.btn:hover {
+  color: #fff;
+}
+
+.btn:focus {
+  box-shadow: none;
+}
+
+.list-group > li {
+  list-style-type: none;
+}
+
+i:hover {
+  animation: 1.6s pulse infinite alternate ease-in-out;
+}
 
 @keyframes ltr {
   0% {
@@ -152,4 +183,10 @@ h1, #transition {
       transform: scale(1.05);
       border: 1px solid #ee2677;
   }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
 }

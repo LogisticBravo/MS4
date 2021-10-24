@@ -3,6 +3,7 @@ URLS to override allauth forms so as to
 allow two froms on the login and signup page.
 """
 from django.urls import path
+from django.conf import settings
 from .import views
 
 urlpatterns = [
