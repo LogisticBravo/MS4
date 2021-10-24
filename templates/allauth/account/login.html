@@ -21,32 +21,32 @@
       {% get_providers as socialaccount_providers %}
       <section class="forms container">
         <div class="row" id="login">
-          <div class="col-6 justify-content-center align-items-center shadow-lg card bg-colorgradient" id="ltr">
+          <div class="col-6 justify-content-center align-items-center shadow-lg card bg-colorgradient text-dark" id="ltr">
             <div class="">
               <h1 class="text-white" id="signin_h1">Sign In</h1>
               <h1 class="text-yellow d-none pb-1" id="createacc_h1"> Create Account</h1>
-              <p>Sign In below:</p>
+              <p class="fw-bold">Sign In below:</p>
               <!-- LOGIN FORM -->
               <form class="login" method="POST" action="{% url 'account_login' %}" id="login_form">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form|crispy }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <a class="button secondaryAction" href="{% url 'account_reset_password' %}">
+                <a class="button secondaryAction text-dark" href="{% url 'account_reset_password' %}">
                   {% trans "Forgot Password?"%}
                 </a>
-                <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+                <button class="primaryAction btn btn-outline-white d-flex mx-auto mt-2" type="submit">{% trans "Sign In" %}</button>
               </form>
               <!-- SIGNUP FORM -->
-              <form class="signup d-none text-white" id="signup_form" method="post" action="{% url 'account_signup' %}"
+              <form class="signup d-none text-light-blue" id="signup_form" method="post" action="{% url 'account_signup' %}"
                 id="signup_form">
                 {% csrf_token %}
-                {{ signup_form.as_p }}
+                {{ signup_form|crispy }}
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
-                <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+                <button class="btn btn-outline-green mt-2 d-flex mx-auto" type="submit">{% trans "Sign Up" %} &raquo;</button>
               </form>
             </div>
           </div>
@@ -67,7 +67,7 @@
               <button type="button" class="btn btn-lg btn-outline-pink" id="transition">Sign Up</button>
               <!-- SOCIALS -->
               <div class="socialaccount_ballot">
-                <ul class="socialaccount_providers">
+                <ul class="socialaccount_providers list-group list-group-horizontal ps-5 justify-content-center">
                   {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                 </ul>
               </div>
