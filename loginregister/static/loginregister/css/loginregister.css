@@ -137,7 +137,7 @@ i:hover {
       transform: scale(1.05);
       z-index: 1;
       background-color: #454545;
-      border: 1px solid #454545;
+      border: 1px solid #00ff00;
   }
 }
 
