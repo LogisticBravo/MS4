@@ -2,8 +2,12 @@
 
 body {
   font-family: "geo", "sans-serif";
-  font-size: 1;
+  font-size: 1em;
   letter-spacing: 0.1em;
+}
+
+.card{
+  border: 2px solid #fff000;
 }
 
 .bg-onyx {
@@ -47,7 +51,7 @@ h1, #transition {
 }
 
 .container > .row {
-  height: 100vh;
+  height: 80vh;
 }
 
 .forms {
