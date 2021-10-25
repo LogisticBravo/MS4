@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6">
+
+        
+<h1>{{ blogposts.title }}</h1>
+<h2>{{ blogposts.author }} | {{ blogposts.published_date }}</h2>
+<p>{{ blogposts.body }}</p>
+<a href="{% url 'edit_post' blogposts.pk  %}" class="btn btn-info">Edit post</a>
+<a href="{% url 'delete_post' blogposts.pk  %}" class="btn btn-danger">Delete Post</a>
+</div>
+</div>
+</div>
+
+
+{% endblock %}

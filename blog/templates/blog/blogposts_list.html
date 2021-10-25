@@ -5,7 +5,9 @@
     <div class="d-flex flex-column flex-shrink-0 mt-5" style="
     width: 4.5rem;
     float: right;">
+    {% if request.user.is_superuser %}
     <a href="{% url 'add_post' %}" class="btn btn-warning position-fixed">Add Post</a>
+    {% endif %}
   </div>
   </section>
   <div class="row">
@@ -14,9 +16,9 @@
             <div class="card mt-4" style="width: 18rem;">
               <div class="card-body">
                 <h5 class="card-title">{{ posts.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">Wriiten by: <span class="fw-bold">{{ posts.author }}</span></h6>
-                <p class="card-text">{{ posts.body }}</p>
-                <a href="#" class="card-link">Continue Reading</a>
+                <h6 class="card-subtitle mb-2 text-muted">Published by: <span class="fw-bold">{{ posts.author }} | {{ posts.published_date }}</span></h6>
+                <p class="card-text">{{ posts.body|slice:":250" }}</p>
+                <a href="{% url 'post' posts.pk  %}" class="card-link">Continue Reading</a>
               </div>
             </div>
          </div>

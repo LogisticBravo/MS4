@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from datetime import date
 
 
 # Create your models here.
@@ -10,6 +11,7 @@ class BlogPosts(models.Model):
     author = models.ForeignKey('auth.User', on_delete=models.CASCADE, default='auth.User',)
     title = models.CharField(max_length=100)
     body = models.TextField()
+    published_date = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.title
