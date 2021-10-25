@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+      {% for posts in object_list %}
+          <div class="col-3 mt-3">
+          <h3><a href="">{{ posts.title }}</a></h3>
+            <p>{{ posts.body }}</p>
+            <p>{{ posts.author }}</p>
+         </div>
+      {% endfor %}
+  </div> 
+</div>
+{% endblock %}

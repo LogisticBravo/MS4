@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.steam',
     'allauth.socialaccount.providers.twitch',
     'home',
+    'blog',
 
     # Other
     'crispy_forms',
