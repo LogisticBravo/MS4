@@ -1,14 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container mt-5">
+  <section id="aside">
+    <div class="d-flex flex-column flex-shrink-0 mt-5" style="
+    width: 4.5rem;
+    float: right;">
+    <a href="{% url 'add_post' %}" class="btn btn-warning position-fixed">Add Post</a>
+  </div>
+  </section>
   <div class="row">
       {% for posts in object_list %}
-          <div class="col-3 mt-3">
-          <h3><a href="">{{ posts.title }}</a></h3>
-            <p>{{ posts.body }}</p>
-            <p>{{ posts.author }}</p>
+          <div class="col-4 mt-3">
+            <div class="card mt-4" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{ posts.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Wriiten by: <span class="fw-bold">{{ posts.author }}</span></h6>
+                <p class="card-text">{{ posts.body }}</p>
+                <a href="#" class="card-link">Continue Reading</a>
+              </div>
+            </div>
          </div>
       {% endfor %}
-  </div> 
+  </div>
 </div>
 {% endblock %}

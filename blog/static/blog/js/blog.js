@@ -1,0 +1,1 @@
+document.getElementById('id_author').classList.add('form-control-plaintext');
