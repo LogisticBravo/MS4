@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
 
+body {
+  background-color: #181A18!important;
+}
+
 .bg-onyx {
     --bs-bg-opacity: 1;
     background-color: #454545;
@@ -10,12 +14,20 @@
     border-color: #ee2677;
   }
 
+.bg-soft-black {
+  background-color: #181A18;
+}
+
+.navbar {
+  border-bottom: 2px solid #fff000;
+}
+
 .hexagon {
     width: 260px;
     height: 150px;
-    background-color: rgba(255, 255, 255, .25);
+    background-color:#fff000;
     backdrop-filter: blur(5px);
-    border-color: rgba(255, 255, 255, .25);
+    border-color: #fff000;
     position: relative;
     display: inline-block;
 }
@@ -41,4 +53,20 @@
     border-color: inherit;
     border-left: 130px solid transparent;
     border-right: 130px solid transparent;
+}
+
+.text-yellow {
+  color: #fff000;
+}
+
+.text-light-blue {
+  color: #00ffff;
+}
+
+.text-vibrant-green {
+  color: #00ff00;
+}
+
+.text-retro-pink {
+  color: #F803F6;
 }

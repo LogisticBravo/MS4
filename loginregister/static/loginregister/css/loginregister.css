@@ -112,6 +112,14 @@ h1, #transition {
   color: #00ffff;
 }
 
+.drop-shadow-green {
+  filter: drop-shadow(16px 3px 11px #FFf000) drop-shadow(-14px -8px 11px #00ff00);
+}
+
+.drop-shadow-pink {
+  filter: drop-shadow(16px 3px 11px #ff8f00) drop-shadow(-14px -8px 11px #ee2677);
+}
+
 .btn:hover {
   color: #fff;
 }

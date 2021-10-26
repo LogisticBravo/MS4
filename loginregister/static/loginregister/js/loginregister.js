@@ -8,10 +8,14 @@ transitionButton.onclick = function transition(){
   if (ltr.classList.contains("ltr") == true){
     ltr.classList.remove("ltr");
     ltr.classList.add("ltr-reverse");
+    ltr.classList.remove("drop-shadow-green");
+    ltr.classList.add("drop-shadow-pink");
   }
   else if(ltr.classList.contains("ltr-reverse") == true || ltr.classList.contains("ltr") == false){
     ltr.classList.remove("ltr-reverse");
     ltr.classList.add("ltr");
+    ltr.classList.add("drop-shadow-green");
+    ltr.classList.remove("drop-shadow-pink");
   }
   if (rtl.classList.contains("rtl") == true){
     rtl.classList.remove("rtl");
