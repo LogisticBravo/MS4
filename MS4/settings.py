@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.twitch',
     'home',
     'blog',
+    'contact',
 
     # Other
     'crispy_forms',
