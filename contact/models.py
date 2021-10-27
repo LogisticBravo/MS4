@@ -8,5 +8,8 @@ class ContactUs(models.Model):
     email = models.EmailField('Email', max_length=254)
     message = models.TextField('Message', max_length=2000)
 
+    class Meta:
+        verbose_name_plural = "Contact Forms"
+
     def __str__(self):
-        return self.name
+        return self.name + ' | ' + self.email

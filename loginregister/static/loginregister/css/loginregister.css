@@ -94,38 +94,8 @@ h1, #transition {
   position: absolute;
 }
 
-.btn-outline-white {
-  border:2px solid #fff;
-  color: #fff;
-  border-radius: 1.3rem;
-}
-
-.btn-outline-pink {
-  border: 2px solid #ee2677;
-  color: #fff000;
-  border-radius: 1.3rem;
-}
-
-.btn-outline-green {
-  border: 2px solid #0ff000;
-  border-radius: 1.3em;
-  color: #00ffff;
-}
-
-.drop-shadow-green {
-  filter: drop-shadow(16px 3px 11px #FFf000) drop-shadow(-14px -8px 11px #00ff00);
-}
-
-.drop-shadow-pink {
-  filter: drop-shadow(16px 3px 11px #ff8f00) drop-shadow(-14px -8px 11px #ee2677);
-}
-
 .btn:hover {
   color: #fff;
-}
-
-.btn:focus {
-  box-shadow: none;
 }
 
 .list-group > li {

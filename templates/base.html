@@ -34,14 +34,13 @@
 {% block extra_js %}
 {% endblock %}
 
-  <title>Retro Sphere {% block extra_title %}{% endblock %}
+  <title>Retro Dome {% block extra_title %}{% endblock %}
   </title>
 </head>
 <body>
-{% if messages %}
-<div class="">Messages go here</div>
-{% endif %}
-
+  {% if messages %}
+  <div class="">Messages go here</div>
+  {% endif %}
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-soft-black">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -68,12 +67,14 @@
       </div>
     </div>
   </nav>
-
+  
+  <div class="container mt-5">
   {% block content %}
   {% endblock %}
 
   {% block postloadjs %}
   {% endblock %}
+  </div>
 </body>
 
 </html>

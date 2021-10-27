@@ -13,8 +13,11 @@ class BlogPosts(models.Model):
     body = models.TextField()
     published_date = models.DateField(auto_now_add=True)
 
+    class Meta:
+        verbose_name_plural = "Blog Posts"
+
     def __str__(self):
-        return self.title
+        return self.title + ' | ' + self.author.username
 
     def get_absolute_url(self):
         return reverse('blog')

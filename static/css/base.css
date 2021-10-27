@@ -2,6 +2,12 @@
 
 body {
   background-color: #181A18!important;
+  font-family: "geo", "sans-serif"!important;
+  letter-spacing: 0.1em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: "Monoton", "Sans-serif";
 }
 
 .bg-onyx {
@@ -69,4 +75,38 @@ body {
 
 .text-retro-pink {
   color: #F803F6;
+}
+
+.btn:focus {
+  box-shadow: none!important;
+}
+
+.btn-outline-white {
+  border:2px solid #fff!important;
+  color: #fff!important;
+  border-radius: 1.3rem!important;
+}
+
+.btn-outline-pink {
+  border: 2px solid #ee2677!important;
+  color: #fff000!important;
+  border-radius: 1.3rem!important;
+}
+
+.btn-outline-green {
+  border: 2px solid #0ff000!important;
+  border-radius: 1.3em!important;
+  color: #00ffff!important;
+}
+
+.drop-shadow-green {
+  filter: drop-shadow(16px 3px 11px #FFf000) drop-shadow(-14px -8px 11px #00ff00);
+}
+
+.drop-shadow-pink {
+  filter: drop-shadow(16px 3px 11px #ff8f00) drop-shadow(-14px -8px 11px #ee2677);
+}
+
+.drop-shadow-blue {
+  filter: drop-shadow(16px 3px 11px #FFB8FF) drop-shadow(-14px -8px 11px #00ffff);
 }

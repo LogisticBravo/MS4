@@ -6,32 +6,32 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="mt-5">Contact</h1>
+<h1 class="pt-3 pb-3 text-center text-light-blue">Contact</h1>
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 drop-shadow-blue">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2461.947587802123!2d-8.474595983598249!3d51.89842058351394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x484490104a24174d%3A0xb8772718995a199f!2sSt%20Patrick&#39;s%20St%2C%20Centre%2C%20Cork!5e0!3m2!1sen!2sie!4v1635326474275!5m2!1sen!2sie" height="450" style="border:0;" allowfullscreen="" loading="lazy">
             </iframe>
         </div>
     </div>
-<div class="row align-items-center">
-    <div class="col-lg-4">
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
+<div class="row align-items-center justify-content-around mt-4">
+    <div class="col-lg-3">
+        <div class="card">
+            <div class="card-body bg-onyx text-yellow drop-shadow-pink rounded">
               <h5 class="card-title">Address</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text text-white">Bravo Digital Designs,<br> Patrick St. <br> Cork </p>
               <hr>
               <h5 class="card-title">Email</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text text-white">bravodigitaldesigns@gmail.com</p>
               <hr>
               <h5 class="card-title">Socials</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p class="card-text text-white"></p>
             </div>
           </div>
           
     </div>
-    <div class="col-lg-8">
-        <h2>Send us a message!</h2>
+    <div class="col-lg-8 text-retro-pink">
+        <h2 class="text-vibrant-green text-center">Send us a message!</h2>
         <form action="{% url 'contact' %}" method="POST">
             {% csrf_token %}
             {{ form|crispy }}
