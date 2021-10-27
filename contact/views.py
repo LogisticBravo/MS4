@@ -1,12 +1,32 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 from .forms import ContactUsForm
+
 
 # Create your views here.
 
 
 def contact(request):
-    form = ContactUsForm
+    if request.method == 'POST':
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            subject = "Contact Us Form"
+            body = {
+                'Name': form.cleaned_data['name'],
+                'Email': form.cleaned_data['email'],
+                'Message': form.cleaned_data['message'],
+            }
+            message = '\n'.join(body.values())
 
+            try:
+                send_mail(subject, message, 'admin@example.com', ['admin@example.com'])
+            except BadHeaderError:
+                return HttpResponse('Invalid Header')
+            return redirect('home')
+    else:
+        form = ContactUsForm
     context = {
             'form': form,
         }
