@@ -110,3 +110,7 @@ h1,h2,h3,h4,h5,h6 {
 .drop-shadow-blue {
   filter: drop-shadow(16px 3px 11px #FFB8FF) drop-shadow(-14px -8px 11px #00ffff);
 }
+
+.drop-shadow-yellow {
+  filter: drop-shadow(16px 3px 11px #fff000) drop-shadow(-14px -8px 11px #fff000);
+}

@@ -38,9 +38,6 @@
   </title>
 </head>
 <body>
-  {% if messages %}
-  <div class="">Messages go here</div>
-  {% endif %}
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-soft-black">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
@@ -67,6 +64,26 @@
       </div>
     </div>
   </nav>
+
+  {% if messages %}
+  
+    <div class="toast-container">
+      {% for message in messages %}
+            {% with message.level as level %}
+                {% if level == 40 %}
+                    {% include 'includes/toasts/toast_error.html' %}
+                {% elif level == 30 %}
+                    {% include 'includes/toasts/toast_warning.html' %}
+                {% elif level == 25 %}
+                    {% include 'includes/toasts/toast_success.html' %}
+                {% else %}
+                    {% include 'includes/toasts/toast_info.html' %}
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    </div>
+  
+  {% endif %}
   
   <div class="container mt-5">
   {% block content %}

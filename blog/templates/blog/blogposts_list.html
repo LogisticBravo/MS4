@@ -2,9 +2,7 @@
 {% block content %}
 <div class="container mt-5">
   <section id="aside">
-    <div class="d-flex flex-column flex-shrink-0 mt-5" style="
-    width: 4.5rem;
-    float: right;">
+    <div class="d-flex flex-column flex-shrink-0 mt-5 float-end">
     {% if request.user.is_superuser %}
     <a href="{% url 'add_post' %}" class="btn btn-warning position-fixed">Add Post</a>
     {% endif %}
