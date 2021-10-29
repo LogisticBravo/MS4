@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Category(models.Model):
+
     class Meta:
         verbose_name_plural = 'Categories'
 
@@ -32,14 +33,13 @@ class Product(models.Model):
     weight = models.CharField(max_length=254, null=True, blank=True)
     battery_type = models.CharField(max_length=254, null=True, blank=True)
     screen_size = models.CharField(max_length=254, null=True, blank=True)
-    graphics = models.BooleanField(default=False, null=True, blank=True)
-    hdmi = models.BooleanField(default=False, null=True, blank=True)
-    usb = models.BooleanField(default=False, null=True, blank=True)
+    graphics = models.CharField(max_length=254, null=True, blank=True)
+    hdmi = models.CharField(max_length=254, null=True, blank=True)
+    usb = models.CharField(max_length=254, null=True, blank=True)
     has_wifi = models.BooleanField(default=False, null=True, blank=True)
     ethernet = models.BooleanField(default=False, null=True, blank=True)
-    memory_card = models.BooleanField(default=False, null=True, blank=True)
-    av_digital_output = models.BooleanField(default=False, null=True,
-                                            blank=True)
+    memory_card = models.CharField(max_length=254, null=True, blank=True)
+    av_digital_output = models.CharField(max_length=254, null=True, blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True,
                                  blank=True)
