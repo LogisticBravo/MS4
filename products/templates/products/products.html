@@ -7,17 +7,174 @@
 
 {% block content %}
 <div class="container mt-5 text-white">
-    <div class="row">
-        <div class="col">
-            {{ products }}
+    <h1 class="pt-5 pb-3 text-center">Consoles</h1>
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+        {% for product in products %}
+        {% if product.category.pk == 6 %}
+        <div class="col w-75 drop-shadow-pink">
+            <div class="card w-100 mb-3">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="{{ product.image_url }}" class="img-fluid img-thumbnail rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            {% for product in products %}
-            <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
-            {% endfor %}
+        {% else %}
+        <div class="col drop-shadow-blue mb-3">
+          <div class="card h-100 bg-onyx">
+            <div class="card-header text-center">
+                {% if product.console_type == 'Home Console' %}
+                <span class="badge rounded-pill bg-success">
+                    <a href="" class="text-decoration-none text-white">{{ product.console_type }}</a>
+                </span>
+                {% else %}
+                <span class="badge rounded-pill bg-info">
+                    <a href="" class="text-decoration-none text-white">{{ product.console_type }}</a>
+                </span>
+                {% endif %}
+            </div>
+            <img src="{{ product.image_url }}" class="card-img-top img-fluid img-thumbnail" alt="An image of a {{ products.brand }} {{ products.model_name }}">
+            <div class="card-body">
+               {% if product.brand == 'Sony' %} 
+              <h5 class="card-title text-light-blue">{% if product.product_name %}{{ product.product_name }}{% else %}{{ product.model_name }}{% endif %}</h5>
+              {% elif product.brand == 'Microsoft' %}
+              <h5 class="card-title text-vibrant-green">{% if product.product_name %}{{ product.product_name }}{% else %}{{ product.model_name }}{% endif %}</h5>
+              {% elif product.brand == 'Nintendo' %}
+              <h5 class="card-title text-yellow">{% if product.product_name %}{{ product.product_name }}{% else %}{{ product.model_name }}{% endif %}</h5>
+              {% else %}
+              <h5 class="card-title">{% if product.product_name %}{{ product.product_name }}{% else %}{{ product.model_name }}{% endif %}</h5>
+              {% endif %}
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+              
+              
+                  <h6 class="text-center text-yellow">Specifications</h6>
+                  <table class="table text-white">
+                      <tbody>
+                          <tr>
+                              <th rowspan="2" scope="row" class="fs-5 text-yellow">About</th>
+                              <td class="fw-bold text-vibrant-green">Launched:</td>
+                              <td colspan="" class="">{{ product.launched }}</td>
+                          </tr>
+                          <tr>
+                              <td class="fw-bold text-vibrant-green">Console Family:</td>
+                              <td colspan="" class="">{{ product.console_family }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  <table class="table text-white">
+                      <tbody>
+                          <tr>
+                              <th rowspan="3" scope="row" class="fs-5 text-yellow">Body</th>
+                              <td class="fw-bold text-vibrant-green">Weight:</td>
+                              <td colspan="" class="">{{ product.weight }}</td>
+                          </tr>
+                          <tr>
+                              <td class="fw-bold text-vibrant-green">Battery:</td>
+                              <td colspan="" class="">{{ product.battery_type }}</td>
+                          </tr>
+                          <tr>
+                              <td class="fw-bold text-vibrant-green">Screen Size:</td>
+                              <td colspan="" class="">{{ product.screen_size }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                  <table class="table text-white">
+                      <tbody>
+                          <tr>
+                              <th rowspan="2" scope="row" class="fs-5 text-yellow">Memory</th>
+                              <td class="fw-bold text-vibrant-green">Internal:</td>
+                              <td colspan="" class="">{{ product.hard_disk }}</td>
+                          </tr>
+                          <tr>
+                              <td class="fw-bold text-vibrant-green">Memory Card:</td>
+                              <td colspan="" class="">{{ product.memory_card }}</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              <table class="table text-white">
+                  <tbody>
+                      <tr>
+                          <th rowspan="3" scope="row" class="fs-5 text-yellow">Technical</th>
+                          <td class="fw-bold text-vibrant-green">Processor:</td>
+                          <td colspan="" class="">{{ product.processor }}</td>
+                      </tr>
+                      <tr>
+                          <td class="fw-bold text-vibrant-green">Ram:</td>
+                          <td colspan="" class="">{{ product.ram }}</td>
+                      </tr>
+                      <tr>
+                          <td class="fw-bold text-vibrant-green">Graphics:</td>
+                          <td colspan="" class="">{{ product.graphics }}</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <table class="table text-white">
+                  <tbody>
+                      <tr>
+                          <th rowspan="5" scope="row" class="fs-5 text-yellow">Comms</th>
+                          <td class="fw-bold text-vibrant-green">HDMI:</td>
+                          <td colspan="" class="">{{ product.hdmi }}</td>
+                      </tr>
+                      <tr>
+                          <td class="fw-bold text-vibrant-green">USB:</td>
+                          <td colspan="" class="">{{ product.usb }}</td>
+                      </tr>
+                      <tr>
+                          <td class="fw-bold text-vibrant-green">Wi-Fi:</td>
+                          <td colspan="" class="">{{ product.has_wifi }}</td>
+                      </tr>
+                      <tr>
+                          <td class="fw-bold text-vibrant-green">Ethernet:</td>
+                          <td colspan="" class="">{{ product.ethernet }}</td>
+                      </tr>
+                      <tr>
+                          <td class="fw-bold text-vibrant-green">A/V Digital output:</td>
+                          <td colspan="" class="">{{ product.av_digital_output }}</td>
+                      </tr>
+                  </tbody>
+              </table>
+              <table class="table text-white">
+                  <thead>
+                      <tr>
+                        <th colspan ="2" scope="col" class="text-center"><span class="text-light-blue">Rating</span></th>
+                      </tr>
+                  </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="2" class="text-center text-yellow">{{ product.rating }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table text-white">
+                <thead>
+                    <tr>
+                      <th colspan ="2" scope="col" class="text-center"><span class="text-light-blue">Price</span></th>
+                    </tr>
+                </thead>
+              <tbody>
+                  <tr>
+                      <td colspan="2" class="text-center text-yellow">€{{ product.price }}</td>
+                  </tr>
+              </tbody>
+          </table>
+            
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
+
 </div>
 {% endblock %}

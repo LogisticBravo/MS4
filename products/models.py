@@ -21,6 +21,7 @@ class Product(models.Model):
                                  on_delete=models.SET_NULL)
     brand = models.CharField(max_length=254)
     model_name = models.CharField(max_length=254)
+    product_name = models.CharField(max_length=254, null=True, blank=True)
     alternate_names = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     launched = models.CharField(max_length=254)
