@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 text-white">
+    <div class="row">
+        <div class="col">
+            {{ products }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% for product in products %}
+            <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
