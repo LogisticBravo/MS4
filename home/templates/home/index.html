@@ -34,13 +34,13 @@
                 <li class="d-flex">
                     <p class="d-flex">
                         <span class="hexagon me-1">
-                            <a href="" class="d-flex">Games</a>
-                        </span>
-                        <span class="hexagon me-1">
-                            <a href="#" class="d-flex">Consoles</a>
+                            <a href="{% url 'products' %}?product=Handheld+Console" class="d-flex text-center">HandHeld Consoles</a>
                         </span>
                         <span class="hexagon">
-                            <a href="" class="d-flex">Specials</a>
+                            <a href="{% url 'products' %}?category=specials" class="d-flex">Specials</a>
+                        </span>
+                        <span class="hexagon me-1">
+                            <a href="{% url 'products' %}?q=Home+Console" class="d-flex text-center">Home Consoles</a>
                         </span>
                     </p>
                 </li>

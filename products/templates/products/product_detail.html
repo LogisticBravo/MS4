@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5 text-white">
+    <div class="row justify-content-center">
+        <div class="col-8 align-self-center">
+            <img src="{{ product.image_url }}" class="img-fluid img-thumbnail rounded-start" alt="an image of {{product.model_name}}">
+        </div>
+        <div class="col-10">
+            <h1 class="text-retro-pink text-center">{{ product.model_name }}</h1>
+            {% include "includes/spectable.html" %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,13 +1,43 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% block extra_js %}
+<script src="{% static 'products/js/product.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}
 <div class="container mt-5 text-white">
     <h1 class="pt-5 pb-3 text-center">Consoles</h1>
+
+    
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="sonyFilter" value="option1">
+        <label class="form-check-label" for="sonyFilter">Sony</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="msFilter" value="option2">
+        <label class="form-check-label" for="msFilter">Microsoft</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="nintendoFilter" value="option3">
+        <label class="form-check-label" for="nintendoFilter">Nintendo</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="segaFilter" value="option3">
+        <label class="form-check-label" for="segaFilter">Sega</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="nvidiaFilter" value="option3">
+        <label class="form-check-label" for="nvidiaFilter">Nvidia</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="specialsFilter" value="option3">
+        <label class="form-check-label" for="specialsFilter">Specials</label>
+      </div>
+      <a href="{% url 'products' %}?category=" class="btn btn-outline-success" id="filter">Apply Filters</a>
+    
+      
+
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
         {% for product in products %}
         {% if product.category.pk == 6 %}
@@ -21,7 +51,9 @@
                 </div>
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4">
+                        <a href="{% url 'product_detail' product.id %}">
                         <img src="{{ product.image_url }}" class="img-fluid img-thumbnail rounded-start" alt="an image of {{product.model_name}}">
+                        </a>
                     </div>
                     <div class="col-md-8">
                         <div class="card-body accoridan-item border-0">
@@ -69,7 +101,7 @@
                                 </tbody>
                             </table>
                             <!-- qty selection and add to cart button -->
-                            <span>QTY: </span>
+                            
                             <p class="text-center">
                                 <button class="btn btn-outline-green">Add to Cart
                                     <span class="d-block">
@@ -175,7 +207,6 @@
                     </table>
                 </div>
                 <div class="card-footer">
-                    <span>QTY: </span>
                             <p class="text-center">
                                 <button class="btn btn-outline-pink">Add to Cart
                                     <span class="d-block">
@@ -186,6 +217,10 @@
                 </div>
             </div>
         </div>
+       
+                        <div class="col-12 d-sm-none mb-5 drop-shadow-green">
+                            <hr class="drop-shadow-green">
+                        </div>
         {% endif %}
         {% endfor %}
     </div>
