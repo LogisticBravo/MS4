@@ -62,7 +62,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .text-yellow {
-  color: #fff000;
+  color: #fff000!important;
 }
 
 .text-light-blue {
@@ -113,4 +113,12 @@ h1,h2,h3,h4,h5,h6 {
 
 .drop-shadow-yellow {
   filter: drop-shadow(16px 3px 11px #fff000) drop-shadow(-14px -8px 11px #fff000);
+}
+
+.accordion-button:focus {
+  box-shadow: none!important;
+}
+
+.bg-transpareent {
+  background-color: transparent;
 }
