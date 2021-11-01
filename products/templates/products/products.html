@@ -117,29 +117,20 @@
                                                 Rating
                                             </span>
                                         </th>
-                                        <th colspan="2" scope="col" class="text-center">
-                                            <span class="text-light-blue">
-                                                Price
-                                            </span>
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td colspan="2" class="text-center text-yellow">{{ product.rating }}</td>
-                                        <td colspan="2" class="text-center text-yellow">€{{ product.price }}</td>
                                     </tr>
                                 </tbody>
                             </table>
                             <!-- qty selection and add to cart button -->
                             
-                            <p class="text-center">
-                                <button class="btn btn-outline-green">Add to Cart
-                                    <span class="d-block">
-                                        <i class="fas fa-cart-plus"></i>
-                                    </span>
-                                </button>
-                            </p>
+                            <h6 class="text-center text-retro-pink">
+                                Price
+                            </h6>
+                            <p class="text-center text-yellow">€{{ product.price }}</p>
                         </div>
                     </div>
                 </div>
@@ -160,8 +151,10 @@
                     </span>
                     {% endif %}
                 </div>
+                <a href="{% url 'product_detail' product.id %}">
                 <img src="{{ product.image_url }}" class="card-img-top img-fluid img-thumbnail"
                     alt="An image of a {{ products.brand }} {{ product.model_name }}">
+                </a>
                 <div class="card-body accoridan-item">
                     {% if product.brand == 'Sony' %}
                     <h5 class="card-title text-light-blue">
@@ -223,28 +216,12 @@
                             </tr>
                         </tbody>
                     </table>
-                    <table class="table text-white">
-                        <thead>
-                            <tr>
-                                <th colspan="2" scope="col" class="text-center"><span
-                                        class="text-light-blue">Price</span></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="2" class="text-center text-yellow">€{{ product.price }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </div>
                 <div class="card-footer">
-                            <p class="text-center">
-                                <button class="btn btn-outline-pink">Add to Cart
-                                    <span class="d-block">
-                                        <i class="fas fa-cart-plus"></i>
-                                    </span>
-                                </button>
-                            </p>
+                    <h6 class="text-center text-vibrant-green">
+                        Price
+                    </h6>
+                    <p class="text-center text-yellow">€{{ product.price }}</p>
                 </div>
             </div>
         </div>

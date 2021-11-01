@@ -65,7 +65,24 @@
       </div>
     </div>
   </nav>
-
+<!-- offcanvas shopping bag -->
+  <div class="container-fluid mt-5 pt-5">
+  <div class="row justify-content-end">
+    <div class="col-2">
+      {% if request.path != '/bag/' %}
+      <button class="btn btn-success" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingBag" aria-controls="shoppingBag"> <i class="fas fa-chevron-circle-left pe-2"></i><i class="fas fa-shopping-bag text-center"></i><p class="my-0">
+        {% if grand_total %}
+            ${{ grand_total|floatformat:2 }}
+        {% else %}
+            $0.00
+        {% endif %}
+    </p></button>
+    {% endif %}
+      
+    </div>
+  </div>
+</div>
+{% include "includes/shoppingbag/shoppingbag.html" %}
   {% if messages %}
   
     <div class="toast-container">
@@ -86,7 +103,7 @@
   
   {% endif %}
   
-  <div class="container mt-5">
+  <div class="container">
   {% block content %}
   {% endblock %}
 
