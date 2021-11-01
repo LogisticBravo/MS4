@@ -9,7 +9,37 @@
 <div class="container mt-5 text-white">
     <h1 class="pt-5 pb-3 text-center">Consoles</h1>
 
-    
+    <!-- sort selector taken from BoutiqueAdo walkthrough project -->
+    <div class="row mt-1 mb-2">
+        <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+            <div class="w-50">
+                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                    <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                    <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                    <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                    <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand (A-Z)</option>
+                    <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Brand (Z-A)</option>
+                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 order-md-first">
+            <p class="text-retro-pink mt-3 text-center text-md-left">
+                {% if search_term or current_categories or current_sorting != 'None_None' %}
+                    <span class="small"><a class="text-light-blue" href="{% url 'products' %}">Products Home</a> | </span>
+                {% endif %}
+                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+            </p>
+        </div>
+       </div>
+
+    <div class="row mb-4 justify-content-center {% if search_term %} d-none {% endif %}">
+        <div class="col-8 caption-top">
+            <caption>Filters</caption>
+            <br>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="sonyFilter" value="option1">
         <label class="form-check-label" for="sonyFilter">Sony</label>
@@ -35,7 +65,8 @@
         <label class="form-check-label" for="specialsFilter">Specials</label>
       </div>
       <a href="{% url 'products' %}?category=" class="btn btn-outline-success" id="filter">Apply Filters</a>
-    
+    </div>
+</div>
       
 
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
@@ -116,16 +147,16 @@
         </div>
         {% else %}
         <!-- product cards -->
-        <div class="col drop-shadow-blue mb-5 mt-5 accordian" id="accordian{{product.pk}}">
+        <div class="col {% cycle 'drop-shadow-yellow' 'drop-shadow-blue' 'drop-shadow-green' %} mb-5 mt-5 accordian" id="accordian{{product.pk}}">
             <div class="card bg-onyx ">
                 <div class="card-header text-center">
                     {% if product.console_type == 'Home Console' %}
                     <span class="badge rounded-pill bg-success">
-                        <a href="" class="text-decoration-none text-white">{{ product.console_type }}</a>
+                        <a href="{% url 'products' %}?q=Home+Console" class="text-decoration-none text-white">{{ product.console_type }}</a>
                     </span>
                     {% else %}
                     <span class="badge rounded-pill bg-info">
-                        <a href="" class="text-decoration-none text-white">{{ product.console_type }}</a>
+                        <a href="{% url 'products' %}?q={{product.console_type}}" class="text-decoration-none text-white">{{ product.console_type }}</a>
                     </span>
                     {% endif %}
                 </div>
