@@ -5,6 +5,10 @@ from .forms import OrderForm
 
 
 def checkout(request):
+    """
+    View to get bag from the seesion. If not redirects to product pager and
+    prohibits people from accessing checkout page otherwise.
+    """
     bag = request.session.get('bag', {})
     if not bag:
         messages.error(request, "There's nothing in your bag at the moment")
