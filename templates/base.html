@@ -31,6 +31,8 @@
   </script>
   <!-- fontawesome kit -->
   <script src="https://kit.fontawesome.com/35a878bce2.js" crossorigin="anonymous"></script>
+  <!-- Stripe -->
+  <script src="https://js.stripe.com/v3/"></script>
 {% endblock %}
 
 {% block extra_js %}
@@ -73,6 +75,7 @@
     <div class="col-2">
       {% if bag_items %}
       {% if request.path != '/bag/' %}
+      {% if request.path != '/checkout/' %}
       <button class="btn btn-success drop-shadow-green position-fixed" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingBag" aria-controls="shoppingBag" id="shoppingBagButton">
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ bag_items|length }}</span> 
         <i class="fas fa-chevron-circle-left pe-2"></i>
@@ -82,6 +85,7 @@
             ${{ grand_total|floatformat:2 }}
         {% else %}
             $0.00
+        {% endif %}
         {% endif %}
     </p></button>
     {% endif %}
