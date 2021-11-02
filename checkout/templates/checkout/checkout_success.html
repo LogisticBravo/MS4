@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load bag_tools %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="text-retro-pink">Checkout Success</h1>
+        <hr class="text-light-blue">
+    </div>
+</div>
+{% endblock %}
