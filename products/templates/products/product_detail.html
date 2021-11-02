@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
+{% block extra_js %}
+<script src="{% static 'products/js/productbag.js' %}" defer></script>
 {% endblock %}
 
 {% block content %}
@@ -52,7 +52,7 @@
                 </span>
                 <span class="text-uppercase">Keep Shopping</span>
             </a>
-            <button type="submit" class="btn btn-outline-green rounded-0 mt-5" value="Add to Bag">
+            <button type="submit" class="btn btn-outline-green rounded-0 mt-5" value="Add to Bag" id="addToBag">
                 <i class="fas fa-cart-plus"></i>
             </button>
         </div>
