@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'django.contrib.sites',
-     #mustcome before allauth
+     # must come before allauth
     'loginregister',
     'allauth',
     'allauth.account',
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'products',
     'bag',
     'checkout',
+    'profiles',
     # Other
     'crispy_forms',
 ]
