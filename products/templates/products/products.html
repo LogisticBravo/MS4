@@ -151,10 +151,17 @@
                     </span>
                     {% endif %}
                 </div>
+                {% if product.image_url %}
                 <a href="{% url 'product_detail' product.id %}">
                 <img src="{{ product.image_url }}" class="card-img-top img-fluid img-thumbnail"
                     alt="An image of a {{ products.brand }} {{ product.model_name }}">
                 </a>
+                {% else %}
+                <a href="{% url 'product_detail' product.id %}">
+                    <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid img-thumbnail"
+                        alt="An image of a {{ products.brand }} {{ product.model_name }}">
+                    </a>
+                {% endif %}
                 <div class="card-body accoridan-item">
                     {% if product.brand == 'Sony' %}
                     <h5 class="card-title text-light-blue">
@@ -189,8 +196,13 @@
                         {% endif %}
                     </h5>
                     {% endif %}
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text">
+                        {% if product.description %}
+                        {{ product.description }}
+                        {% else %}
+                        There appears to be no description here! Whoops! Sorry about that!
+                        {% endif %}
+                    </p>
                     <h6 class="accoridan-header" id="heading{{product.pk}}">
                         <button class="accordion-button text-center text-yellow bg-onyx" type="button"
                             data-bs-toggle="collapse" data-bs-target="#collapse{{product.pk}}" aria-expanded="true"
