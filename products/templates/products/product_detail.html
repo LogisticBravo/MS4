@@ -9,10 +9,21 @@
 <div class="container mt-2 text-white">
     <div class="row justify-content-center">
         <div class="col-4">
+            {% if product.image_url %}
             <img src="{{ product.image_url }}" class="img-fluid img-thumbnail rounded text-center" alt="an image of {{product.model_name}}">
+            {% else %}
+            <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid img-thumbnail"
+                        alt="An image of a {{ products.brand }} {{ product.model_name }}">
+            {% endif %}
         </div>
         <div class="col-10 mt-2">
             <h1 class="text-retro-pink text-center">{{ product.model_name }}</h1>
+            {% if request.user.is_superuser %}
+                    <small class="text-center">
+                        <a class="text-retro-pink" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                        <a class="text-yellow" href="{% url 'delete_product' product.id %}">Delete</a>
+                    </small>
+            {% endif %}
             {% include "includes/spectable.html" %}
         </div>
     </div>

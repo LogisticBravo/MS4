@@ -150,6 +150,12 @@
                         <a href="{% url 'products' %}?q={{product.console_type}}" class="text-decoration-none text-white">{{ product.console_type }}</a>
                     </span>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                    <small>
+                        <a class="text-retro-pink" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                        <a class="text-yellow" href="{% url 'delete_product' product.id %}">Delete</a>
+                    </small>
+                    {% endif %}
                 </div>
                 {% if product.image_url %}
                 <a href="{% url 'product_detail' product.id %}">
