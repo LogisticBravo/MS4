@@ -8,6 +8,7 @@ body {
 
 h1,h2,h3,h4,h5,h6 {
   font-family: "Monoton", "Sans-serif";
+  letter-spacing: 0.1em;
 }
 
 .bg-onyx {
@@ -133,4 +134,9 @@ th {
 
 .update-link, .remove-item {
   cursor: pointer;
+}
+
+.form-control:focus {
+  border-color: #00ff00!important;
+  filter: drop-shadow(16px 3px 11px #FFf000) drop-shadow(-14px -8px 11px #00ff00);
 }
