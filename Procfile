@@ -1,0 +1,1 @@
+web: gunicorn retrodome.wsgi:application
