@@ -15,11 +15,12 @@ class CustomSignupView(SignupView):
         # we get context data from original view
         context = super(CustomSignupView,
                         self).get_context_data(**kwargs)
+        # context['signup_form'] = SignupForm()  # add form to context
         context['login_form'] = LoginForm()  # add form to context
         return context
 
 
-account_signup_view = CustomSignupView.as_view()
+signup = CustomSignupView.as_view()
 
 
 class CustomLoginView(LoginView):
@@ -29,7 +30,8 @@ class CustomLoginView(LoginView):
         context = super(CustomLoginView,
                         self).get_context_data(**kwargs)
         context['signup_form'] = SignupForm()  # add form to context
+        # context['login_form'] = LoginForm()  # add form to context
         return context
 
 
-account_login_view = CustomLoginView.as_view()
+login = CustomLoginView.as_view()

@@ -18,14 +18,15 @@ import debug_toolbar
 from django.contrib import admin
 from django.urls import include, path
 from django.conf import settings
-from loginregister.views import account_signup_view, account_login_view
+from loginregister.views import login, signup
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('__debug__/', include(debug_toolbar.urls)),
     path('', include('loginregister.urls')),
-    path("accounts/login/", view=account_login_view),
+    path("accounts/login/", view=login),
+    path("accounts/signup/", view=signup),
     path('accounts/', include('allauth.urls')),
     path('', include('home.urls')),
     path('blog/', include('blog.urls')),

@@ -1,21 +1,97 @@
 {% extends "account/base.html" %}
 
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'loginregister/css/loginregister.css' %}">
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'loginregister/js/loginregister.js' %}" defer></script>
+{% endblock %}
+
 {% load i18n %}
+{% load account socialaccount %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<h1 class="text-retro-pink">{% trans "Sign Up" %}</h1>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<div class="container">
+  <div class="row align-items-center mt-5">
+    <div class="col-12">
+      {% get_providers as socialaccount_providers %}
+      <section class="forms container">
+        <div class="row" id="login">
+          <div class="col-6 justify-content-center align-items-center shadow-lg card bg-colorgradient text-dark" id="ltr">
+            <div class="">
+              <h1 class="text-white" id="signin_h1">Sign In</h1>
+              <h1 class="text-yellow d-none pb-1" id="createacc_h1"> Create Account</h1>
+              <p class="fw-bold">Sign In below:</p>
+              <!-- LOGIN FORM -->
+              <form class="login" method="POST" action="{% url 'account_login' %}" id="login_form">
+                {% csrf_token %}
+                {{ login_form|crispy }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <a class="button secondaryAction text-dark" href="{% url 'account_reset_password' %}">
+                  {% trans "Forgot Password?"%}
+                </a>
+                <button class="primaryAction btn btn-outline-white d-flex mx-auto mt-2" type="submit">{% trans "Sign In" %}</button>
+              </form>
+              <!-- SIGNUP FORM -->
+              <form class="signup d-none text-light-blue" id="signup_form" method="post" action="{% url 'account_signup' %}"
+                id="signup_form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button class="btn btn-outline-green mt-2 d-flex mx-auto" type="submit">{% trans "Sign Up" %} &raquo;</button>
+              </form>
+            </div>
+          </div>
+          <div class="col-6 justify-content-center align-items-center shadow-lg card bg-onyx" id="rtl">
+            <div class="text-center text-white">
+              {% if socialaccount_providers %}
+              <h1 class="text-light-blue pb-1">Hello, Friend!</h1>
+              <p class="w-100">
+                {% blocktrans with site.name as site_name %}
+                If you don't have a {{ site_name }} account yet.
+                <br>
+                Simpy set one up to replay your childhood!
+                {% endblocktrans %}
+              </p>
+              <p class="w-100 d-none">
+                Sign into your account to stay connected with us!
+              </p>
+              <button type="button" class="btn btn-lg btn-outline-pink" id="transition">Sign Up</button>
+              <!-- SOCIALS -->
+              <div class="socialaccount_ballot">
+                <ul class="socialaccount_providers list-group list-group-horizontal ps-5 justify-content-center">
+                  {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </ul>
+              </div>
+              {% include "socialaccount/snippets/login_extra.html" %}
+              {% else %}
+              <p>{% blocktrans %}If you have not created an account yet, then please
+                <a href="{{ signup_url }}">sign up</a> first right here.{% endblocktrans %}
+              </p>
+              {% endif %}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ signup_form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include "includes/signup/signup_script.html" %}
 {% endblock %}

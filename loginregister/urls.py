@@ -7,6 +7,6 @@ from django.conf import settings
 from .import views
 
 urlpatterns = [
-    path('accounts/signup.html', views.CustomSignupView.as_view(), name='CustomSignupView'),
-    path('accounts/login.html', views.CustomLoginView.as_view(), name='CustomLoginView'),
+    path('accounts/signup/', views.signup, name='account_signup'),
+    path('accounts/login/', views.login, name='CustomLoginView'),
 ]
