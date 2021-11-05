@@ -44,7 +44,7 @@
 <body>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-soft-black">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="{% url 'home' %}">RetroDome</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
         aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -52,13 +52,25 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link text-white {% if request.path == '/products/' %}active{% endif %}" aria-current="page" href="{% url 'products' %}">Products</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link text-white {% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog' %}">Blog</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white {% if request.path == '/profile/' %}active{% endif %}" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              Account
+            </a>
+          
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
+              {% if request.user.is_authenticated %}
+              <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
+              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+              {% else %}
+              <li><a class="dropdown-item" href="{% url 'CustomLoginView' %}">Login</a></li>
+              {% endif %}
+            </ul>
           </li>
         </ul>
         <!-- search form -->

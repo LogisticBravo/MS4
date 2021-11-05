@@ -6,13 +6,13 @@
 {% endblock %}
 
 {% block content %}
-<h1 class="mt-5">Edit Blog: {{ blogposts.title }}</h1>
+<h1 class="mt-3 text-retro-pink">Edit Blog: {{ blogposts.title }}</h1>
 <div class="row justify-content-center">
-    <div class="col-4">
+    <div class="col-8">
 <form method="POST">
     {% csrf_token %}
     {{ form|crispy }}
-    <button class="btn btn-success mt-3">Update</button>
+    <button class="btn btn-outline-green mt-3">Update</button>
 </form>
 </div>
 </div>

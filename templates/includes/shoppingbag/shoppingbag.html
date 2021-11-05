@@ -6,7 +6,7 @@
     <div class="offcanvas-body">
       {% for item in bag_items %}
       <div class="toast show">
-        <div class="toast-body bg-info text-white">
+        <div class="toast-body bg-onyx text-light-blue border-yellow">
           <small>{{ item.product.brand }}</small>
           <span class="d-block">{{ item.product.model_name }}</span> 
           <span class="d-block">QTY: {{ item.quantity }}</span> 
@@ -17,6 +17,18 @@
         </div>
       </div>
       {% endfor %}
+      <a href="{% url 'view_bag' %}" class="btn btn-outline-white rounded-0 mt-5">
+        <span class="icon">
+            <i class="fas fa-shopping-bag"></i>
+        </span>
+        <span class="text-uppercase">Edit Bag</span>
+    </a>
+      <a href="{% url 'checkout' %}" class="btn btn-outline-pink rounded-0 mt-5">
+        <span class="icon">
+            <i class="fas fa-shopping-basket"></i>
+        </span>
+        <span class="text-uppercase">Checkout</span>
+    </a>
     </div>
   </div>
 
