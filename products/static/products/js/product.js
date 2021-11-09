@@ -6,6 +6,7 @@ segaFilter = document.getElementById("segaFilter");
 nvidiaFilter = document.getElementById("nvidiaFilter");
 specialsFilter = document.getElementById("specialsFilter");
 
+//filterLink and changeLink functions used to manipulate the href for the filter checkboxes to work.
 function filterLink(category){
     var tempArray = filter.href.split(",");
     var index = tempArray.indexOf(category);
@@ -56,3 +57,30 @@ sortSelector.addEventListener('change', function(){
         window.location.replace(currentUrl);
     }
 })
+
+//Back to top button functionality. Shows the button on scroll down and hides it when at the top of a page. 
+let backToTopButton = document.getElementById("btt");
+
+window.onscroll = function () {
+  scrollFunction();
+};
+
+function scrollFunction() {
+  if (
+    document.body.scrollTop > 20 ||
+    document.documentElement.scrollTop > 20
+  ) {
+    backToTopButton.classList.add("d-block");
+    backToTopButton.classList.remove("d-none");
+  } else {
+    backToTopButton.classList.add("d-none");
+    backToTopButton.classList.remove("d-remove");
+  }
+}
+
+backToTopButton.addEventListener("click", backToTop);
+
+function backToTop() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}

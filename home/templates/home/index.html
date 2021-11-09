@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-lg-8 align-items-start ms-0 mt-4">
             <span class="logo-container ms-5 pt-3">
-                <p class="logo">
+                <p class="logo text-center">
                     R<span class="flicker" id="flick">E</span>TRO <span class="flicker" id="dome">DOME</span>
                 </p>
             </span>
@@ -22,7 +22,7 @@
             <div class="col-7 offset-5 text-end d-flex mt-5 pb-5">
             <section class="" id="about">
                 <p class="fs-5 text-retro-pink"> Your No.1 stop shop for retro gaming consoles, games and accessories!<br>
-                    All the classic gaming consoles from your childhood and over 80,000 popular games.<br>
+                    All the classic gaming consoles from your childhood.<br>
                     It's time to reacquaint yourself with your inner child! </p>
             </section>
         </div>
@@ -36,7 +36,7 @@
                         <span class="hexagon me-1">
                             <a href="{% url 'products' %}?product=Handheld+Console" class="d-flex text-center">HandHeld Consoles</a>
                         </span>
-                        <span class="hexagon">
+                        <span class="hexagon me-1">
                             <a href="{% url 'products' %}?category=specials" class="d-flex">Specials</a>
                         </span>
                         <span class="hexagon me-1">
@@ -47,22 +47,31 @@
                 <li class="d-flex">
                     <p class="d-flex">
                         <span class="hexagon ms-8 me-1 mt-6">
-                            <a href="" class="d-flex">Sign Up!</a>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'view_bag' %}" class="d-flex">My Bag!</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}" class="d-flex">Sign Up!</a>
+                            {% endif %}
                         </span>
                         <span class="hexagon mt-6">
-                            <a href="" class="d-flex">Login</a>
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'account_logout' %}" class="d-flex">Logout</a>
+                            {% else %}
+                            <a href="{% url 'CustomLoginView' %}" class="d-flex">Login</a>
+                            {% endif %}
                         </span>
                     </p>
                 </li>
                 <li class="d-flex">
                     <p class="d-flex">
                         <span class="hexagon me-1 mt-6">
-                            <a href="" class="d-flex">Blog</a>
+                            <a href="{% url 'blog' %}" class="d-flex">Blog</a>
                         </span>
-                        <span class="hexagon me-1 mt-6">
+                        <span class="hexagon me-1 mt-6 {% if request.user.is_authenticated %}{% else %}opacity-0{% endif %}">
+                            <a href="" class="d-flex">Profile</a>
                         </span>
                         <span class="hexagon mt-6">
-                            <a href="" class="d-flex">Contact</a>
+                            <a href="{% url 'contact' %}" class="d-flex">Contact</a>
                         </span>
                     </p>
                 </li>
@@ -70,7 +79,7 @@
         </div>
         </div>
         <div class="col-lg-4 mt-5 align-self-center" id="shop">
-                    <p class="text-center flickering"><a href="#" class="" id="cta">SHOP NOW!</a></p>
+                    <p class="text-center flickering"><a href="{% url 'products' %}" class="" id="cta">SHOP NOW!</a></p>
         </div>
     </div>
     <div class="row container mt-5">

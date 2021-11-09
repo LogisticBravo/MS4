@@ -65,10 +65,10 @@
           
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
               {% if request.user.is_authenticated %}
-              <li><a class="dropdown-item" href="{% url 'profile' %}">My Profile</a></li>
-              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+              <li><a class="dropdown-item {% if request.path == '/accounts/' %}active{% endif %}" href="{% url 'profile' %}">My Profile</a></li>
+              <li><a class="dropdown-item {% if request.path == '/accounts/' %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a></li>
               {% else %}
-              <li><a class="dropdown-item" href="{% url 'CustomLoginView' %}">Login</a></li>
+              <li><a class="dropdown-item {% if request.path == '/accounts/' %}active{% endif %}" href="{% url 'CustomLoginView' %}">Login</a></li>
               {% endif %}
             </ul>
           </li>
@@ -81,6 +81,7 @@
       </div>
     </div>
   </nav>
+  {% include "includes/products/back_to_top_button.html" %}
 <!-- offcanvas shopping bag -->
   <div class="container-fluid mt-5 pt-5">
   <div class="row justify-content-end">
@@ -94,7 +95,7 @@
          <i class="fas fa-shopping-bag text-center"></i>
          <p class="my-0">
         {% if grand_total %}
-            ${{ grand_total|floatformat:2 }}
+            €{{ grand_total|floatformat:2 }}
         {% else %}
             $0.00
         {% endif %}

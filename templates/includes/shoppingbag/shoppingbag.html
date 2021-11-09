@@ -29,6 +29,12 @@
         </span>
         <span class="text-uppercase">Checkout</span>
     </a>
+    <p class="text-vibrant-green">{% if grand_total %}
+      Total: €{{ grand_total|floatformat:2 }}
+  {% else %}
+      $0.00
+  {% endif %}</p>
+    
     </div>
   </div>
 
