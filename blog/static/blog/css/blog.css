@@ -5,3 +5,11 @@ label {
 select {
     color: #00ffff!important;
 }
+
+body {
+    position: relative;
+}
+
+footer{
+    bottom: 0;
+}

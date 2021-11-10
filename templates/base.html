@@ -42,7 +42,8 @@
   </title>
 </head>
 <body>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-soft-black">
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-soft-black drop-shadow-yellow">
     <div class="container-fluid">
       <a class="navbar-brand" href="{% url 'home' %}">RetroDome</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
@@ -129,12 +130,46 @@
   {% endif %}
   
   <div class="container">
+    <main>
+      <!-- main -->
   {% block content %}
   {% endblock %}
 
   {% block postloadjs %}
   {% endblock %}
+    </main>
   </div>
+
+  <!-- footer -->
+  <footer class="container-fluid drop-shadow-blue">
+<div class="row justify-content-evenly align-items-center">
+  <div class="col-4">
+    <img src="{{ MEDIA_URL }}retrodomeimg.png" alt="An image of the retrodome logo" class="fluid">
+  </div>
+  <div class="col-4 text-white">
+    <h5 class="text-vibrant-green pb-2">Connect with Us!</h5>
+    <p>Sign up to our Newsletter!</p>
+  </div>
+  <div class="col-2 align-items-center text-center"><h5 class="text-retro-pink">
+    Follow Us
+    <a href="https://www.facebook.com/"
+                                target="_blank" aria-label="facebook page icon" rel="noreferrer"><i class="fab fa-facebook-square fa-2x pt-1 text-light-blue"></i></a>
+                            <a href="https://www.instagram.com/"
+                                target="_blank" aria-label="instagram page icon" rel="noreferrer"><i class="fab fa-instagram-square fa-2x text-light-blue"></i></a>
+                                <a href="https://www.youtube.com/"
+                                target="_blank" aria-label="youtube page icon" rel="noreferrer"><i class="fab fa-youtube-square fa-2x text-light-blue"></i></a>
+  </h5>
+</div>
+  <div class="col-2 text-white">
+<h5 class="text-yellow">Find Us</h5>
+<p>
+  
+Cork,
+Ireland</p>
+  </div>
+</div>
+  </footer>
+
 </body>
 
 </html>

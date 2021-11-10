@@ -8,6 +8,7 @@ from .models import BlogPosts
 
 
 class BlogPostView(ListView):
+    paginate_by = 8
     model = BlogPosts
     template_name = 'blog.html'
     ordering = ('-id')

@@ -1,4 +1,10 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="container mt-5">
   <h1 class="pb-3 text-center text-retro-pink">Blog's</h1>
@@ -22,6 +28,27 @@
             </div>
          </div>
       {% endfor %}
+  </div>
+  <div class="row">
+    <div class="col-4 align-self-center">
+      <div class="pagination pt-2 pb-2">
+        <span class="step-links text-light-blue">
+            {% if page_obj.has_previous %}
+                <a class="text-retro-pink" href="?page=1">&laquo; first</a>
+                <a class="text-yellow" href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a class="text-vibrant-green text-uppercase" href="?page={{ page_obj.next_page_number }}">next</a>
+                <a class="text-vibrant-green text-uppercase href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+    </div>
   </div>
 </div>
 {% endblock %}

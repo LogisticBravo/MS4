@@ -70,7 +70,7 @@
       
 
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
-        {% for product in products %}
+        {% for product in page_obj %}
         {% if product.category.pk == 6 %}
         <!-- featured card for products that are in the specials category -->
         <div class="col w-75 drop-shadow-pink accordian mb-3 mt-3" id="accordian{{product.pk}}">
@@ -250,10 +250,27 @@
                         </div>
         {% endif %}
         {% endfor %}
-        <div class="col align-items-end">
-        
-        <a class="text-end"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+    <div class="row mb-2">
+    <div class="col-4 align-self-center">
+      <div class="pagination pt-2 pb-2">
+        <span class="step-links text-light-blue">
+            {% if page_obj.has_previous %}
+                <a class="text-retro-pink" href="?page=1">&laquo; first</a>
+                <a class="text-yellow" href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+    
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <a class="text-vibrant-green text-uppercase" href="?page={{ page_obj.next_page_number }}">next</a>
+                <a class="text-vibrant-green text-uppercase href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
     </div>
     </div>
+  </div>
 </div>
 {% endblock %}
