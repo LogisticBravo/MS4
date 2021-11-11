@@ -253,4 +253,11 @@ a:hover {
     #about {
         margin-top: .5rem!important;
     }
+    #featured {
+        display: none;
+    }
+
+    .col-12 {
+        text-align: center;
+    }
   }
