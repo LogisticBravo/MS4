@@ -19,7 +19,7 @@
                 </p>
             </span>
             </div>
-            <div class="col-5 offset-6 col-lg-7 offset-lg-5 text-center d-flex mt-5 pb-5">
+            <div class="col-12 col-md-5 offset-md-7 col-lg-7 offset-lg-5 text-center d-flex mt-5 pb-5">
             <section class="" id="about">
                 <p class="fs-5 text-retro-pink"> Your No.1 stop shop for retro gaming consoles from <span class="fw-bold">YOUR</span> childhood!<br>
                     It's time to reacquaint yourself with your inner child! </p>
@@ -32,45 +32,45 @@
             <ul id="featured" class="mt-6 pt-5 ps-2 row justify-content-start g-0">
                 <li class="d-flex">
                     <p class="d-flex">
-                        <span class="hexagon me-1">
-                            <a href="{% url 'products' %}?product=Handheld+Console" class="d-flex text-center">HandHeld Consoles</a>
+                        <span class="hexagon skewY-anti me-1">
+                            <a href="{% url 'products' %}?product=Handheld+Console" class="d-flex text-center skewY-cw">HandHeld Consoles</a>
                         </span>
-                        <span class="hexagon me-1">
-                            <a href="{% url 'products' %}?category=specials" class="d-flex">Specials</a>
+                        <span class="hexagon rotateY-45 hex-pink me-1">
+                            <a href="{% url 'products' %}?category=specials" class="d-flex text-white">Specials</a>
                         </span>
-                        <span class="hexagon me-1">
-                            <a href="{% url 'products' %}?q=Home+Console" class="d-flex text-center">Home Consoles</a>
-                        </span>
-                    </p>
-                </li>
-                <li class="d-flex">
-                    <p class="d-flex">
-                        <span class="hexagon ms-8 me-1 mt-6">
-                            {% if request.user.is_authenticated %}
-                            <a href="{% url 'view_bag' %}" class="d-flex">My Bag!</a>
-                            {% else %}
-                            <a href="{% url 'account_signup' %}" class="d-flex">Sign Up!</a>
-                            {% endif %}
-                        </span>
-                        <span class="hexagon mt-6">
-                            {% if request.user.is_authenticated %}
-                            <a href="{% url 'account_logout' %}" class="d-flex">Logout</a>
-                            {% else %}
-                            <a href="{% url 'CustomLoginView' %}" class="d-flex">Login</a>
-                            {% endif %}
+                        <span class="hexagon skewY-cw me-1">
+                            <a href="{% url 'products' %}?q=Home+Console" class="d-flex text-center skewY-anti">Home Consoles</a>
                         </span>
                     </p>
                 </li>
                 <li class="d-flex">
                     <p class="d-flex">
-                        <span class="hexagon me-1 mt-6">
-                            <a href="{% url 'blog' %}" class="d-flex">Blog</a>
+                        <span class="hexagon ms-8 me-1 mt-6 rotateY-45 hex-green">
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'view_bag' %}" class="d-flex text-dark">My Bag!</a>
+                            {% else %}
+                            <a href="{% url 'account_signup' %}" class="d-flex text-dark">Sign Up!</a>
+                            {% endif %}
+                        </span>
+                        <span class="hexagon mt-6 rotateY-45 hex-green">
+                            {% if request.user.is_authenticated %}
+                            <a href="{% url 'account_logout' %}" class="d-flex text-dark">Logout</a>
+                            {% else %}
+                            <a href="{% url 'CustomLoginView' %}" class="d-flex text-dark">Login</a>
+                            {% endif %}
+                        </span>
+                    </p>
+                </li>
+                <li class="d-flex">
+                    <p class="d-flex">
+                        <span class="hexagon me-1 mt-6 hex-blue">
+                            <a href="{% url 'blog' %}" class="d-flex text-dark">Blog</a>
                         </span>
                         <span class="hexagon me-1 mt-6 {% if request.user.is_authenticated %}{% else %}opacity-0{% endif %}">
                             <a href="" class="d-flex">Profile</a>
                         </span>
-                        <span class="hexagon mt-6">
-                            <a href="{% url 'contact' %}" class="d-flex">Contact</a>
+                        <span class="hexagon mt-6 hex-blue">
+                            <a href="{% url 'contact' %}" class="d-flex text-dark">Contact</a>
                         </span>
                     </p>
                 </li>
@@ -81,10 +81,5 @@
                     <p class="text-center flickering"><a href="{% url 'products' %}" class="" id="cta">SHOP NOW!</a></p>
         </div>
     </div>
-    <div class="row container mt-5">
-        <div class="col">
-            <h2 class="text-center mt-3 fs-1 text-light-blue">Specials</h2>
-        </div>
     </div>
-</div>
 {% endblock %}
