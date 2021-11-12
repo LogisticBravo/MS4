@@ -9,6 +9,16 @@ from .forms import ContactUsForm
 
 
 def contact(request):
+    if request.user.is_authenticated:
+        if request.method == 'GET':
+            form = ContactUsForm(initial={'name': request.user.first_name, 'email': request.user.email})
+
+            context = {
+                'form': form,
+                }
+
+            return render(request, 'contact/contact.html', context)
+
     if request.method == 'POST':
         form = ContactUsForm(request.POST)
         if form.is_valid():

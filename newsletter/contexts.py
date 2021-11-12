@@ -16,13 +16,14 @@ def newsletter(request):
     """
     email = ''
     form = NewsletterForm(request.POST or None)
+
     if 'newsletter_email' in request.POST:
         try:
             email = request.POST['newsletter_email']
             signup = NewsletterSignups(email=email)
         except KeyError:
             signup = 'Your Email'
-        
+
         if form.is_valid():
             email = request.POST['newsletter_email']
             if NewsletterSignups.objects.filter(email=email).exists():
@@ -53,7 +54,16 @@ def newsletter(request):
 
         return context
     else:
-        context = {
-            'newsletter_form': NewsletterForm,
-        }
-        return context
+        if request.user.is_authenticated:
+            if request.method == 'GET':
+                form = NewsletterForm(initial={'email': request.user.email})
+
+            context = {
+                    'newsletter_form': form,
+                }
+            return context
+        else:
+            context = {
+                'newsletter_form': NewsletterForm,
+            }
+            return context
