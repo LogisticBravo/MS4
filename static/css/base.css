@@ -73,7 +73,7 @@ h1,h2,h3,h4,h5,h6, .navbar-brand {
   color: #fff000!important;
 }
 
-.text-light-blue {
+.text-light-blue, label {
   color: #00ffff;
 }
 
@@ -143,6 +143,11 @@ th {
 
 #shoppingBagButton {
   z-index: 5;
+}
+
+.img-toast {
+  width: 60px;
+  height: 30px;
 }
 
 .update-link, .remove-item {

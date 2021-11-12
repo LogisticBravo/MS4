@@ -16,15 +16,15 @@ def newsletter(request):
     """
     email = ''
     form = NewsletterForm(request.POST or None)
-    if request.method == 'POST':
+    if 'newsletter_email' in request.POST:
         try:
-            email = request.POST['email']
+            email = request.POST['newsletter_email']
             signup = NewsletterSignups(email=email)
         except KeyError:
             signup = 'Your Email'
         
         if form.is_valid():
-            email = request.POST['email']
+            email = request.POST['newsletter_email']
             if NewsletterSignups.objects.filter(email=email).exists():
                 messages.error(request, "Eager! You've already signed up!")
             else:
