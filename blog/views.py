@@ -1,9 +1,10 @@
 """ View for CRUD elements of the blog posts """
-
 from django.views.generic import ListView, CreateView, DetailView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 from .models import BlogPosts
 
 # Create your views here.
@@ -17,12 +18,16 @@ class BlogPostView(ListView):
     ordering = ('-id')
 
 
-class CreatePostView(SuccessMessageMixin, CreateView):
+class CreatePostView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """ A view to create a new blog post """
     model = BlogPosts
     template_name = "blog/add_post.html"
-    fields = '__all__'
+    fields = ['title', 'body']
     success_message = "Post created successfully"
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
 
 class FullPostView(DetailView):

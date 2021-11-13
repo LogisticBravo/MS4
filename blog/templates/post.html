@@ -12,7 +12,7 @@
             <h1 class="text-retro-pink">{{ blogposts.title }}</h1>
             <h4 class="text-yellow">{{ blogposts.author }} | {{ blogposts.published_date }}</h4>
             <p class="text-white">{{ blogposts.body }}</p>
-            {% if request.user.is_superuser %}
+            {% if request.user == blogposts.author or request.user.is_superuser %}
             <a href="{% url 'edit_post' blogposts.pk  %}" class="btn btn-info">Edit post</a>
             <a href="{% url 'delete_post' blogposts.pk  %}" class="btn btn-danger">Delete Post</a>
             {% endif %}

@@ -2,14 +2,14 @@
 from django.urls import reverse
 from django.db import models
 
-
+from django.contrib.auth.models import User
 # Create your models here.
 
 
 class BlogPosts(models.Model):
     """ Model for Blogposts """
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE,
-                               default='auth.User',)
+    author = models.ForeignKey(User, on_delete=models.CASCADE,
+                               default=User,)
     title = models.CharField(max_length=100)
     body = models.TextField()
     published_date = models.DateField(auto_now_add=True)
