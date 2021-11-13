@@ -38,25 +38,25 @@
                 </thead>
                 <tbody>
                     {% for order in orders %}
-                        <tr>
-                            <td>
-                                <a class="text-vibrant-green" href="{% url 'order_history' order.order_number %}"
+                    <tr>
+                        <td>
+                            <a class="text-vibrant-green" href="{% url 'order_history' order.order_number %}"
                                 title="{{ order.order_number }}">
-                                    {{ order.order_number|truncatechars:6 }}
-                                </a>
-                            </td>
-                            <td class="text-white">{{ order.date }}</td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    {% for item in order.lineitems.all %}
-                                        <li class="small text-white">
-                                            {{ item.product.model_name }} x{{ item.quantity }}
-                                        </li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td class="text-white">€{{ order.grand_total }}</td>
-                        </tr>
+                                {{ order.order_number|truncatechars:6 }}
+                            </a>
+                        </td>
+                        <td class="text-white">{{ order.date }}</td>
+                        <td>
+                            <ul class="list-unstyled">
+                                {% for item in order.lineitems.all %}
+                                <li class="small text-white">
+                                    {{ item.product.model_name }} x{{ item.quantity }}
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                        <td class="text-white">€{{ order.grand_total }}</td>
+                    </tr>
                     {% endfor %}
                 </tbody>
             </table>

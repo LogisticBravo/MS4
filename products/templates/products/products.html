@@ -13,61 +13,71 @@
     <div class="row mt-1 mb-2">
         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
             <div class="w-50">
-                <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                <select id="sort-selector"
+                    class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
                     <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                    <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                    <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                    <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand (A-Z)</option>
-                    <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Brand (Z-A)</option>
-                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
-                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
+                    <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to
+                        high)</option>
+                    <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high
+                        to low)</option>
+                    <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low
+                        to high)</option>
+                    <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating
+                        (high to low)</option>
+                    <option value="brand_asc" {% if current_sorting == 'brand_asc' %}selected{% endif %}>Brand (A-Z)
+                    </option>
+                    <option value="brand_desc" {% if current_sorting == 'brand_desc' %}selected{% endif %}>Brand (Z-A)
+                    </option>
+                    <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category
+                        (A-Z)</option>
+                    <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
+                        Category (Z-A)</option>
                 </select>
             </div>
         </div>
         <div class="col-12 col-md-6 order-md-first">
             <p class="text-retro-pink mt-3 text-center text-md-left">
                 {% if search_term or current_categories or current_sorting != 'None_None' %}
-                    <span class="small"><a class="text-light-blue" href="{% url 'products' %}">Products Home</a> | </span>
+                <span class="small"><a class="text-light-blue" href="{% url 'products' %}">Products Home</a> | </span>
                 {% endif %}
-                {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                {{ products|length }} Products{% if search_term %} found for
+                <strong>"{{ search_term }}"</strong>{% endif %}
             </p>
         </div>
-       </div>
+    </div>
 
     <div class="row mb-4 justify-content-center {% if search_term %} d-none {% endif %}">
         <div class="col-8 caption-top">
             <caption>Filters</caption>
             <br>
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="sonyFilter" value="option1">
-        <label class="form-check-label" for="sonyFilter">Sony</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="msFilter" value="option2">
-        <label class="form-check-label" for="msFilter">Microsoft</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="nintendoFilter" value="option3">
-        <label class="form-check-label" for="nintendoFilter">Nintendo</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="segaFilter" value="option3">
-        <label class="form-check-label" for="segaFilter">Sega</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="nvidiaFilter" value="option3">
-        <label class="form-check-label" for="nvidiaFilter">Nvidia</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="specialsFilter" value="option3">
-        <label class="form-check-label" for="specialsFilter">Specials</label>
-      </div>
-      <a href="{% url 'products' %}?category=" class="btn btn-outline-success" id="filter">Apply Filters</a>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="sonyFilter" value="option1">
+                <label class="form-check-label" for="sonyFilter">Sony</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="msFilter" value="option2">
+                <label class="form-check-label" for="msFilter">Microsoft</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="nintendoFilter" value="option3">
+                <label class="form-check-label" for="nintendoFilter">Nintendo</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="segaFilter" value="option3">
+                <label class="form-check-label" for="segaFilter">Sega</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="nvidiaFilter" value="option3">
+                <label class="form-check-label" for="nvidiaFilter">Nvidia</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="specialsFilter" value="option3">
+                <label class="form-check-label" for="specialsFilter">Specials</label>
+            </div>
+            <a href="{% url 'products' %}?category=" class="btn btn-outline-success" id="filter">Apply Filters</a>
+        </div>
     </div>
-</div>
-      
+
 
     <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
         {% for product in page_obj %}
@@ -83,7 +93,8 @@
                 <div class="row g-0 align-items-center">
                     <div class="col-md-4">
                         <a href="{% url 'product_detail' product.id %}">
-                        <img src="{{ product.image_url }}" class="img-fluid img-thumbnail rounded-start" alt="an image of {{product.model_name}}">
+                            <img src="{{ product.image_url }}" class="img-fluid img-thumbnail rounded-start"
+                                alt="an image of {{product.model_name}}">
                         </a>
                     </div>
                     <div class="col-md-8">
@@ -126,7 +137,7 @@
                                 </tbody>
                             </table>
                             <!-- qty selection and add to cart button -->
-                            
+
                             <h6 class="text-center text-retro-pink">
                                 Price
                             </h6>
@@ -138,35 +149,38 @@
         </div>
         {% else %}
         <!-- product cards -->
-        <div class="col {% cycle 'drop-shadow-yellow' 'drop-shadow-blue' 'drop-shadow-green' %} mb-5 mt-5 accordian" id="accordian{{product.pk}}">
+        <div class="col {% cycle 'drop-shadow-yellow' 'drop-shadow-blue' 'drop-shadow-green' %} mb-5 mt-5 accordian"
+            id="accordian{{product.pk}}">
             <div class="card bg-onyx ">
                 <div class="card-header text-center">
                     {% if product.console_type == 'Home Console' %}
                     <span class="badge rounded-pill bg-success">
-                        <a href="{% url 'products' %}?q=Home+Console" class="text-decoration-none text-white">{{ product.console_type }}</a>
+                        <a href="{% url 'products' %}?q=Home+Console"
+                            class="text-decoration-none text-white">{{ product.console_type }}</a>
                     </span>
                     {% else %}
                     <span class="badge rounded-pill bg-info">
-                        <a href="{% url 'products' %}?q={{product.console_type}}" class="text-decoration-none text-white">{{ product.console_type }}</a>
+                        <a href="{% url 'products' %}?q={{product.console_type}}"
+                            class="text-decoration-none text-white">{{ product.console_type }}</a>
                     </span>
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <small>
-                        <a class="text-retro-pink" href="{% url 'edit_product' product.id %}">Edit</a> | 
+                        <a class="text-retro-pink" href="{% url 'edit_product' product.id %}">Edit</a> |
                         <a class="text-yellow" href="{% url 'delete_product' product.id %}">Delete</a>
                     </small>
                     {% endif %}
                 </div>
                 {% if product.image_url %}
                 <a href="{% url 'product_detail' product.id %}">
-                <img src="{{ product.image_url }}" class="card-img-top img-fluid img-thumbnail"
-                    alt="An image of a {{ products.brand }} {{ product.model_name }}">
+                    <img src="{{ product.image_url }}" class="card-img-top img-fluid img-thumbnail"
+                        alt="An image of a {{ products.brand }} {{ product.model_name }}">
                 </a>
                 {% else %}
                 <a href="{% url 'product_detail' product.id %}">
                     <img src="{{ MEDIA_URL }}noimage.png" class="card-img-top img-fluid img-thumbnail"
                         alt="An image of a {{ products.brand }} {{ product.model_name }}">
-                    </a>
+                </a>
                 {% endif %}
                 <div class="card-body accoridan-item">
                     {% if product.brand == 'Sony' %}
@@ -243,34 +257,35 @@
                 </div>
             </div>
         </div>
-        
-       
-                        <div class="col-12 d-sm-none mb-5 drop-shadow-green">
-                            <hr class="drop-shadow-green">
-                        </div>
+
+
+        <div class="col-12 d-sm-none mb-5 drop-shadow-green">
+            <hr class="drop-shadow-green">
+        </div>
         {% endif %}
         {% endfor %}
     </div>
     <div class="row mb-2">
-    <div class="col-4 align-self-center">
-      <div class="pagination pt-2 pb-2">
-        <span class="step-links text-light-blue">
-            {% if page_obj.has_previous %}
-                <a class="text-retro-pink" href="?page=1">&laquo; first</a>
-                <a class="text-yellow" href="?page={{ page_obj.previous_page_number }}">previous</a>
-            {% endif %}
-    
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-    
-            {% if page_obj.has_next %}
-                <a class="text-vibrant-green text-uppercase" href="?page={{ page_obj.next_page_number }}">next</a>
-                <a class="text-vibrant-green text-uppercase href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-            {% endif %}
-        </span>
+        <div class="col-4 align-self-center">
+            <div class="pagination pt-2 pb-2">
+                <span class="step-links text-light-blue">
+                    {% if page_obj.has_previous %}
+                    <a class="text-retro-pink" href="?page=1">&laquo; first</a>
+                    <a class="text-yellow" href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                    {% if page_obj.has_next %}
+                    <a class="text-vibrant-green text-uppercase" href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a class="text-vibrant-green text-uppercase href=" ?page={{ page_obj.paginator.num_pages }}">last
+                        &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
     </div>
-    </div>
-  </div>
 </div>
 {% endblock %}

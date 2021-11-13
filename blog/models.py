@@ -1,23 +1,26 @@
-from django.db import models
+""" Creates the blogposts model """
 from django.urls import reverse
-from datetime import date
+from django.db import models
 
 
 # Create your models here.
 
 
-# blogposts Model
 class BlogPosts(models.Model):
-    author = models.ForeignKey('auth.User', on_delete=models.CASCADE, default='auth.User',)
+    """ Model for Blogposts """
+    author = models.ForeignKey('auth.User', on_delete=models.CASCADE,
+                               default='auth.User',)
     title = models.CharField(max_length=100)
     body = models.TextField()
     published_date = models.DateField(auto_now_add=True)
 
     class Meta:
+        """ plural name for django admin site """
         verbose_name_plural = "Blog Posts"
 
     def __str__(self):
-        return self.title + ' | ' + self.author.username
+        return self.title + ' | ' + self.author
 
     def get_absolute_url(self):
+        """ converst to an absolute url """
         return reverse('blog')

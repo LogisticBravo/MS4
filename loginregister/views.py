@@ -10,6 +10,9 @@ from allauth.account.forms import LoginForm, SignupForm
 
 
 class CustomSignupView(SignupView):
+    """ Takes existing context of the SignupView and add's the login form
+    to the context to be used
+    """
     # here we add some context to the already existing context
     def get_context_data(self, **kwargs):
         # we get context data from original view
@@ -23,6 +26,9 @@ signup = CustomSignupView.as_view()
 
 
 class CustomLoginView(LoginView):
+    """ Takes existing context of the LoginView and add's the signup form
+     to the context to be used
+    """
     # here we add some context to the already existing context
     def get_context_data(self, **kwargs):
         # we get context data from original view

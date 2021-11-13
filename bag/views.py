@@ -1,4 +1,8 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
+"""
+Creates the bag view.
+Adaped from CI course material for boutique ado walkthrough project
+"""
+from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
 
 from products.models import Product

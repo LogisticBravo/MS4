@@ -1,4 +1,7 @@
-from django.shortcuts import render, redirect
+"""
+Creates the logic and returns the context of the newsletter form
+to be usd in the footer across the site
+"""
 from django.views.decorators.csrf import csrf_exempt
 from django.template.loader import render_to_string
 from django.conf import settings
@@ -30,7 +33,10 @@ def newsletter(request):
                 messages.error(request, "Eager! You've already signed up!")
             else:
                 signup.save()
-                messages.success(request, f'Thanks! {email} added to mailing list!')
+                messages.success(
+                                 request,
+                                 f'Thanks! {email} added to mailing list!'
+                                 )
 
                 subject = render_to_string(
                     'newsletter/confirmation_emails/newsletter_confirmation_email_subject.txt',

@@ -1,3 +1,7 @@
+/* 
+Auto shows the sidebar shopping bag when products are added 
+dismissis it automatically after a few seconds
+*/
 let addButton = document.getElementById("addToBag");
 let shoppingBag = document.getElementById("shoppingBag")
 

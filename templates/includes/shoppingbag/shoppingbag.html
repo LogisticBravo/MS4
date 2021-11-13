@@ -1,54 +1,57 @@
-<div class="offcanvas offcanvas-end bg-onyx opacity-75" tabindex="-1" id="shoppingBag" aria-labelledby="shoppingBagLabel">
-    <div class="offcanvas-header">
-      <h5 id="shoppingBagLabel" class="text-yellow">Shopping Bag</h5>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      {% for item in bag_items %}
-      <div class="toast show">
-        <div class="toast-body bg-onyx text-light-blue border-yellow">
-          <small>{{ item.product.brand }}</small>
-          <span class="d-block">{{ item.product.model_name }}</span> 
-          <span class="d-block">QTY: {{ item.quantity }}</span> 
-          <span class="d-block"> <strong>€{{ item.product.price }}</strong></span> 
-          <div class="mt-2 pt-2 border-top">
-            <button class="btn btn-danger remove-item" id="remove_{{ item.item_id }}">Remove Item</button>
-          </div>
+<div class="offcanvas offcanvas-end bg-onyx opacity-75" tabindex="-1" id="shoppingBag"
+  aria-labelledby="shoppingBagLabel">
+  <div class="offcanvas-header">
+    <h5 id="shoppingBagLabel" class="text-yellow">Shopping Bag</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    {% for item in bag_items %}
+    <div class="toast show">
+      <div class="toast-body bg-onyx text-light-blue border-yellow">
+        <small>{{ item.product.brand }}</small>
+        <span class="d-block">{{ item.product.model_name }}</span>
+        <span class="d-block">QTY: {{ item.quantity }}</span>
+        <span class="d-block"> <strong>€{{ item.product.price }}</strong></span>
+        <div class="mt-2 pt-2 border-top">
+          <button class="btn btn-danger remove-item" id="remove_{{ item.item_id }}">Remove Item</button>
         </div>
       </div>
-      {% endfor %}
-      <a href="{% url 'view_bag' %}" class="btn btn-outline-white rounded-0 mt-5">
-        <span class="icon">
-            <i class="fas fa-shopping-bag"></i>
-        </span>
-        <span class="text-uppercase">Edit Bag</span>
+    </div>
+    {% endfor %}
+    <a href="{% url 'view_bag' %}" class="btn btn-outline-white rounded-0 mt-5">
+      <span class="icon">
+        <i class="fas fa-shopping-bag"></i>
+      </span>
+      <span class="text-uppercase">Edit Bag</span>
     </a>
-      <a href="{% url 'checkout' %}" class="btn btn-outline-pink rounded-0 mt-5">
-        <span class="icon">
-            <i class="fas fa-shopping-basket"></i>
-        </span>
-        <span class="text-uppercase">Checkout</span>
+    <a href="{% url 'checkout' %}" class="btn btn-outline-pink rounded-0 mt-5">
+      <span class="icon">
+        <i class="fas fa-shopping-basket"></i>
+      </span>
+      <span class="text-uppercase">Checkout</span>
     </a>
     <p class="text-vibrant-green">{% if grand_total %}
       Total: €{{ grand_total|floatformat:2 }}
-  {% else %}
+      {% else %}
       $0.00
-  {% endif %}</p>
-    
-    </div>
-  </div>
+      {% endif %}</p>
 
-  <script type="text/javascript">
+  </div>
+</div>
+
+<script type="text/javascript">
   // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = window.location.origin+`/bag/remove/${itemId}/`;
-        var data = {'csrfmiddlewaretoken': csrfToken };
-    
-        $.post(url, data)
-         .done(function() {
-             location.reload();
-         });
-    })
-    </script>
+  $('.remove-item').click(function (e) {
+    var csrfToken = "{{ csrf_token }}";
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var url = window.location.origin + `/bag/remove/${itemId}/`;
+    var data = {
+      'csrfmiddlewaretoken': csrfToken
+    };
+
+    $.post(url, data)
+      .done(function () {
+        location.reload();
+      });
+  })
+</script>
