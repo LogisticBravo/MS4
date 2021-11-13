@@ -33,75 +33,45 @@
   <script src="https://kit.fontawesome.com/35a878bce2.js" crossorigin="anonymous"></script>
   <!-- Stripe -->
   <script src="https://js.stripe.com/v3/"></script>
+  <script src="{% static 'js/base.js' %}"></script>
 {% endblock %}
 
 {% block extra_js %}
 {% endblock %}
 
-  <title>Retro Dome {% block extra_title %}{% endblock %}
+  <title>
+    Retro Dome 
+    {% block extra_title %}
+    {% endblock %}
   </title>
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-soft-black drop-shadow-yellow">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home' %}">RetroDome</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link text-white {% if request.path == '/products/' %}active{% endif %}" aria-current="page" href="{% url 'products' %}">Products</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white {% if request.path == '/blog/' %}active{% endif %}" href="{% url 'blog' %}">Blog</a>
-          </li>
-          
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white {% if request.path == '/profile/' %}active{% endif %}" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              Account
-            </a>
-          
-            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuLink">
-              {% if request.user.is_authenticated %}
-              <li><a class="dropdown-item {% if request.path == '/accounts/' %}active{% endif %}" href="{% url 'profile' %}">My Profile</a></li>
-              <li><a class="dropdown-item {% if request.path == '/accounts/' %}active{% endif %}" href="{% url 'account_logout' %}">Logout</a></li>
-              {% else %}
-              <li><a class="dropdown-item {% if request.path == '/accounts/' %}active{% endif %}" href="{% url 'CustomLoginView' %}">Login</a></li>
-              {% endif %}
-            </ul>
-          </li>
-        </ul>
-        <!-- search form -->
-        <form method="GET" action="{% url 'products' %}" class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" name="q" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+  {% include 'includes/base/navbar.html' %}
+
   {% include "includes/products/back_to_top_button.html" %}
 <!-- offcanvas shopping bag -->
-  <div class="container-fluid mt-5 pt-5">
+<div class="container-fluid mt-5 pt-5">
   <div class="row justify-content-end">
     <div class="col-2" id="shoppingBagButtonContainer">
       {% if bag_items %}
       {% if request.path != '/bag/' %}
       {% if request.path != '/checkout/' %}
       <button class="btn btn-success drop-shadow-green position-fixed" type="button" data-bs-toggle="offcanvas" data-bs-target="#shoppingBag" aria-controls="shoppingBag" id="shoppingBagButton">
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ bag_items|length }}</span> 
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          {{ bag_items|length }}
+        </span> 
         <i class="fas fa-chevron-circle-left pe-2"></i>
          <i class="fas fa-shopping-bag text-center"></i>
          <p class="my-0">
-        {% if grand_total %}
-            €{{ grand_total|floatformat:2 }}
-        {% else %}
-            $0.00
-        {% endif %}
-        {% endif %}
-    </p></button>
+            {% if grand_total %}
+                €{{ grand_total|floatformat:2 }}
+            {% else %}
+                $0.00
+            {% endif %}
+            {% endif %}
+          </p>
+    </button>
     {% endif %}
     {% endif %}
       
@@ -139,45 +109,12 @@
   {% endblock %}
     </main>
   </div>
-
+  <!-- Cookie Toast -->
+  {% include 'includes/toasts/cookie_consent.html' %}
+  
   <!-- footer -->
   <footer class="container-fluid drop-shadow-blue">
-<div class="row justify-content-center align-items-center">
-  <div class="col-12 col-md-4">
-    <h2 class="text-vibrant-green drop-shadow-yellow text-center pt-2">RETRO DOME</h2>
-  </div>
-  <div class="col-12 col-md-4 text-white">
-    <h5 class="text-light-blue pt-2">Connect with Us!</h5>
-    <p>Sign up to our Newsletter!</p>
-    
-    <form method="post" name="newsletter" novalidate>
-      {% csrf_token %}
-      {{ newsletter_form }}
-      <br>
-      <button type="submit" class="btn btn-success mb-2">Subscribe!</button>
-  </form>
-    
-  </div>
-  <div class="col-6 col-md-2 align-items-center text-center mb-2">
-    <h5 class="text-retro-pink pt-2">
-    Follow Us
-  </h5>
-    <a href="https://www.facebook.com/"
-                                target="_blank" aria-label="facebook page icon" rel="noreferrer"><i class="fab fa-facebook-square fa-2x pt-1 text-light-blue"></i></a>
-                            <a href="https://www.instagram.com/"
-                                target="_blank" aria-label="instagram page icon" rel="noreferrer"><i class="fab fa-instagram-square fa-2x text-light-blue"></i></a>
-                                <a href="https://www.youtube.com/"
-                                target="_blank" aria-label="youtube page icon" rel="noreferrer"><i class="fab fa-youtube-square fa-2x text-light-blue"></i></a>
-  
-</div>
-  <div class="col-6 col-md-2 text-white text-center mb-2">
-<h5 class="text-yellow pt-2">Find Us</h5>
-<p>
-  
-Cork,
-Ireland</p>
-  </div>
-</div>
+    {% include 'includes/base/footer.html' %}
   </footer>
 
 </body>

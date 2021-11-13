@@ -36,6 +36,11 @@ h1,h2,h3,h4,h5,h6, .navbar-brand {
   border-bottom: 2px solid #fff000;
 }
 
+#cookie {
+  z-index: 100;
+  background-color: #ee2677;
+}
+
 .hexagon {
     width: 260px;
     height: 150px;

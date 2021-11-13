@@ -1,0 +1,36 @@
+<div class="row justify-content-center align-items-center">
+    <div class="col-12 col-md-4">
+        <h2 class="text-vibrant-green drop-shadow-yellow text-center pt-2">RETRO DOME</h2>
+    </div>
+    <div class="col-12 col-md-4 text-white">
+        <h5 class="text-light-blue pt-2">Connect with Us!</h5>
+        <p>Sign up to our Newsletter!</p>
+<!-- Newsletter Form -->
+        <form method="post" name="newsletter" novalidate>
+            {% csrf_token %}
+            {{ newsletter_form }}
+            <br>
+            <button type="submit" class="btn btn-success mb-2">Subscribe!</button>
+        </form>
+
+    </div>
+    <div class="col-6 col-md-2 align-items-center text-center mb-2">
+        <h5 class="text-retro-pink pt-2">
+            Follow Us
+        </h5>
+        <a href="https://www.facebook.com/" target="_blank" aria-label="facebook page icon" rel="noreferrer"><i
+                class="fab fa-facebook-square fa-2x pt-1 text-light-blue"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" aria-label="instagram page icon" rel="noreferrer"><i
+                class="fab fa-instagram-square fa-2x text-light-blue"></i></a>
+        <a href="https://www.youtube.com/" target="_blank" aria-label="youtube page icon" rel="noreferrer"><i
+                class="fab fa-youtube-square fa-2x text-light-blue"></i></a>
+
+    </div>
+    <div class="col-6 col-md-2 text-white text-center mb-2">
+        <h5 class="text-yellow pt-2">Find Us</h5>
+        <p>
+
+            Cork,
+            Ireland</p>
+    </div>
+</div>
