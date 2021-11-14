@@ -20,6 +20,10 @@ h1,h2,h3,h4,h5,h6, .navbar-brand {
   letter-spacing: 0.1em;
 }
 
+.fs-lg {
+  font-size: 8rem;
+}
+
 .bg-onyx {
     --bs-bg-opacity: 1;
     background-color: #454545!important;

@@ -31,6 +31,9 @@
                         {% else %}
                         <li><a class="dropdown-item {% if request.path == '/accounts/' %}active{% endif %}"
                                 href="{% url 'CustomLoginView' %}">Login</a></li>
+                                <hr>
+                                <li><a class="dropdown-item {% if request.path == '/accounts/' %}active{% endif %}"
+                                    href="{% url 'account_signup' %}">Signup</a></li>
                         {% endif %}
                     </ul>
                 </li>
