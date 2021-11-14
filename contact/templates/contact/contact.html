@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+<meta name="Description" content="A contac page for the Retrodome website to contact the owners of a retro gaming themed website that sells handheld and home consoles." />
+{% endblock %}
+
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'contact/css/contact.css' %}">
 {% endblock %}

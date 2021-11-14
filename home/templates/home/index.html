@@ -13,14 +13,15 @@
 <div class="container mb-5">
     <div class="row">
         <div class="col-lg-8 align-items-start ms-0 mt-4">
-            <span class="logo-container ms-5 pt-3">
+            <h1 class="logo-container ms-5 pt-3" id="logo">
                 <p class="logo text-center">
                     R<span class="flicker" id="flick">E</span>TRO <span class="flicker" id="dome">DOME</span>
                 </p>
-            </span>
+            </h1>
         </div>
         <div class="col-12 col-md-5 offset-md-7 col-lg-7 offset-lg-5 text-center d-flex mt-5 pb-5">
             <section class="" id="about">
+                <h2 class="text-yellow">Welcome</h2>
                 <p class="fs-5 text-retro-pink"> Your No.1 stop shop for retro gaming consoles from <span
                         class="fw-bold">YOUR</span> childhood!<br>
                     It's time to reacquaint yourself with your inner child! </p>
@@ -71,7 +72,7 @@
                             </span>
                             <span
                                 class="hexagon me-1 mt-6 {% if request.user.is_authenticated %}{% else %}opacity-0{% endif %}">
-                                <a href="" class="d-flex">Profile</a>
+                                <a href="{% url 'profile' %}" class="d-flex">Profile</a>
                             </span>
                             <span class="hexagon mt-6 hex-blue">
                                 <a href="{% url 'contact' %}" class="d-flex text-dark">Contact</a>

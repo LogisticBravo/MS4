@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+<meta name="Description" content="The products page to purchase or buy retro gaming consoles. A retro themed website with old scholl gaming consoles from the nineties (90's gaming consoles) to the modern day gaming consoles. Handheld and home consoles for sale." />
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block extra_js %}
 <script src="{% static 'products/js/product.js' %}" defer></script>
 {% endblock %}

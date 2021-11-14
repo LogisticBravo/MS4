@@ -290,4 +290,7 @@ a:hover {
     #featured {
         display: none;
     }
+    #logo {
+      display: initial;
+    }
   }

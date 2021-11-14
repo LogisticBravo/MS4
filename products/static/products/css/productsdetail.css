@@ -1,0 +1,12 @@
+@media only screen and (max-width: 521px) {
+    tr,td {
+        display: block;
+    }
+    td {
+        text-align: start!important;
+    }
+  }
+
+  .text-right {
+      text-align: right;
+  }
