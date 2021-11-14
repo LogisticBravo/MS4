@@ -6,28 +6,32 @@
         - [Test Case 2](#test-case-2 "Test Case 2")
         - [Test Case 3](#test-case-3 "Test Case 3")
         - [Test Case 4](#test-case-4 "Test Case 4")
-    - [Returning Visitor Goals](#returning-visitor-goals)
         - [Test Case 5](#test-case-5 "Test Case 5")
+    - [Returning Visitor Goals](#returning-visitor-goals)
         - [Test Case 6](#test-case-6 "Test Case 6")
         - [Test Case 7](#test-case-7 "Test Case 7")
         - [Test Case 8](#test-case-8 "Test Case 8")
-    - [Frequent Visitor Goals](#frequent-visitor-goals)
         - [Test Case 9](#test-case-9 "Test Case 9")
+    - [Frequent Visitor Goals](#frequent-visitor-goals)
         - [Test Case 10](#test-case-10 "Test Case 10")
         - [Test Case 11](#test-case-11 "Test Case 11")
         - [Test Case 12](#test-case-12 "Test Case 12")
         - [Test Case 13](#test-case-13 "Test Case 13")
-    - [Admin User Goals](#admin-user-goals "Admin User Goals")
         - [Test Case 14](#test-case-14 "Test Case 14")
         - [Test Case 15](#test-case-15 "Test Case 15")
         - [Test Case 16](#test-case-16 "Test Case 16")
+    - [Admin User Goals](#admin-user-goals "Admin User Goals")
         - [Test Case 17](#test-case-17 "Test Case 17")
+        - [Test Case 18](#test-case-18 "Test Case 18")
+        - [Test Case 19](#test-case-19 "Test Case 19")
+        - [Test Case 20](#test-case-20 "Test Case 20")
 
 ## Testing User Stories
 ### First Time Visitor Goals
 #### Test Case 1
 
-> As a First Time Visitor, I want to understand the purpose of the site.
+> As a First Time Visitor, I want to understand the purpose of the site.    
+
 **Description**
 Verify that the site's purpose is clear to a user when they land on the landing page of the site.
 
@@ -46,10 +50,12 @@ A 'h2' element proceeded by a 'p' element is present outlining the purpose of th
 Pass
 
 **Image of Test Result:**  
-![image](mdassets/mdimages/welcome.png "Image of the welcome message")
+![image](mdassets/mdimages/welcome.png "Image of the welcome message")    
+
 #### Test Case 2
 
-> As a First Time Visitor, I want to easily navigate through the site.
+> As a First Time Visitor, I want to easily navigate through the site.    
+
 **Description**
 Verify that the site contains an intuitive navigation menu.
 
@@ -88,12 +94,14 @@ Pass
 
 ![image](mdassets/mdimages/hamburgernavopen.png "Image of the hamburger nav extended")
 
-![image](mdassets/mdimages/navbar.png "Image of the navbar")
+![image](mdassets/mdimages/navbar.png "Image of the navbar")    
+
 #### Test Case 3
 
-> As a First Time Visitor, I want to be redirected to the landing page if I navigate to a wrong or broken link.
+> As a First Time Visitor, I want to be redirected to the landing page if I navigate to a wrong or broken link.    
+
 **Description**
-Verify that the site contains a 404 page that is evident to the user they have navigated to a wrong or broken link. Verify that the page is directs the user to return to the homepage.
+Verify that the site contains a 404 page that is evident to the user they have navigated to a wrong or broken link. Verify that the page directs the user to return to the homepage.
 
 **Steps**
 1. Open your browser of choice.
@@ -104,16 +112,15 @@ Verify that the site contains a 404 page that is evident to the user they have n
 6. Confirm that the link to the Home page returns the user to the Home page. 
 7. Create and account, login and repeat the above steps.
 
-
 **Expected Result:**
  - When visiting a wrong or broken link, the user should land on a 404 page that is clearly defined. 
- - It should feature a button that directs the user to "Go Home".
+ - It should feature a button that directs the user to "Home".
  - Clicking the button should return the user to the Home page. 
  - The expected result should take place regardless of the user being signed in or not.
 
 **Actual Result:**
  - When navigating to [https://retrodome.herokuapp.com/404](https://retrodome.herokuapp.com/404) or [https://retrodome.herokuapp.com/YOUR_RANDOM_STRING](https://retrodome.herokuapp.com/YOUR_RANDOM_STRING) a clearly defined 404 page is displayed to the user which states that something went wrong. 
- - The 404 page displays a button directing the user to "Go Home".
+ - The 404 page displays a button directing the user to "Home".
  - Clicking this button returns the user to the Home Page.
  - The same happens regardless of the user being signed in or not.
 
@@ -122,9 +129,11 @@ Pass
 
 **Image of Test Result:**  
 ![image](mdassets/mdimages/404.png "Image of the 404 page")
+
 #### Test Case 4
 
-> As a First Time Visitor, I want to find the site owners social media channels.
+> As a First Time Visitor, I want to find the site owners social media channels.    
+
 **Description**
 Verify that the site contains 3 established social media icons in the footer. Verify that clicking these icons directs the user to the associated social media channel in a new tab. 
 
@@ -134,7 +143,6 @@ Verify that the site contains 3 established social media icons in the footer. Ve
 3. Confirm that there are 3 recognisable social media icons within the footer of the site.
 4. Hover over each icon to confirm that the currently selected one is made aware to the user by way of the cursor changing to a pointer.
 5. Click each social media icon respectively and confirm that each opens up to the related social media channel in a new tab. 
-
 
 **Expected Result:**
  - When visiting the site there should clearly be branded social media icons in the footer. 
@@ -151,153 +159,175 @@ Pass
 
 **Image of Test Result:**  
 ![image](mdassets/mdimages/socialmediaicons.png "Image of the socialmediaicons")
-### Returning Visitor Goals
-#### Test Case 5
 
-> As a Returning Visitor, I want to create an account so that I can write reviews and add or delete comments.
+#### Test Case 5
+> As a First Time Visitor, I want to see relevant product information at a glance.
 **Description**
- Verify that when on the reviews page that reviews cannot be added and that the user is prompted that they must be logged in if they wish to add comments. Verify that the site contains a sign-up page and confirm that an account can be created. Verify that once an account is created and the user signed in that they can add reviews, add comments and delete comments and reviews that they have added.  
+ Verify that when on the products page there is a dropdown table on all products that when dropped down contains the relevant information to the product.  
 
 **Steps**
 1. Open your browser of choice.
-2. Navigate to [https://retrodome.herokuapp.com/reviews](https://retrodome.herokuapp.com/reviews)
-3. Confirm that there is no option or facility to add a review when not logged in.
-4. Click on the comments tab (signalled by speech bubbles icon) and confirm that there is no option or facility to add comments or delete comments. 
-5. Confirm that the user is prompted that they must be logged in to add comments. 
-6. Create an account or sign in and confirm that as a user there is a "Write Review" button on the reviews page. 
-7. Confirm that when on the comments tab that a user is displayed with a comment box and a button that say's "Add".
-8. Confirm that clicking the "Write Review" button opens a modal to write a review. 
-9. Confirm that a review is added after completing the "Write Review" modal/form. 
-10. Confirm that a comment is added after adding a comment to the comment input and clicking "Add".
-11. Confirm that having left a comment, the user is displayed a "delete" button. 
-12. Confirm that clicking the delete button removes the comment. 
-13. Confirm that the user is displayed with an edit icon and trasj icon on the review that they have added. 
-14. Confirm that clicking the edit review icon allows the user to edit the review. 
-15. Edit the review and confirm that the edit's took effect.
-16. Click on the trashcan icon and confirm that the review is removed. 
+2. Navigate to [https://retrodome.herokuapp.com/products](https://retrodome.herokuapp.com/products)
+3. Select a Product of your choosing and press the cheveron icon beside 'Specifications'.
+4. Observe that this drops down a table revealing all of the relevant information of the product. 
+5. Scroll to the bottom of the table and observe that the price is displayed.  
 
 **Expected Result:**   
-The following should be visible to a user only when they are logged in:
- - A "Write Review" button.
- - An Edit icon (paper with pencil) on a review that have created.
- - A Delete icon (trash can) on a review they have created. 
- - A comment input box and "Add" button on all reviews comment tab. 
- - A "delete" button on all comments that they have added.
-
- Clicking the "Write Review" button should open a modal with a form and guide the user through adding a review by way of tooltips. After a user has submittted the form the review should be added to the reviews page. 
-
- Clicking the Edit icon should open a modal form that allows the user to edit their existing review and should only be visible on reviews that the user has added. Editing this form should be reflected in the review after it's submission. 
-
- Clicking the comments tab on any review should show an input box with an "Add" button. Adding text to this inpout box and clicking "Add" should attach the comment to the review. 
-
- Any comments left by a user should have a "delete" button attached to it. Clicking "delete" on a comment should remove the comment. 
-
- Clicking the trash can icon, delete, should remove the review from the page and should only be visible to reviews that the user has added. 
+The following should be visible to a user on all products:
+ - A cheveron denoting that the table drops down beside the word 'Specifications'.
+ - A dropwdown table should dropdown revealing the following information table:
+    * About
+    * Body
+    * Memory
+    * Technical
+    * Comms
+ - Beneath this a rating and the price for the product should be displayed. 
 
 **Actual Result:**
-- Navigating through the page when not logged in displays no buttons to write a review. 
-- There are no icons visible on reviews themselves to edit or delete even for reviews that the user has added as the user is not logged in. 
-- There is no input box or add button on any comments when not logged in. There are also no "delete" buttons on any comments even for comments left by the user as they are no logged in. 
-- The comments section prompts the user that they must be logged in to add a comment. 
-- When logged in the following is visible to the user:
-    - A "Write Review" button.
-    - An Edit icon (paper with pencil) on a review that have created.
-    - A Delete icon (trash can) on a review they have created. 
-    - A comment input box and "Add" button on all reviews comment tab. 
-    - A "delete" button on all comments that they have added.
-- When logged in, navigating through the Write review modal/form add's a new review to the page. 
-- When logged in, clicking the Edit icon a review allows it to be edited and it's changes reflected within the newly published review. 
-- When logged in, clicking the trash icon removes the review from the page. 
-- When logged in, adding a comment is attached to the respective review. 
-- When logged in, clicking the delete button on a commment removes the comment from the respective review. 
+- Navigating to the products page displays a cheveron beside the word 'Specifications' on all products.
+- Selecting this cheveron reveals a table with all of the relvant product information. 
+- Beneath this information is a rating and a price for the product. 
 
 **Pass/Fail:**
 Pass
 
 **Image of Test Result:**  
-![image](mdassets/mdimages/reviewsloggedin.png "Image of the reviewspage logged in")
-![image](mdassets/mdimages/reviewsloggedout.png "Image of the reviewspage logged out")  
-![image](mdassets/mdimages/commentsloggedin.png "Image of the comments logged in")
-![image](mdassets/mdimages/commentsloggedout.png "Image of the comments logged out")
-#### Test Case 7
+![image](mdassets/mdimages/cheveron.png "Image of the reviewspage logged in")    
+![image](mdassets/mdimages/tablehidden.png "Image of the reviewspage logged out")  
+![image](mdassets/mdimages/tablecollapsed.png "Image of the comments logged in")    
 
-> As a Returning Visitor, I want to engage and be engaged with by the site owners.
+### Returning Visitor Goals
+#### Test Case 6
+> As a Returning Visitor, I want to make a secure purchase.    
+
 **Description**   
-Verify that for the first time scrolling the reviews page, whether logged in or out that a pop-up "Newletter Sign Up" modal appears. Verify that if a user is not logged in and subscribes to the newsletter that they are directed to the sign-up page and the email input box is pre-populated with the email address that the user entered for the subscription they created. Verify that the user receives an email if they subscribe to the Newsletter through this modal. Verify that the site contains a contact us page with a contact form. Verify that the user recveives confirmation of form submission and an email for contacting the site owner.  
+Verify that the site allows for the purchase of products using a secure credit card system. 
 
 **Steps**
 1. Open your browser of choice.
-2. Navigate to [https://retrodome.herokuapp.com/reviews](https://retrodome.herokuapp.com/reviews)
-3. Scroll down the reviews page and confirm that a newsletter modal is shown to the user. 
-4. Complete the form and submit it. 
-- Confirm if not logged in that the user is directed to the sign up page.
-- Confirm that the email address input to the newsletter modal was pre-populated to the email input of the sign up form. 
-- Confirm that if logged in that the user receives a toast thanking them for updating their subscription. 
-5. Check the email inbox and confirm that an email was receieved confirming subscribtion to the newsletter. 
-6. Navigate to [https://retrodome.herokuapp.com/contact](https://retrodome.herokuapp.com/contact) or "Contact us" via the footer.
-7. Confirm that there is a contact form on this page. 
-8. Complete and submit the form and confirm that a form is replaced with a message confirming it's submisison. 
-9. Check the email inbox of the email address used and confirm that an email relating to the contact form was received. 
-
+2. Navigate to [https://retrodome.herokuapp.com/products](https://retrodome.herokuapp.com/products)
+3. Select a product of your choosing by clicking on it's image. 
+4. Scroll down and select the 'Shopping trolley' icon to add it to your bag. 
+5. By clicking the green bag icon at the top right, open your shopping bag sidebar and select 'Checkout'. 
+6. Complete the form with delivery information. 
+7. Use the following detials for the credit card:
+    * 4242 4242 4242 4242 as the CC number.
+    * Any exiry date in the future. 
+    * Any 3 digit CVC Number.
+    * Any 5 digit ZIP code     
+6. Hit the 'Complete Order' button.
+7. Pay careful attention to the bottom left off the screen an observer the 'conencting to api.stripe' message from the browser. 
+8. Confirm you land on a checkout success page. 
 
 **Expected Result:**
- - When scrolling the reviews page for the first time a modal pop up event should occur that prompts the user to subscibe to the newsletter. 
- - Completing this form should trigger an email delivered to the users inbox and if not logged in direct them to the signup form with their email address pre-populated. 
- - If logged in the user should receive a toast thanking them for updating their subscription. 
- - The user should receive an email relating the newsletter subscription. 
- - On the contact us page, a contact form should be visible.
- - Completing and submitting the contact form should remove the contact form and display a message confirming it's submission. 
- - The user should receive an email relating to the contact form. 
+The checkout system will work in a familiar way to the user and they will be presented with a 'Checkout Success' page confirming their order was submitted.
 
 **Actual Result:**
-- When scrolling the reviews page for the first time, a newsletter modal pop's up prompting the user to subscribe to the Newsletter. 
-- Completing this and submitting the form directs the user to the sign-up page with their email address pre-populated if not logged in. 
-- The user receives an email relating to the newsletter. 
-- There is a contact form on the contact us page. 
-- Submitting the contact form removes the form and displays a message confirming it's submission. 
-- The user receives an email relating to the contact us form. 
-- If logged in and subscribing to the newsletter via the Newsletter modal, the user receives a toasts thanking them for updating their subscription.  
+The checkout sytem is familiar and the user is directed to a 'Checkout Success' page confirming that the order was submitted. 
 
 **Pass/Fail:**
 Pass
 
 **Image of Test Result:**  
-![image](mdassets/mdimages/newslettermodal.png "Image of the newsletter modal")
-![image](mdassets/mdimages/prepopsignup.png "Image of the pre populated signup form")
-![image](mdassets/mdimages/newsletterthankstoast.png "Image of the subscription update toast from newsletter")
+![image](mdassets/mdimages/cart.png "Image of the shopping cart icon")    
+![image](mdassets/mdimages/shoppingbagbutton.png "Image of the shopping bag button")    
+![image](mdassets/mdimages/checkoutbtn.png "Image of the checkout button")   
+![image](mdassets/mdimages/creditcardfield.png "Image of the creditcard field")    
+![image](mdassets/mdimages/stripeconnection.png "Image of the browser conenction to stripe")    
+![image](mdassets/mdimages/checkoutsuccess.png "Image of the checkout success page")    
+
+#### Test Case 7
+> As a Returning Visitor, I want to easily find special offers.    
+
+**Description**   
+Vaerify that on the home page on large screens that there is a specific callout for 'Specials'. Otherwise, and on mobile, verify that the filter option on the 'Products' opage returns products with the 'Specials' label.
+
+**Steps**
+1. Open your browser of choice.
+2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
+3. Observe that there is a specific callotu for the 'Specials' if on a large screen.
+4. Click this to be taken to all products with the 'Specials' label. 
+5. Otherwise, and on mobile, navigate to the 'Products' page and selct the 'specials' tickbox under the Filters section. Select 'Apply filters'. 
+6. Verify that it returns products that have the specials label. 
+
+**Expected Result:**    
+The user should see a 'Specials' callotu diamon on the home page on large screens. On smaller screens such as mobile the user should be able to filter to specials using the filtering option. The returned results should all be labelled 'Specials'. 
+
+**Actual Result:**    
+There is a specific callout to the 'Specials' section on the home page. Navigating to the products paage also shows a filtering option for 'Specials'. Selcting and appling this filter returns all products that are labelled 'Specials'. 
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:**  
+![image](mdassets/mdimages/specialscallout.png "Image of the specials callout")    
+![image](mdassets/mdimages/returnedspecials.png "Image of the returned results for specials")    
+![image](mdassets/mdimages/specialsfilter.png "Image of the specials filter")    
+
 #### Test Case 8
 
-> As a Returning Visitor, I want to find where I can purchase coffee of reviews that I like.
-**Description**   
-Verify that each review has an **Affiliate link attached to it. Confirm that clicking this link opens in a new tab and that the user is taken to the respective affiliate link website. 
+> * As a Returning Visitor, I want to find relevant content.    
 
-**An Affiliate link is simulated in this instance. The simulated link takes the title of the coffee review and opens up a google search of that title in a new tab. 
+**Description**   
+Verify that site contains a blog posts page with blog content. 
 
 **Steps**
 1. Open your browser of choice.
-2. Navigate to [https://retrodome.herokuapp.com/reviews](https://retrodome.herokuapp.com/reviews)
-3. Select any review and confirm that under the image of that review is a link that says "Available to buy Here".
-4. Confirm that clicking this link opens in a new tab. 
-5. Confirm that the link that was opened in a new tab is a google search of the title of that review. 
+2. Navigate to [https://retrodome.herokuapp.com/blog](https://retrodome.herokuapp.com/blog)
+3. Verify that there are blog posts posts relating to game consoles in cards.
+4. Verify that clicking 'Continue reading' takes you through to the full blog content.  
 
+**Expected Result:**    
+Navigating to the blog post page should display blog posts in a card view format. Each blog post should display a preview of it's content. Clicking on 'Continue reading' should take the user through to the full blog post entry. 
 
-**Expected Result:**
- - When scrolling the reviews page, under each review there should be a link under every image that states "Available to buy here"
- - Clicking the link should open a google search of the title of that review in a new tab. 
+**Actual Result:**    
+Navigating to the blog post displays blog posts in a card view format. Each blog displays a preview of it's content. Clicking on 'Continue reading' takes the user through to the full blog post entry. 
 
-**Actual Result:**
-- All reviews have a link under the image of the review that states "Available to buy here"
-- Clicking the link opens a google search of the title of that review in a new tab.   
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:** 
+![image](mdassets/mdimages/blogpost.png "Image of cards for blog posts")    
+![image](mdassets/mdimages/blogpage.png "Image of a blog entry")    
+
+#### Test Case 9
+
+> As a Returning Visitor, I want to engage and be engaged with by the site owners.  
+
+**Description**   
+Verify that in the footer is a newsletter subscription field and a contact us page with relevant contact information and a contact us form. Verify that submitting the form returns a toast message that it was submitted.
+
+**Steps**
+1. Open your browser of choice.
+2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
+3. Navigate to the footer.
+4. Observe the Newsletter subscription field and enter your email (If the user is signed in this will be pre-populated)
+5. Submite the form and confirm that a toast success is received. 
+6. Staying in the footer, click on the 'Contact Us' link and confirm it navigates to a contact us page. 
+7. Observe the relevant contact details and a Contact form. 
+8. Enter the relevant details and a message on the contact form and observe a toast message upon it's submission. 
+
+**Expected Result:**    
+Navigating to the sites footer should show a Newletter form which can be submiited and the user should receive confirmation of it's submission. Navigating to the contact us page should present the user with a contact us form and relevant contact details. Submitting the form should display a toast message to the user confirming it's submission.    
+
+**Actual Result:**    
+Navigating to the sites footer show's a Newletter form which can be submiited and the user receives confirmation of it's submission. Navigating to the contact us page presents the user with a contact us form and relevant contact details. Submitting the form displays a toast message to the user confirming it's submission. 
 
 **Pass/Fail:**
 Pass
 
 **Image of Test Result:**  
-![image](mdassets/mdimages/affialiatelink.png "Image of affialiate link on a review")
-### Frequent Visitor Goals
-#### Test Case 9
+![image](mdassets/mdimages/newsletterfooter.png "Image of the newsletter form in the footer")    
+![image](mdassets/mdimages/newslettersubtoast.png "Image of newsletter subscription toast message")    
+![image](mdassets/mdimages/contactus.png "Image of contact us page")    
+![image](mdassets/mdimages/contactformsub.png "Image of contact form submission toast")    
 
-> As a Frequent User, I want to access the site across a range of devices.
+
+### Frequent Visitor Goals
+#### Test Case 10
+
+> As a Frequent User, I want to access the site across a range of devices.  
+
 **Description**   
 Verify that the site is responsive across a range of media devices. Confirm that everything is clearly visible and accessible.  
 
@@ -307,384 +337,289 @@ Verify that the site is responsive across a range of media devices. Confirm that
 3. Using Chrome Dev tools (F12 on your keyboard)
 4. Select the "Toggle Device Toolbar" icon (CMD Shift M on a mac).
 5. Using the dropdown menu to select a range of device sizes. 
-6. Test every page of the website using this method across different device selections. 
+6. Test every page of the website using this method across different device selections.
 
+**Expected Result:**     
+When navigating the website through different devices all elements, modals, forms etc. should visible and clear. Confirm that the UI of the site maintains it's structure across various screen sizes. 
 
-**Expected Result:**
- - When navigating the website through different devices all elements, modals, forms etc. should visible and clear. Confirm that the UI of the site maintains it's structure across various screen sizes. 
-
-**Actual Result:**
-- The site is responsive across Desktops, tablets and mobile devices and was tested using Chrome Developer tools on Ipad, Ipad Pro, Iphone 6,7,8 X, Xiaomi F2, Xiamoi F1, Mac pro, MacBook and Safari and Chrome browsers. 
-
-**Pass/Fail:**
-Pass
-
-**Image of Test Result:** 
-![image](mdassets/mdimages/affialiatelink.png "Image of affialiate link on a review")
-#### Test Case 10
-
-> As a Frequent user, I want to manage my profile and reviews that I have left.
-**Description**   
-Verify that on the profile page the user is displayed a list of reviews that they have left. Verify that a user has the ability to change their username from their profile page and update their password. 
-* Confirm that a change takes effect when a user changes their username.
-* Confirm that a change takes effect when a user updates their password. 
-* Confirm that a list of reviews that the user has left is listed on the profile page. 
-* Confirm the list of reviews links to that respective review where the user can edit or delete the review. 
-
-**Steps**
-1. Open your browser of choice.
-2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
-3. Using the login option - log into your account. 
-4. On the profile page, confirm that there is an option to update the users username and password beneath the profile image. 
-5. On the profile page, confirm that there is a list of reviews that the user has written.
-6. Confirm that each review in this list is a clickable link which takes the user to the respective reveiw on the reviews page. 
-7. Confirm that the review can be edited and deleted. 
-8. On the profile page, confirm that the username can be updated. 
-9. On the profile page, update the password, logout and login again with the new password to confirm the password was updated. 
-
-
-**Expected Result:**  
- Logging into the profile page, the user should be displayed with an input field to update their username or password.
- - Each input field should have a palceholder describing it's purpose. 
- - Each input field should have an update button associated with it. 
- - Updating the user's username should be reflected in the profile and the user receive a toast confirming it's update.
- - When updating the username, the user should have to authenticate their password to finalize the update. 
- - Updating the password should return a toast to the user confirming the password was updated. 
-
- On the profile page should be a list under the heading of "My Reviews" which lists all the reviews the user has added, if any. 
- - Each review in this list is a clickable link and underlined to draw attention to it being a link. 
- - Clicking this link should take the user to that respective review and allow them to edit or delete the review.
-
-**Actual Result:**
-- Logging into the Profile page, the user is displayed two input fields with placeholders and associated "Update" buttons. Within each input field is placeholder text outlining their intentions.  
-- Adding a new username to the username input box updates the user's username and is reflected in the newly refreshed site. The user receives a toast that their username was updated. 
-- When updating their username, if the user inputs an incorrect password during authentication of this change the username is not changed and the user receives a toast warning the password was incorrect. 
-- Entering a new password in the password field and clicking update updates the password. 
-- Logging out and logging back in with the new password is successful.
+**Actual Result:**    
+The site is responsive across Desktops, tablets and mobile devices and was tested using Chrome Developer tools on Ipad, Ipad Pro, Iphone 6,7,8 X, Xiaomi F2, Xiamoi F1, Mac pro, MacBook and Safari and Chrome browsers. Though still responsive, the home page does pose a minor positioning issue on original ipads.
 
 **Pass/Fail:**
-Pass
+80% Pass due to some placement issues of the homempage on an ipad.
 
 **Image of Test Result:**  
-![image](mdassets/mdimages/profilepage.png "Image of profile page")
-![image](mdassets/mdimages/pwauth.png "Image of password authentication on username change")
-![image](mdassets/mdimages/wrongpwtoast.png "Image of incorrect password toast message")
+![image](mdassets/mdimages/responsivedisplays.png "Image of site across different devices")
+
 #### Test Case 11
 
-> As a Frequent user, I want to update my preferences.
-**Description**   
-Verify that on the profile page the user is displayed a 'Subscription' toggle switch. Confirm that toggling this switch updates the user's preferences to their subscription. Confirm that backing out of the change reverts the toggle to it's original state.  
+> As a Frequent user, I want to easily sign up and create an account.    
+
+**Description**      
+Verify that the site allows a user to easily creata na account or login if they already have an account. 
 
 **Steps**
 1. Open your browser of choice.
 2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
-3. Using the login option - log into your account. 
-4. On the profile page, confirm that there is a "Subscription" toggle beaneath the password update field. 
-5. Toggle this switch and confirm a modal pop up asking to confirm your change to subscription status. 
-6. Verify that when this change is submitted the toggle is set correctly. 
-7. Do this again and confirm that the modal pop up differs to the last. 
-8. Verify that when backing out or cancelling the confirmation of changing the subscription status that the toggle reverts to it's original state. 
+3. From either the navbar > accounts > login or alternatively select the login or signup callout from the home page. 
+4. Complete the sign up form to create an account. 
+5. Observe the signup toast noting that a confirmation email has been sent and the verify email address page.
+6. Check the email address that was used ibox and confirm the email address. 
+7. Once confirmed, navigate to the the login page.
+8. Login with the credentials that were just created.
+9. Observe the sign in success toast and verify that you are now logged in by navigating to the accounts dropdown in the navbar and observing the logout option. 
 
 
-**Expected Result:**  
--  Logging into the profile page, the user should be displayed with a "Subscription" toggle.
-- The subscription status should be set to their current prefences based on their original sign up. i.e if they selected the checkbox to subscribe to the newsletter then the subscription toggle should be in the 'on' position. 
-- Toggling this should fire a modal pop up to confirm their change to their subscription. 
-- The content of this modal should vary dependant on the current status of their subscription. 
-- Backing out of this modal, i.e. not confirming the change to their subscription should revert the toggle to it's original state.
-- Confirming the modal should update their preferences. The toggle should be in the position that reflects their current subscription preference status.
-
+**Expected Result:**    
+When signing up a sign up form will be displayed to the user and upon it's completion will be presented with a toast acknowledging that they should receive a confirmation email. The web page also note that the email address must be verified. The user will receive an email and verifying through the link will successfully create their account. The user should be able to login with the new account that has been created. 
 
 **Actual Result:**
-- Logging into the profile page, the user is displayed with a "Subscription" toggle.
-- The toggle is set reflective of their current subscription status. 
-- Toggling the toggle presents the user with a modal to confirm the change to their preference. 
-- The content of the modal is differnet dependant on their current subscription preference. 
-- Backing out or cancelling the confirmation modal reverts the toggle to it's original state. 
-- Confirming the change to their preference is reflected as the toggle is switched to reflect their current subscription preference.
-- Navigating away from the profile page and returning to it displayes their correct subscription preference. 
+When signing up a sign up form is displayed to the user and upon it's completion the user is presented with a toast acknowledging that they should receive a confirmation email. The web page also notes that the email address must be verified. The user did receive an email and verifying through the link did successfully create their account. The user can now login with the new account that has been created. 
 
 **Pass/Fail:**
 Pass
 
-**Image of Test Result:**  
-![image](mdassets/mdimages/subtoggle.png "Image of subscription toggle")
-![image](mdassets/mdimages/subchange1.png "Image of subscription update modal")
-![image](mdassets/mdimages/subchange2.png "Image of subscription update modal")
+**Image of Test Result:**    
+![image](mdassets/mdimages/loginanimation.gif "A gif of the login and signup forms")    
+![image](mdassets/mdimages/signuptoast.png "Image of the sign up success toast")    
+![image](mdassets/mdimages/signintoast.png "Image of the signin success toast")    
+
 #### Test Case 12
 
-> As a Frequent user, I want to favourite reviews that I like so as to easily find in the future.
+> As a Frequent user, I want to easily see what items I have selected to purchase and be aware of my running total.    
+
 **Description**   
-Verify that on the reviews page there is a star icon assocaited with each review. Verify that when clicked the star icon remains in an 'on' state. i.e that it is coloured. Verify that on the users profile page a list of reviews that have been favourited is displayed to the user under the heading of "My favourites". Confirm that each review in this list is a clickable link which takes the user to that review on the reviews page. Confirm that unchecking a favourite removes the solid star and that the favourite is removed from the favourites list on the users profile page. 
+Verify that adding an item to your cart automatically shows the sidebar 'Shopping bag'. Verify that a button is automatically shown to the user which shows a running total of items in their bag and a running total cost. Verify that selecting this button brings up the sidebar 'Shopping bag'.
 
 **Steps**
 1. Open your browser of choice.
 2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
-3. Using the login option - log into your account. 
-4. On the profile page, confirm that there is a "My favourites" list of reviews that have been favourited, if any. 
-5. Navigate to the reviews page and confirm that each review has a star icon. 
-6. Confirm that clicking this icon switches it to an 'on' solid state. 
-7. Confirm that the favourited review is displayed on the users profile page under the 'My favourites" list. 
-8. Confirm that clicking the link in this list takes the user to the respective review on the reviews page. 
-9. Confirm that unfavouriting a review removes the solid state of the star icon and returns it to an 'off' state. 
-10. Confirm that the favourite is removed from the list on the profile page of the user.  
+3. Navigate to products section. 
+4. Select a product of your choosing. 
+5. Confirm that the shopping bag sidebar shows and that the shopping bag button is also shown.
+6. Confirm that the shopping bag button contains a running total of items by way of a badge and total cost. 
+7. Confirm that clicking this button brings up the shopping bag sidebar. 
+8. Confirm the shopping bag contains the items that were added to the bag a total cost at the bottom. 
+
+**Expected Result:**    
+Adding a product to the bag should bring up the sidebar shopping bag which in itself should show a running total of the cost of items. A green button with a shopping bag icon should also be automatically shown that is now fixed to the page to the user. This button should bring up the sidebar shopping bag. The button should also show a running total cost as well as total mumber of items by way of badge.
 
 
-**Expected Result:**  
--  When logged in and on the reveiws page the user should see a star icon associated with each review. 
-- Clicking the star icon should turn it to a solid 'on' state. 
-- The review should be added to a list on the user profile page under the heading of "My favourites".
-- Each review in this list should be a clickable link and highlighted as such by way of an underline. 
-- Clicking this link should take the user to that review. 
-- Unfavouriting the review should remove the 'solid' state of the star icon and return it to an 'off' state. 
-- The review should be removed from the users "My favourites" list. 
-
-
-**Actual Result:**
--  When logged in and on the reveiws page the user see's a star icon associated with each review. 
-- Clicking the star icon switches it to a solid 'on' state. 
-- The review is added to a list on the user profile page under the heading of "My favourites".
-- Each review in this list is a clickable link and highlighted as such by way of an underline and by increasing font size on hover. 
-- Clicking this link takes the user to the associated review. 
-- Unfavouriting the review removes the 'solid' state of the star icon and returns it to an 'off' state. 
-- The review is removed from the users "My favourites" list.
+**Actual Result:**    
+Adding a product to the bag does bring up the sidebar shopping bag which in itself shows a running total of the cost of items. A green button with a shopping bag icon is also automatically shown that is now fixed to the page to the user. This button bring's up the sidebar shopping bag. The button also shows a running total cost as well as total mumber of items by way of badge.
 
 **Pass/Fail:**
 Pass
 
-**Image of Test Result:**  
-![image](mdassets/mdimages/favstar.png "Image of the favourite review star")
-![image](mdassets/mdimages/unfavstar.png "Image of the unfavourite review star")
-![image](mdassets/mdimages/favstar.png "Image of the favourite review star")
-![image](mdassets/mdimages/favlistpopulated.png "Image of the users favourites list populated")
-![image](mdassets/mdimages/favlistempty.png "Image of the users favourites list empty")
+**Image of Test Result:**    
+![image](mdassets/mdimages/shoppingbagbutton.png "Image of the shoppingbag button")    
+![image](mdassets/mdimages/shoppingbag.png "Image of the shopping bag sidebar")    
+
 #### Test Case 13
 
-> As a Frequent user, I want to ensure that my data is being used accordingly.
-**Description**   
-Verify that there is a link to a "privacy policy" in the footer of the site. Confirm that visiting this link displays the user with a "Privacy policy". Confirm that this link is visible and can be visitied regardless of a user being logged in.  
+> As a Frequent user, I want to find previous purchases I have made.    
+
+**Description**    
+Verify that a user can easily access their previous order history and it's details. 
 
 **Steps**
 1. Open your browser of choice.
 2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
-3. Navigate to the footer of the site. 
-4. Confirm that there is link to a "Privacy Policy"
-5. Confirm that the link works and takes the user to a page displaying the "Privacy policy"
-6. Confirm that this link works and is attainable regardless of being logged in. 
-7. Do this for every page on the site. 
-8. Confirm that the direct link works by navigating to [https://retrodome.herokuapp.com/privacy](https://retrodome.herokuapp.com/privacy)
+3. Login with an account that has previous purchases made on it. 
+4. From the Navbar go to Account > My Profile. 
+5. Observe the order history summary on the right hand side. 
+6. Click on the order number to be taken to the details of the order history. 
+7. Observe the order history and toast advising of a previous order. 
 
+**Expected Result:**    
+Logging in on an account with a previous purchase on it should allow the user to find their previos orders by navigating to Accounts > My Profile and seeing a summary of previous orders on the right hand side. Selecting an order number from this list should take the user to a detailed page outlining the order history and display a toast advising that it is a previous order. 
 
-**Expected Result:**  
-- In the footer of the site there should be link to a "Privacy policy"
-- Clicking this link should take the user to page which outlines the site's "Privacy Policy".
-- This link should be accessible regardless of a user being signed in.
-- The link should be accessible across all pages in the site.
-- The link should be accessibel by going directly to the URL. 
-
-
-**Actual Result:**
-- In the footer of the site there is a link to a "Privacy policy".
-- Clicking this link takes the user to page which outlines the site's "Privacy Policy".
-- This link is accessible and works regardless of a user being signed in.
-- The link is accessible and works across all pages in the site.
-- The link is accessible by going directly to the URL. 
-
-**Pass/Fail:**
-Pass
-
-**Image of Test Result:**
-![image](mdassets/mdimages/privacy.png "Image of the sites privacy policy")
-### Admin User Goals
-#### Test Case 14
-
-> As an Admin, I want to enable or disbale other accounts with Admin permission.
-**Description**  
-Verify that admins have access to an "Admin Panel" page. Confirm that on the admin panel that the following buttons are present and associated to each user in the list:
-- Enable Admin
-- Disable Admin
-
-Confirm that if an account is "Enabled" as an admin that the "Enabled" button is disbaled. Confirm that the 'Admin" status reads "True" if the admin is enabled. Confirm the opposite of this if the admin is disbaled.
-
-**Steps**
-1. Open your browser of choice.
-2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
-3. Login with an account that has Admin permissions enabled.
-4. Under the "My account" dropdown in the navbar, navigate to the "Admin Panel" page. 
-5. Confirm that every user has an associated "Enable Admin" and "Disable Admin" button. 
-6. Confirm that users that are admins state that their 'Admin' statsu is "True".
-7. If True, confirm that the "Enable" button is disbaled.
-8. Disbale an admin from their Admin permissions. 
-9. Confirm that their 'Admin' status reads "False".
-10. Confirm that the 'Disbaled' button is disabled and that the "Enable" button is enabled. 
-11. Repeat the above steps in the reverse direction. i.e. Enable an admin or vice versa dependant on your starting position. 
-12. Confirm that in each update to Enabling or Disabling admin preferences that a toast message si displayed confirming the update. 
-13. To truly test, do this with two accounts that you own, one that is Admin enbaled and one that is not. 
-    - Set your non admin account as an admin with your admin account and confirm that the admin panel is now available to that account. 
-    - Revoke admin priveledges and confirm that the "Admin Panel" is no longer visible or accessible. 
-
-**Expected Result:**
-- As an admin, an Admin panel should be visible under the "My account" dropdown in the navbar.
-- Clicking this link should take the admin to an Admin page where they can see all users and their current admin permission sets.
-- Every user should have an associated "Enable" or "Disable" admin button. 
-- Every user should have an "Admin" status that reads as "True" or "False" dependant on their current permissions set. 
-- Enabling a user as an admin should disbale the "Enable admin" button and enable the "Disable admin" button. 
-- Enabling a user as an admin should change their "Admin" status to True.
-- Enabling a user as an admin should give them access to the admin panel page.
-
-**Actual Result:**
-- As an admin, an Admin panel is visible under the "My account" dropdown in the navbar.
-- Clicking this link takes the admin to an Admin page where they can see all users and their current admin permission sets.
-- Every user has an associated "Enable" or "Disable" admin button. 
-- Every user should has an "Admin" status that reads as "True" or "False" dependant on their current permissions set. 
-- Enabling a user as an admin disbales the "Enable admin" button and enables the "Disable admin" button. 
-- Enabling a user as an admin changes their "Admin" status to True.
-- Enabling a user as an admin gives them access to the admin panel page.
-- The opposite is also true of all of the above. i.e. if a user is already an admin then the "Enable admin" button is disabled etc. 
+**Actual Result:**    
+Logging in on an account with a previous purchase on it allows the user to find their previos orders by navigating to Accounts > My Profile where a summary of previous orders can be seen on the right hand side. Selecting an order number from this list takes the user to a detailed page outlining the order history and displays a toast advising that it is a previous order. 
 
 **Pass/Fail:**
 Pass
 
 **Image of Test Result:**  
-![image](mdassets/mdimages/adminpanel.png "Image of the link to the admin panel")
-![image](mdassets/mdimages/adminbuttons.png "Image of the view of users for admins including the relvant buttons")
-#### Test Case 15
+![image](mdassets/mdimages/orderhistory.png "Image of the order history summary")    
+![image](mdassets/mdimages/previousordersummary.png "Image of a previous order")    
+![image](mdassets/mdimages/prevordertoast.png "Image of a previous order toast notification")    
 
-> As an Admin, I want to moderate site content of reviews and comments.
+#### Test Case 14
+
+> As a Frequent user, I want to receive confirmation thay my purchase was successful.    
 **Description**  
-Verify that admins can see and action the following on each review and their respective comments section:
- - Edit Review icon.
- - Delete Reviw icon. 
- - Delete button on all comments. 
+Verify that when a user makes a purchase that it goes through succesffully.
 
 **Steps**
-1. Open your browser of choice.
-2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
-3. Login with an account that has Admin permissions enabled.
-4. Navigate to the reviews page. 
-5. Confirm that all reviews have the Edit and Delete reviews visible and actionable on them regardless of the creator of the review. 
-6. Confirm that under the comments section of all reviews that every comment has a "Delete" button. 
-7. Confirm that editing a review edits the review. 
-8. Confirm that a review can be deleted.
-9. Confirm that comments can be deleted. 
+1. These steps taken were covered in [Test Case 6](#test-case-6 "Test Case 6") above. Please refer back to test Case 6.
 
-As an aside, this is best tested with two accounts, one of which does not have admin permissions enabled on it but that can create reviews and comments that can be modified and deleted by the admin account so as to not unnecessarily modify or delete natural site content by other users. 
+**Expected Result:**    
+The user will be displayed with a checkout success page and a checkout success toast. 
 
-**Expected Result:**
-- An admin should be able to see the Edit icon and Delete icon of all reviews regardless of the reviews creator. 
-- Ad admin should see a "Delete" button on all comments across the site regardless of the comment creator.
-- All buttons should be actionable and have the corresponding effect. 
-
-**Actual Result:**
-- An admin can see the Edit icon and Delete icon of all reviews regardless of the reviews creator. 
-- Ad admin can see a "Delete" button on all comments across the site regardless of the comment creator.
-- All buttons are actionable and have the corresponding effect.
+**Actual Result:**    
+The user is presented with a checkout success page and a checkout success toast. 
 
 **Pass/Fail:**
 Pass
 
 **Image of Test Result:** 
-![image](mdassets/mdimages/admincomments.png "Image of the admin view of comments")
-![image](mdassets/mdimages/adminreview.png "Image of the admin view of reviews regardless of who wrote them")
+![image](mdassets/mdimages/checkoutsuccess.png "Image of the checkout success page with toast")    
+
+#### Test Case 15
+
+> As a Frequent user, I want to filter to a specific category.    
+
+**Description**      
+Verify that a user can easily filter the prdocuts to any of the available categories.    
+
+**Steps**
+1. These steps taken were covered in [Test Case 7](#test-case-7 "Test Case 7") above. Please refer back to test Case 7.
+
+**Expected Result:**    
+The user should be able to filter the products down using the filtering feature to any of the available categories.  
+
+**Actual Result:**    
+The user can filter the products down using the filtering feature to any of the available categories.
+
+**Pass/Fail:**
+Pass
+
+**Image of Test Result:**  
+![image](mdassets/mdimages/specialsfilter.png "Image of the specials filter checkbox")    
+
 #### Test Case 16
 
-> As an Admin, I want to remove users if necessary.
+> As a Frequent user, I want to update my delivery information and it be saved.    
+
 **Description**  
-Verify that admins have access to an "Admin Panel" page. Confirm that on the admin panel that the following buttons are present and associated to each user in the list:
-- Delete Account
-
-Confirm that deleting an account removes the users from the site. This will be reflected by the site statistics at the top of the Admin page which specifies how many users are on the site. Confirm that a toast message si received confirming that the user was deleted. Confirm that the user is no longer present in the list.
-
-As an aside, this is best tested with two accounts, one of which can be deleted so as to not unnecessarily impact natural users of the site. 
+Verify that a user can update their default delivery information and that it is available at the next purchase. 
 
 **Steps**
 1. Open your browser of choice.
 2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
-3. Login with an account that has Admin permissions enabled.
-4. Under the "My account" dropdown in the navbar, navigate to the "Admin Panel" page. 
-5. Confirm that every user has an associated "Delete Account" button.
-6. Delete a user.
-7. Confirm that a toast message is received to confirm that the account was deleted. 
-8. Confirm that the user is no longer present in the list. 
-9. Confirm that the sites statistics at the top of the Admin page reflect the change to the number of users across the site.
-10. If testing with two accounts, confirm that the deleted account can no longer log in. 
+3. Login with an account and navigate to Accounts > Profile. 
+4. Observe the default delivery information form and update information button. 
+5. Complete the form and submit it. 
+6. Observe the toast message confirming it has been updated. 
+7. Navigate to a different page and back to your profile page again. 
+8. Observe that the information has been retained.
+9. Proceed to make a new purchase. 
+10. Observe that the delivery form is already populated with the information that was updated from the profile page. 
 
-**Expected Result:**
-- As an admin, an Admin panel should be visible under the "My account" dropdown in the navbar.
-- Clicking this link should take the admin to an Admin page where they can see all users and a corresponding "Delete Account" button.
-- Clicking this button should remove the selected user from the list.
-- The admin should receive a toast message confirming that the account was deleted. 
-- The statistics at the top of the Admin page should reflect the change to the number of users across the site. 
-- The deleted account should not be able to log in with their credentials. 
+**Expected Result:**    
+Navigating to the profile page should display a form that can be updated to update delivery information. Completing and submitting this form should display a toast to confirm it and the information should be retained within the form.
 
-**Actual Result:**
-- As an admin, an Admin panel is visible under the "My account" dropdown in the navbar.
-- Clicking this link takes the admin to an Admin page where they can see all users and a corresponding "Delete Account" button.
-- Clicking this button removes the selected user from the list.
-- The admin receives a toast message confirming that the account was deleted. 
-- The statistics at the top of the Admin page reflect the change to the number of users across the site. 
-- The deleted account can no longer log in with their credentials. 
+**Actual Result:**    
+Navigating to the profile page displays a form that can be updated to update delivery information. Completing and submitting this form displays a toast to confirm it and the information is retained within the form.
 
 **Pass/Fail:**
 Pass
 
-**Image of Test Result:**  
-![image](mdassets/mdimages/deleteusertoast.png "Image of the account deleted toast")
+**Image of Test Result:**   
+![image](mdassets/mdimages/profileform.png "Image of delivery information update form")
+![image](mdassets/mdimages/profileupdatetoast.png "Image of a profile update success toast")    
+
+### Admin User Goals    
+
 #### Test Case 17
 
-> As an Admin, I want to see statistics on the number of users and reviews on the site. 
-**Description**  
-Verify that admins have access to an "Admin Panel" page. Confirm that on the admin panel at the top of the page is a small section called "Statistics". Confirm that under statistics it lists the following:
+> As an Admin, I want to enable my customers to easily make a purchase.    
 
-- Total number of users.
-- Total number of reviews.
+**Description**      
+This user story was covered extensively in the earlier [Test Case 6](#test-case-6 "Test Case 6") above. Please refer back to test Case 6. 
+
+**Pass/Fail:**
+Pass
+
+#### Test Case 18
+
+> As an Admin, I want to create, edit , update or delete blog posts to keep my users engaged.    
+
+**Description**      
+Verify that as an admin any blog post can be created, edited and deleted.    
 
 **Steps**
 1. Open your browser of choice.
 2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
-3. Login with an account that has Admin permissions enabled.
-4. Under the "My account" dropdown in the navbar, navigate to the "Admin Panel" page. 
-5. Confirm that there is a statistics section at the top of the page. 
-6. Confirm that the statisitcs lists the number of users and number of reviews across the site. 
-7. Test the truthyness of the statistics by adding a review and checking the statistics to see the reflected change.
-8. Delete the review and check the statistics again. 
-9. Follow Test Case 16 to check the truthyness of the statistics related to number of users. 
+3. Login with an admin account. 
+4. Navigate to the Blog page.
+5. Observe that there is an 'Add post' button on the right hand side. 
+6. Click add post to be taken to the add post form page. 
+7. Complete and submit the form.
+8. Observe that. ablog post has been created and is displayed as the most recent blog post i.e. first.
+9. By clicking inot the blog post to read the blog post article > observe that there are now 'Edit' and 'Delete' blog post buttons. 
+10. Select the Edit post button and make changes to the blog post. 
+11. Save the form and observe the changes have been made. 
+12. Navigate back into the blog post and select the Delete post button.
+13. Observe a warning message that it will be deleted. 
+14. Confirm it's deletion and observe that the post no longer exists. 
+15. Repeat the above steps for any post not created by the admin account. 
 
-**Expected Result:**
-- As an admin, an Admin panel should be visible under the "My account" dropdown in the navbar.
-- Clicking this link should take the admin to an Admin page where they can see a statistics section at the top of the page. 
-- Under the statisctics section it should list the following:    
-    - Total number of users.
-    - Total number of reviews.
-- Statisitcs shown should be accurate.
-- Adding/Deleting a review should be reflected in the accuracy of the statistics,
-- Deleting a user should be reflected in the accuracy of the statistics.
+**Expected Result:**    
+The admin should be able to Create, Read, Update and Delete blog posts of their own as well as that of any user created blog post. 
+
+**Actual Result:**    
+The admin can Create, Read, Update and Delete blog posts of their own as well as that of any user created blog post. 
+
+**Pass/Fail:**
+Pass    
+
+**Image of Test Result:**   
+![image](mdassets/mdimages/addpostbtn.png "Image of the add post button")    
+![image](mdassets/mdimages/addpost.png "Image of adding a post")    
+![image](mdassets/mdimages/editdeleteblog.png "Image of the edit and delete blog post buttons")    
+![image](mdassets/mdimages/editblog.png "Image of editing a blog post")    
+![image](mdassets/mdimages/deleteblogwarning.png "Image of warning before deleting a blog post")    
+![image](mdassets/mdimages/delblogtoast.png "Image of deleting a blog poast toast")    
+
+#### Test Case 19
+
+> As an Admin, I want to create, edit, update or delete products.  
+
+**Description**      
+This user story was already covered in the Features section of the README.md. Please reference there. 
+
+**Expected Result:**    
+The admin should be able to Create, Read, Update and Delete products.
+
+**Actual Result:**    
+The admin can Create, Read, Update and Delete products.
+
+**Pass/Fail:**
+Pass     
+
+#### Test Case 20
+
+> As an Admin, I want my site to be secure from unathorized users.    
+
+**Description**    
+Verify that navigating to a link of which a user is not authorised to access redirects them to the login page.  
+
+**Steps**
+1. Open your browser of choice.
+2. Navigate to [https://retrodome.herokuapp.com/](https://retrodome.herokuapp.com/)
+3. Login with an account.
+4. Navigate to a post you have created and select edit post. 
+5. Copy the link form the address bar.
+6. Logout and past the link into the address bar.
+7. Observe landing on the login page.
+8. repeat the above steps though this time select delete post instead of edit. 
+9. Observe the same. 
+10. As a super user, navigate to the products page and select the 'Add product' button. 
+11. Copy the link from the address bar > sign out > past the link into the address bar.
+12. Observe being redirected to the login page. 
+13. Repeat the above steps for the edit and delete models of the products. 
 
 
-**Actual Result:**
-- As an admin, an Admin panel is visible under the "My account" dropdown in the navbar.
-- Clicking this link takes the admin to an Admin page where they can see a statistics section at the top of the page. 
-- Under the statisctics section it lists the following:    
-    - Total number of users.
-    - Total number of reviews.
-- Statisitcs shown are accurate.
-- Adding/Deleting a review isreflected in the accuracy of the statistics,
-- Deleting a user is reflected in the accuracy of the statistics.
+**Expected Result:**    
+Attempting to access a URL pattern of which a user does not have access to should prohibit the user from accessing it. 
+
+**Actual Result:**    
+Attempting to access a URL pattern of which a user does not have access to prohibits the user from accessing it and diverts them to the login page. Attempting to do so when logged in flags an error message to the user that only store owners can do so. 
 
 **Pass/Fail:**
 Pass
 
 **Image of Test Result:**  
-![image](mdassets/mdimages/stats.png "Image of the admin view of site statistics")
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+![image](mdassets/mdimages/adminonlyerror.png "Image of a toast notifying the suer that only store owners can take that action") 

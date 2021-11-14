@@ -16,7 +16,13 @@
 {% block content %}
 <div class="container mt-5 text-white">
     <h1 class="pt-5 pb-3 text-center">Consoles</h1>
-
+    <section id="aside">
+        <div class="d-flex flex-column flex-shrink-0 mt-5 float-end">
+          {% if request.user.is_superuser%}
+          <a href="{% url 'add_product' %}" class="btn btn-warning position-fixed">Add Product</a>
+          {% endif %}
+        </div>
+      </section>
     <!-- sort selector taken from BoutiqueAdo walkthrough project -->
     <div class="row mt-1 mb-2">
         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">

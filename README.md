@@ -195,7 +195,8 @@ Full Wireframes drawn up using Figma can be found [here](https://www.figma.com/f
 ![image](mdassets/mdimages/pagination2.png "Image of pagination mid way through available pages")
 * The Product page allows for filtering by any of the categories as well as filtering by a number of categories. This is achieved by maniupaliting the href using javascript.    
 ![image](mdassets/mdimages/filtering.png "Image of filtering checkbox options")
-* For the site user or any user with superuser permissions, they have the ability to edit or delete existing blogposts as well as create,edit or delete products.   
+* For the site user or any user with superuser permissions, they have the ability to edit or delete existing blogposts as well as create,edit or delete products. 
+![image](mdassets/mdimages/addproductbtn.png "Image of superuser view to add a product")  
 ![image](mdassets/mdimages/addproduct.png "Image of superuser view to add a product")
 ![image](mdassets/mdimages/deleteproduct.png "Image of superuser view to delete a product")
 ![image](mdassets/mdimages/productedit.png "Image of superuser view to edit a product")
