@@ -18,13 +18,7 @@
     - [Topology](#topology "Topology")
     - [Django Topology](#django-topology "Django Topology")
     - [Database Schema](#database-schema "Database Schema")  
-        - [beans](#beans "beans")
-        - [newsletters](#newsletters "newsletter")
-        - [origins](#origins "origins")
-        - [privacy_policy](#privacypolicy "Privacy policy")
-        - [roast](#roast "roast")
-        - [users](#users "users")
-        - [Relationships between Databases](#relationships-between-databases "Relationship between Databases")
+        - [Models](#models "models")
 - [Features](#features "Features")  
 - [Technologies Used](#technologies-used "Technologies Used")  
     - [Languages Used](#languages-used "Languages Used")  
@@ -32,8 +26,6 @@
         - [CSS3](#css3 "CSS3")  
         - [Javascript & JQuery](#javascript/query "Javascript & JQuery")  
         - [Python](#python "Python")
-    - [Database](#database "Database")
-        - [MongoDB](#mmongodb "MongoDB")
 - [Frameworks, Libraries & Programs used](#frameworks-libraries-&-programs-used "Frameworks, Libraries & Programs used")  
     - [Bootstrap v.4.5.3](#bootstrap-v.4.5.3 "Bootstrap v.4.5.3") 
     - [Google Fonts](#google-fonts "Google Fonts")    
@@ -44,12 +36,13 @@
     - [Git](#git "Git")  
     - [GitHub](#github "GitHub")  
     - [Gitpod](#gitpod "Gitpod") 
-    - [Flask](#flask "Flask") 
-    - [PyMongo](#pymongo "PyMongo")
-    - [Werkzeug](#werkzeug "Werkzeug")
-    - [Randomkeygen](#randomkeygen "Randomkeygen")
-    - [EmailJS](#emailjs "EmailJS")
-    - [Google Map Generator](#google-map-generator "Google Map Generator")
+    - [AWS](#aws "AWS") 
+    - [Heroku](#heroku "heroku")
+    - [SQLite3](#sqlite3 "SQLite3")
+    - [Stripe](#stripe "Stripe")
+    - [Django Debug toolbar](#django-debug-toolber "Django Debug Toolbar")
+    - [Django Secret Key generator](#django-secret-key-generator "Django Secret Key generator")
+    - [Google Maps](#google-maps "Google Maps")
     - [Lighthouse](#lighthouse "Lighthouse")    
 - [Testing](#testing "Testing")  
         - [Testing User Stories from User Experience (UX)](TESTING.md)
@@ -57,9 +50,8 @@
     - [Known Bugs](#known-bugs "Known Bugs")  
 - [Deployment](#deployment "Deployment")   
     - [Local Clone](#local-clone "Local Clone") 
-    - [MongDB Setup](#2-mongodb-setup "MongoDB Setup")
-    - [Environment Setup](#3-environment-setup "Environment Setup")
-    - [Deployment to Heroku](#4-deployment-to-heroku "Deployment to Heroku")
+    - [Environment Setup](#2-environment-setup "Environment Setup")
+    - [Deployment to heroku](#3-deployment-to-heroku "Deployment to Heroku")
     - [Development](#development "Development")  
     - [Bugs & Feature Requests](#bugs-&-feature-requests "Bugs & Feature Requests")  
 - [Credits](#credits "Credits")  
@@ -154,161 +146,85 @@ The site uses only 2 images natively.
 Full Wireframes drawn up using Figma can be found [here](https://www.figma.com/file/o5ZNCkRCRwaanJMXHizgif/MS4)
 
 #### Database Schema
-#### **beans**
-| Name  | Type  |   |   |
-|:-:|:-:|:-:|:-:|
-| _id  | ObjectId  |
-| bean_name  | String  |
-| bean_roast  | String   |
-| bean_rating  | String   |
-| bean_description  | String   |
-| bean_origin  | String   |
-| origin_type  | String   |
-| brew_type  | String   |
-| bean_image  | String   |
-| affialiate_link  | String   |
-| created_by  | String   |
-|created_by_id|ObjectId|
-| created_date  |  Date |
-|favshown|Boolean|
-| favoured_by  | Array  |
-|   | Object  | Object |
-||user_id| ObjectId |
-||user_name| String  |
-|comments|Array|
-||Object| Object |
-||comment_id| ObjectId |
-||user_id| ObjectId|
-||username| String |
-||comment| String |
+#### **Models**
+* The project/site uses a relational database. SQLite 3 was used during development and for deployemnt to production the database was migrated to Heroku Postgres. Key models are outlined below:
 
-#### **newsletters**
-|Name   |Type   |
-|:-:|:-:|
-|_id | ObjectId |
-|name | string |
-|email | string |
+**Products**
+* The products model stores all of the products and categories data for the architecture of the site. 
+* The price of each individual product is stored in this model.
+* Each product contains a Primary Key PK which is auto generated upon the creation of new product. 
+* Images by way of a CDN are stored within this model.
 
-#### **origin**
-|Name   |Type   |
-|:-:|:-:|
-|_id | ObjectId |
-|origin_type | string |
+**Newsletter**
 
-#### **privacy_policy**
-|Name   |Type   |
-|:-:|:-:|
-|_id | ObjectId |
-|title | string |
-|description|string|
+* This model allows for a user to register themselves for a newletter subscription. 
+* This stores the users email address to the database and is checked against if the user has already subscibed. 
 
-#### **roast**
-|Name   |Type   |
-|:-:|:-:|
-|_id | ObjectId |
-|bean_roast | string |
+**blog**
 
-#### **users**
-|Name   |Type   ||
-|:-:|:-:|:--:|
-|_id | ObjectId ||
-|email | String ||
-|username|String||
-|password|String||
-|tandc|String||
-|is_admin|Boolean||
-|newsletter_check|String||
-|signup_date|Date||
-|last_login|Date||
-|favourites|Array||
-||Object| Object|
-||coffee_id| ObjectId|
-||coffee_name|String|
-||favshown|Boolean|
+* The blog model defines the blogposts to allow for registered users or super users to have CRUD functionlaity. 
+* The is model uses the django.contrib.auth user as a foregin key for the author of each blog post. 
 
-#### **Relationships between Databases**
-|beans  DB |users DB  ||
-|:-:|:-:|:--:|
-|_id|coffee_id||
-|bean_name|coffee_name||
-|favshown|favshown||
-|user_id|_id||
-|username|username||
+**Order**
+
+* The order model creates and stores an instance of the information that should be found within an order. 
+
+**User Profile**
+
+* A user profile model is created for each registered user which stores their information from sign up and their billing information should they opt to do so at point of finalizing their order. 
+* This model also utilizes the django.conrib.auth user.
 
 ## Features
-* The Home page features a carousel esque animation for displaying the 6 most recent reviews. The animation only displays on Desktop and is otherwise displayed as a gallery on mobile.  
-![image](mdassets/mdimages/slidingdivs.png "Images of the home page animation")  
-![image](mdassets/mdimages/gallerydivs.png "Images of the home page on smaller screen sizes")
-* The site uses Flask jinja templating to dynamically display reviews and other content.   
-![image](mdassets/mdimages/reviews.png "Image of the reviews page")
-* The Site uses toasts to alert the user of succesffully completing actions throughout the site.  
-![image](mdassets/mdimages/commenttoast.png "Image of a toast message")
-![image](mdassets/mdimages/logouttoast.png "Image of a toast message")
-![image](mdassets/mdimages/welcometoast.png "Image of a toast message")
-![image](mdassets/mdimages/unfavourtoast.png "Image of a toast message")
-* The site uses defensive programming to prevent unauthorised access to parts of the site that are locked to having an account or an admin permission set. 
-* The site uses various modals throughout so as to keep the user experience fluidic.  
-![image](mdassets/mdimages/addreviewmodal.png "Image of the add review modal")
-* When adding a new review, the user is given an option to edit their review before submission. This is achieved using Javascript.  
-![image](mdassets/mdimages/editreviewmodal.png "Image of editing a review before submission")
-* When adding a review, the user can select font awesome icon's for their rating of 1-5. The icons are highlighted based on their selection and equally the highlight is removed if they change their mind. This is achieved by a styled checkbox and Javascript.   
-![image](mdassets/mdimages/iconrating3.png "Image of icons for ratings")
-![image](mdassets/mdimages/iconrating5.png "Image of icons for ratings")
-* When adding a review, a user has the option to check a box if they do not have an image link of the coffee they are reviewing, doing so displays a message, hides the input box and passes through a fallback image for form submission.  
-![image](mdassets/mdimages/imglinkcheckbefore.png "Image of checkbox before being checked")
-![image](mdassets/mdimages/imglinkcheckafter.png "Image of checkbox after being checked")
-* When adding a review, an "affiliate" link is automatically generated and appended to the review to simulate an afiiliate partnership for commercialising the site. The link is generated using Javascript by taking the title of the coffee and creating a google search from it. The link opens in a new tab.  
-![image](mdassets/mdimages/affialiatelink.png "Image of affialiate link on a review")
-
-        purchase = preview[0].replace(/ /, "+")
-        $("#affialiate_link").val("https://www.google.ie/search?q=" + purchase)
-
-* The site has a 'Favourite' feature for it's users. A star icon is placed above each review and when hovered it is highlighted. When selected, the user can see from the reviews page favourited reviews by way of a full star and reviews not favourited by way of an empty star.  
-![image](mdassets/mdimages/favstar.png "Image of the favourite review star")
-![image](mdassets/mdimages/unfavstar.png "Image of the unfavourite review star")
-* The site features a pop up modal that prompts the user to subscribe to the newsletter. Doing so will send an email to the user thanking them for their subscription and if they are not signed in, direct them to create an account. This modal shows only once and uses local storage to check if it's been shown to them or not. When directed to the sign up page from the modal, the user's email address is pre populated to the sign-up form. As this works of count and creating a `localStorage` session, to test this feature more than once, navigate to chrome dev tools > application > localStorage and delete the session and usermail key:value pairs.   
-![image](mdassets/mdimages/newslettermodal.png "Image of the newsletter modal")
-![image](mdassets/mdimages/prepopsignup.png "Image of the pre populated signup form")
-* The reviews page features a 'back to top' button after every third review to allow the user to jump back to the top of the page.  
-![image](mdassets/mdimages/backtotop.png "Image of the back to top button")
-* The reviews page features a Search bar allowing the user to search for reviews. Results are displayed and if no results are found the user is alerted.  
-![image](mdassets/mdimages/noresultssearch.png "Image of the back to top button")
-* The site features a footer with a sitemap dependant on a user logged in or not as well as privacy policy.  
-![image](mdassets/mdimages/sitemaploggedin.png "Image of the sitemap")
-![image](mdassets/mdimages/sitemaploggedout.png "Image of the sitemap")
-* The site features a 'contact us' page with a contact form, a google map and contact information for the site owner. Completing the form will send an email to the user. The user is also notified of successfully submitting the form.  
- ![image](mdassets/mdimages/contactform.png "Image of the contact form")
- ![image](mdassets/mdimages/contactformsubmitted.png "Image of the contact form")
+* The Home page features a number of animations on page load and continous neon animations on the "Shop Now" button and 'RetroDome" brand logo.   
+![image](mdassets/mdimages/indexanimation.gif "A GIF of the home page animation")  
+* The site uses Django templating to dynamically display products.   
+![image](mdassets/mdimages/responsiveproducts.png "Image of the products page")
+* The Site uses toasts to provide feedback to the user on their actions throughout the site.  
+![image](mdassets/mdimages/successtoast.png "Image of a toast message")
+![image](mdassets/mdimages/errortoast.png "Image of a toast message")
+![image](mdassets/mdimages/infotoast.png "Image of a toast message")
+* The site uses defensive programming to prevent unauthorised access to parts of the site that are locked to having an account or an admin permission set by redirecting them to the login page. 
+* The site uses a slick animation on the Login page to allow the suer to either signup or login from the page. The same animation is initiated upon load of the signup page so as to replicate the same experience by navigating to either page. Whether on the Login or Sign up page, the user can Login or Create an account. On Mobile, the animation is altered slighlty.   
+![image](mdassets/mdimages/loginanimation.gif "Gif of the login and signup animation")
+* The site allows a registered user to create a blog post and edit a blogpost that they have created. Blog posts are ordered in order of newest. The blog post section allows for C.R.U.D functionality for users.   
+![image](mdassets/mdimages/addpost.png "Image of add a blog post")
+![image](mdassets/mdimages/editpost.png "Image of editing a blog post")
+![image](mdassets/mdimages/postedit.png "Another image of editing a blog post")
+* The site uses pagination on the both the Products page and the Blog Posts page so as to limit the number of items on a singular page. On the Products page this is limited to 25 per page and 8 per page on the Blog posts page. Pagination was implemented from the Django documentation.   
+![image](mdassets/mdimages/pagination.png "Image of pagination")
+![image](mdassets/mdimages/pagination2.png "Image of pagination mid way through available pages")
+* The Product page allows for filtering by any of the categories as well as filtering by a number of categories. This is achieved by maniupaliting the href using javascript.    
+![image](mdassets/mdimages/filtering.png "Image of filtering checkbox options")
+* For the site user or any user with superuser permissions, they have the ability to edit or delete existing blogposts as well as create,edit or delete products.   
+![image](mdassets/mdimages/addproduct.png "Image of superuser view to add a product")
+![image](mdassets/mdimages/deleteproduct.png "Image of superuser view to delete a product")
+![image](mdassets/mdimages/productedit.png "Image of superuser view to edit a product")
+![image](mdassets/mdimages/productedit2.png "Image of superuser view editing a product")
+* The site uses a cookie consent toast for cookie consent which remains persistant unless agreed to thanks to some simple Javascript.
+![image](mdassets/mdimages/cookietoast.png "Image of the cookie toast message")
+* The site features an offcanvas sidebar that auto shows when a product is added to a users bag. This sidebar hides itself automatically after a few seconds.  
+![image](mdassets/mdimages/offcanvasbag.png "Image of the offcanvas shopping bag")
+* The site features a floating button that shows the above mentioned sidebar to the user at any time which is automatically shown to the user as soon as there is a product in their bag. This keeps a running total of the number of items in the users bag as well as their current spend.  
+![image](mdassets/mdimages/shoppingbagbutton.png "Image of the shopping bag button")
+* The navbar features a search bar which allows users to search for a product. 
+![image](mdassets/mdimages/searchresult.png "Image of the search bar and results")
+* The site's footer features a newsletter subscrtiption which is automatically pre populated with the users details if the user is logged in.  
+![image](mdassets/mdimages/newsletterfooter.png "Image of the newsletter subscription in the footer pre-populated")
+* The site features a 'contact us' page with a contact form, a google map and contact information for the site owner. Completing the form will send an email to the site administrator with details of the form aswell as submit the form to the asmin site for review. The user is also notified of successfully submitting the form. The form is also pre-populated automatically with the user detials if they are present and the user is logged in. 
+ ![image](mdassets/mdimages/contactus.png "Image of the contact form")
+* The site features a logout page so that the user must confirm that they want to logout and the opiton to remain logged in. This encourages the user to remain for longer.   
+ ![image](mdassets/mdimages/logout.png "Image of the logout page")
 * The Site features a 404 page with a link to take them back to the home page should they navigate to a broken link.  
 ![image](mdassets/mdimages/404.png "Image of the 404 page")
-
-### User Features
-#### User feature images can be found in the [TESTING.md Document](TESTING.md)
-* Each review features it's own comment section. User's must be logged in to leave a comment. 
-* User's can edit their own reviews or delete them. 
-* User's can delete their own comments. 
-* On a user's profile page, the reviews that a user has added are listed to them and linked directly to the reviews. 
-* On a user's profile page, the reviews that have been favourited by the user are listed and linked directly to the reviews. 
-* On a user's profile page, if the user has not left any reviews or added any favourites, they are prompted to do so. Following the add review link takes them to the reveiw page and the add review modal is displayed. 
-* On a user's profile page, a user can update their subscription to the newsletter via a toggle. 
-* On a user's profile page, a user can change their username and must confirm their change by authenticating their password.
-* On a user's profile page, a user can update their password. 
-
-### Admin Features
-#### Admin feature images can be found in the [TESTING.md Document](TESTING.md) under 'Admin user Stories'
-* Admins can see basic statistics of the site. 
-* Admins can edit or delete reveiws.
-* Admins can delete comments. 
-* Admins can enable other users as Admins. They can disable them also.
-* Admins can delete users. 
+* Additionally the site features an error 500 page should the user encounter any internal server errors. 
  
  ### Future features
- * Pagination. At present all reviews are listed on just one page which could get unwildly as the site grows. Pagination would be a highly desired feature.
- * The ability to upload and save files to the database. Student Care advised that it was best to utilise links for images throughout this project though adding this feature would allow for user to have their own profile image and not a default image that is currently used.
- * Sort and limit searching. To filter searches or limit searches by origin or roast type. This appears to be relatively straightforward to achieve though time did not allow for it's implementation. 
- * Google Maps APi to display the Origin of each coffee that is reviewed on the site.
- * Reset password link prior to sign in for users. 
- * Captcha authentiaction for sign up. Again appears to be straightforward to implement though time did not allow for it.   
+ Due to massive potential scope creep of the project, a tough decision was made to limit it's features to the minimum basics in the interst of time to meet the project deadline. As such, the following features would be beneficial and implemented in due course. 
+ * Commenting/Reviews, had a little more time allowed, this could have easily been implemented on an individual product as it ultimately follows the same logic as the create blog post flow.
+ * Star ratings - A logical companion to the review feature above. At present the site only hsows the default ratings which were already present in the dataset that was used. The ability to add a star rating and have the current star rating be dynamically changed and displated based on it's weighting would be a much desired feature and will take some research. 
+ * In site admin panel - At present the site owner can only access information on users such as counts, user info and submitted forms by way of the django admin panel. Much of this can easily be rendered to a specific admin section of the site to display this info, statistics as well as mark forms as responded to etc. This is a site in itself and would of consumed much time. 
+ * Google analytics for obvious marketing reasons. 
+ * Captcha authentiaction for sign up. Appears to be straightforward to implement though time did not allow for it.   
 
 ## Technologies Used
 ### Languages Used
@@ -319,17 +235,15 @@ Full Wireframes drawn up using Figma can be found [here](https://www.figma.com/f
 #### [Javascript/JQuery](https://www.w3schools.com/js/default.asp)
 * JavaScript and Jquery language is used for development of some front features of the website and activation of Bootstrap features. 
 #### [Python](https://www.w3schools.com/python/)
-* Python 3 is used as the main application language.    
-
-### Database
-#### [MongoDB](https://cloud.mongodb.com/)
-* MongoDB is used for storing and reading backend data.    
+* Python 3 is used as the main application language.
+#### [Django](https://www.djangoproject.com/)
+* The site is built on the Django framework and uses it's templating throughout.      
 
 ### Frameworks, Libraries & Programs Used
 #### [Bootstrap v.5.0.0-beta-1](https://getbootstrap.com/) 
 * Bootstrap was used throughout the project for it’s responsiveness of the website and styling such as paddings and margins. 
 #### [Google Fonts](https://fonts.google.com/)  
-* Google fonts were used for the importing of the ‘Fredericka the Great’ and ’ Stardos Stencil’ fonts to the style.css page which is used throughout the entirety of the site.
+* Google fonts were used for the importing of the ‘Monoton’ and ’ Geo’ fonts which is used throughout the entirety of the site.
 #### [Favicon]()  
 * favIcon was used to create the site favicon.
 #### [Figma](https://figma.com/)
@@ -337,25 +251,27 @@ Full Wireframes drawn up using Figma can be found [here](https://www.figma.com/f
 #### [Coolors.co](https://coolors.co/)
 * Coloors was used to assist with choosing the colour scheme that is used throughout the website.
 #### [jQuery](https://www.w3schools.com/jquery/default.asp)
-* jQuery was used extensively in the script files.
+* jQuery was used in select few places.
 #### [Git](https://git-scm.com/)
 * Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
 #### [GitHub](https://github.com/)
 * GitHub is used to store the projects code after being pushed from Git.
 #### [Gitpod](https://gitpod.io/)
-* Gitpod was used as the primary IDE for development of the site.  
-#### [Flask](https://flask.palletsprojects.com/en/2.0.x/)
-* Flask was used for it's Python web framework such as Jinja2 templating.    
-#### [PyMongo](https://pypi.org/project/pymongo/)
-* PyMongo is is a native Python driver for MongoDB allowing for interaction with MongoDB databases from Python.
-#### [Werkzeug](https://werkzeug.palletsprojects.com/en/2.0.x/utils/)
-* Werkzeug is one of the most advanced WSGI utility libraries. It was used primarily for debugging and security helpers.
-#### [Randomkeygen](https://randomkeygen.com/)
-* randomkeygen.com was used as a secure password and keygen generator for creation of the Flask SECRET_KEY.
-#### [EmailJS](https://www.emailjs.com/)
-* emailjs uses their own Javascript language to trigger the sending of emails using client-side technologies and was used for the automated responses to the signing up to the newsletter and contact us form. 
-#### [Google Map Generator](https://google-map-generator.com/)
-* Google Map generator was used to generate the iframe used for the embedded map found on the contact page and it's associated styling found in the css stylesheet. 
+* Gitpod was used as the primary IDE for development of the site.    
+#### [AWS](https://aws.amazon.com/)
+* Amazon web Services (AWS) is used for the storage of all media and static files for the production environment. 
+#### [Heroku](https://www.heroku.com/postgres)
+* Heroku Postgres is used as the core database for the production environment.  
+#### [SQLite3](https://www.sqlite.org/index.html)
+* SQLite 3 is used as the core database for the development environment.  
+#### [Stripe](https://stripe.com/ie)
+* Stripe and it's webhooks are used to manage and process payments. 
+#### [Django Debug Toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/)
+* Django Debug Toolbar was used throughout development for it's debugging capabilites. 
+#### [Django Secret Key generator](https://miniwebtool.com/django-secret-key-generator/)
+* Django Secret key generator from miniwebtool was used to generate a new SECRET_KEY for the environment variables. 
+#### [Google Map's](https://www.google.com/maps)
+* Google Maps was used to generate the iframe used for the embedded map found on the contact page. 
 #### [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 * Lighthouse, a Google Web Dev tool, was used extensively for testing performance, accessability, best practices and SEO of the site in it's entirety.
 
@@ -387,132 +303,170 @@ A copy of the Lighthouse report for each individual page can be found below:
 * privacy - [Lighthouse Desktop Result](mdassets/pdf/privacy-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/privacy-lighthouse-report-mobile.pdf)
 
 #### Known Bugs
-* During the devlopment cycle, a bug occured where adding a review to the users favourite would not disable or remove the favourite button for said favoured review. This appears to be related to the jinja for loop logic. This resulted in the possibility of a user adding the same review to their favourites repeatedly. To counter this, the following was implemented to the reviews.js: 
+* During the devlopment cycle, an issue was found when attempting to load the fixtures of the database. The JSON format of the product and category files was checked, doubled checked and checked again by student support adn it was found that the JSOn format was indeed as it should be. After much bouncing back and forth with student support, sharing of the workspace, reading of documentation and extensive StackOverflow reasearching. The developer found that the following line of code resolved the issue from within the gitpod terminal:    
 
-        /*Fixes bug where favourite button was still displaying on favourited reviews to user. 
-        Identifies an element that contains 'remove-favourite' in id and selects the next element, in this case the favourite button.
-        Adds bootstraps disabled and d-none class to hide and disable the button.  */
+                python3 manage.py loaddata products --ignorenonexistant
 
-        $(document).ready(function () {
-            $("a[id*='remove-favourite']").next().addClass("disabled d-none");
-                //Changes class on FA icon on hover
-            $('.fa-star, .fa-trash-alt, .fa-comments, .fa-edit').hover(
-                function () {
-                    $(this).toggleClass('far').toggleClass('fas')
-                }
-            )
-        })
-
-* During the development cycle, due to the number of modals that were being utilised to keep the user experience fluidic, a rogue closing `</div>` was found and removing the element caused a cascasding effect. To aid with the structure of the code, the larger modals were moved to the '/includes' folder and using jinja were included in their relevant `<form>` sections on the reviews page. This allowed the developer to recognise that it wasn't that the closing `</div>` was rogue but was rather closed at an earlier section too soon. Removing this earlier closing tag fixed the cascading effect that was otherwise found. 
-
-* During the development cycle, a number of console errors were found that whilst nor related directly to the .js files of the devloper, but rather that of the jquery.min and bootstrap script files was causing console errors such as `$` not identified and a host of 'Illegal invocation' errors. These can be seen in the screenshot below. To counter this each .js file was wrapped in a `window.onload = function(){}`. In some pages, they had to be wrapped in `DOMContentReady`. 
-
-    ![image](mdassets/mdimages/consoleerror.png "console errors")
-
-* An additional console error was found on the reviews page if a user was not logged in as the review.js file calls for a modal on this page to write a review. However, if a user is not logged in then the modal does not exist and so the console error was born. The following code was implemented on the profile.js (The landing page for a user when they log in or signup) and review.js files which set a sessionStorage on login and then defers the code initaing unless the sessionStorage exists. `sessionStorage.getItem(session)` The sessionStorage item is removed on logout to prevent the console error again.   
-
-profile.js:
-
-        let d = new Date();
-        let uid = Math.floor(Math.random() * d.getTime());
-        if (window.sessionStorage.length != 1){
-         window.sessionStorage.setItem("session","user" + uid)
-        }
-
-review.js:    
-
-        if ((window.sessionStorage.getItem("session") !== null) == true){
-            ... }
+    The '--ignorenonexistant' flag ignores values that do not exists within the JSON file as some of the dataset used did   not have all fields completed. An alternative resolution is to manually update the JSON file to add data to all fields that did not exist.    
 
 
-* The clearButton.onclick does not clear the modal fields of Write-Review. Targeting the validate ID was causing validation issues and time did not permit further investigation. 
+* When creating and testing the newsletter form within the footer. A critical bug was found whereby submitting another form such as the contact us form would submit the newsletter form in it's place. This was due to the fact that both forms contained and where referenced as the email field. To circumvent this, the newsletter from was given a custom name in the newsletter.models.py file:
+
+                custom_names = {'email': 'newsletter_email'}
+
+    This was then further built upon within an if statement in the newsletter.contexts.py:
+
+                if 'newsletter_email' in request.POST:
+
+* On the products page, the filtering option that was added intorduced two known bugs:
+    1. Having selected a category or categories to filter from, the checkboxes that are selected after applying the filter are not known to the user. There are a few ways in which this could be fixed. In hindsight, utilizing django's filtering capabilites woul have been a better method to implement this feature. As a quick fix, some javascript could be written to resolve this. Should time allow to implement this before submission then it shall be done. 
+    2. Shoudld the results of filtering exceed the pagination limit of 25 then navigating to a second page removes the filtering and simply brings you to page two of the products. 
+
+* Nevigating from the home page to the the specific Handheld Consoles category includes some Home Consoles in the results. It is believed that this issue may lie within the fixtures though time did not permit to explore the bug further and so is unresolved. 
+
+* A media query needs to be implemented for rendering the index page on original iPads in portrait mode as they casue the footer to be squeezed. 
+
 ## Deployment
 
-The website was created using Gitpod IDE. GitHub was used for hosting the repository and the environment is then deployed to Heroku for hosting. The following are the steps needed to set up your IDE, clone the repository and deploy to Heroku. In addition to those listed, MongoDB is used for storing the data and is also required for successful deployment. 
+The website was created using Gitpod IDE. GitHub was used for hosting the repository and the environment is then deployed to Heroku for hosting. The following are the steps needed to set up your IDE, clone the repository and deploy to Heroku. In addition to those listed, AWS is used for storing of the static files and media files. SQL Lit3 is used for the DB in development. 
 
 ### 1. Clone the Repo
 #### Local Clone
-1. Navigate to the GitHub Repository: [Milestone Project 4 - RetroDome ](https://github.com/LogisticBravo/Milestone-project-3)
+1. Navigate to the GitHub Repository: [Milestone Project 4 - RetroDome ](https://github.com/LogisticBravo/retrodome)
 2. Click the Code drop down menu.
 3. Either Download the ZIP file, unpackage locally and open with IDE (This route ends here) OR Copy Git URL from the dialogue box.
 4. Open your developement editor of choice and open a terminal window in a directory of your choice.
 5. Use the 'git clone' command in terminal followed by the copied git URL.    
 
-        git clone https://github.com/LogisticBravo/Milestone-project-3
+        git clone https://github.com/LogisticBravo/retrodome
 6. A clone of the project will be created locally on your machine.
 
-### 2. MongoDB Setup
-1. If you don't have one already, create an account for MongoDB [here](https://www.mongodb.com/try).
-2. Once signed in and within Atlas > Clusters > Collections : Create a Database.
-3. Name the database "coffee_beans".
-4. Within this database, create the followoing collections (case sensitive):    
-    - beans
-    - newsletters
-    - origin
-    - privacy_policy
-    - roast
-    - users
-
-### 3. Environment Setup
+### 2. Environment Setup
 1. Install requirements.txt via your IDE terminal window for dependencies and external libraies. *Important 
 
         pip3 install -r requirements.txt 
-
-2. Create the `env.py` file and within it add the following:    
-
-        import os 
-        os.environ.setdefault("IP", "0.0.0.0")     
-        os.environ.setdefault("PORT", "5000")     
-        os.environ.setdefault("SECRET_KEY", "YOUR_SECRET_KEY")   
-        os.environ.setdefault("MONGO_URI", "YOUR_MONGODB_URI")    
-        os.environ.setdefault("MONGO_DBNAME", "YOUR_MONGODB_DATABASE_NAME")
-
-    - Generate a secret key at [Randomkeygen.com](https://randomkeygen.com/) if you do not have one.    
-3. Ensure that  "`env.py`" is added to your `gitignore` file. 
-4. Ensure that your `Procfile` (case sensitive) is present. On the off chance that it is not:
+   
+2. Ensure that  "`env.py`" is added to your `gitignore` file. 
+3. Ensure that your `Procfile` (case sensitive) is present. On the off chance that it is not:
 
         touch Procfile
     within it add the following:
 
-        web: pyton app.py
-5. Ensure that the above steps have been completed succesffully before proceeding to deployment. 
-6. Stage, commit and push your local repo to GitHub.
+        web: gunicorn YOUR_APP_NAME.wsgi:application
+4. Ensure that the above steps have been completed succesffully before proceeding to deployment. 
+5. Stage, commit and push your local repo to GitHub.
 
         git add -A
         git commit -m "Initial Commit"
         git push
 
-### 4. Deployment to Heroku
+### 3. Deployment to Heroku
 1. If you haven't already, Create an account and login to [Heroku](https://signup.heroku.com/).
 2. Create a new app and give it a unique new name. Importance on unique as Heroku will flag if it's already taken. For simplicity, it's suggested to keep this aligned to your GitHub repository.
 3. Choose from the available Shard options - EU or US - It's best to select closest to your location.
 4. Navigate to App settings > 'Config Vars'
-5. Replicate your previous variables from the `env.py` file here and ensure they match exactly.    
+5. Replicate your envrionment variables and ensure they match exactly.    
 
-    |  Key | Value  |
-    |:-:|:-:|
-    |  IP |  0.0.0.0 |   
-    |  PORT | 5000  |   
-    |  SECRET_KEY |  YOUR_SECRET_KEY |   
-    | MONGO_URI  |  YOUR_MONGODB_URI |   
-    |  MONGO_DBNAME |  YOUR_MONGODB_DATABASE_NAME |   
+    * AWS_ACCESS_KEY_ID
+    * AWS_SECRET_ACCESS_KEY
+    * DATABASE_URL
+    * EMAIL_HOST_PASS
+    * EMAIL_HOST_USER
+    * SECRET_KEY
+    * STRIPE_PRICE_ID
+    * STRIPE_PUBLIC_KEY
+    * STRIPE_SECRET_KEY
+    * STRIPE_WH_SECRET
+    * USE_AWS
 
-6. From Heroku App deploy page:
-    - Choose GitHub from the Deployment Method.
-    - Hit "Connect to GitHub".
-    - Log in to your GitHub from Heroku to link the App to GitHub.
-    - Search for and select the repository to be linked in Github.
-    - Hit Connect.
-    - Choose Enable Automatic Deployment from the GitHub Master / Main branch.    
+6. Add Heroku Postgres Database:
+
+    -- Click the resources tab in heroku.    
+    -- Under Add-ons search for heroku postgres.    
+    -- Click on heroku postgres when it appears.    
+    -- Select the Hobby Dev-Free option in plans.    
+    -- Click submit order form. 
+
+7. Create and connect an AWS S3 account:
+
+    7.1 - If you don't already have one, create an AWS account.    
+    7.2 - Using the search field, search S3 and create a new bucket.    
+    * Select Allow public access.  
+
+    7.3 - from the 'Properties' section:    
+    * Select Static Website Hosting and enable it.    
+    * Set 'index.html' as index.html.   
+    * save and exit.
+
+    7.4 - Navigate to Permissions > CORS and paste in the following:
+
+                    [
+                        {
+                            "AllowedHeaders": [
+                            "Authorization"
+                    ],
+                            "AllowedMethods": [
+                            "GET"
+                    ],
+                            "AllowedOrigins": [
+                            "*"
+                    ],
+                            "ExposeHeaders": []
+                        }
+                    ]
+    7.5 - Still in the Permissions section, sekect 'Bucket policy':
+    * Generate Bucket Policy and take note of Bucket ARN
+    * Chose S3 Bucket Policy as Type of Policy
+    * For Principal, enter *
+    * Enter ARN noted above
+    * Add Statement
+    * Generate the Policy
+    * Copy the Policy JSON Document
+    * Paste the policy into Edit Bucket policy from the previous tab
+    * Save changes    
+    7.6 From the Access Control List section, ensure the following:
+    * Tick 'List' for Everyone (public access).
+    * Save changes.
+8. Still within AWS, search for AWS IAM (Identity and Access Management).    
+    8.1 - Navigate to the AWS IAM Dashbaord and create a new group.    
+    8.2 - From policies, do the following:
+    * Create a policy.   
+    * Under JSON tab > click Import managed policy.   
+    * Choose AmazonS3FullAccess.   
+    * Edit the resource to include the Bucket ARN noted earlier when creating the Bucket Policy.   
+    * Click next > Review policy.   
+    * name the policy and enter a description of your chooisng.   
+    * Create policy.
+
+    8.3 - Navigating back to the User Group section > choose the earlier created group.
+    * From Permissions select Add Permissions and attach the policy from the previous step. 
+    * Add the permissions.
+    8.4 - Under Users:
+    * Choose a user name.   
+    * Select Programmatic access as the Access type.   
+    * Click Next.   
+    * Add the user to the Group just created.   
+    * Click Next and Create User.  
+    8.5 - Download the .csv file that contains the access and secret access keys.    
+    * N.B. You can only download this file once and will not be available again so ensure you do not loose it.   
+    8.6 - Refer to earlier steps 4 and 5 to add these to your environment variables within Heroku.       
+
+9. From Heroku App deploy page:
+    -- Choose GitHub from the Deployment Method.    
+    -- Hit "Connect to GitHub".    
+    -- Log in to your GitHub from Heroku to link the App to GitHub.    
+    -- Search for and select the repository to be linked in Github.    
+    -- Hit Connect.    
+    -- Choose Enable Automatic Deployment from the GitHub Master / Main branch.        
     
-7. Open the App to confirm deployment. Note that Heroku can be slow to open on the first instance. 
+10. Open the App to confirm deployment. Note that Heroku can be slow to open on the first instance. 
   
 
 ### Development
 We welcome all contributions. To do so:
 
 1. Fork the Repo.
-2. Log in to GitHub and locate the [Respository](https://github.com/LogisticBravo/Milestone-project-3).
+2. Log in to GitHub and locate the [Respository](https://github.com/LogisticBravo/retrodome).
 3. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 4. You should now have a copy of the original repository in your GitHub account.	
 5. Create a new branch.
@@ -524,52 +478,42 @@ We welcome all contributions. To do so:
 
 ### Bugs & Feature Requests
 
-Should you find a bug and want to help us squash it. Please open an issue [here](https://github.com/LogisticBravo/Milestone-project-3/issues/new) ensuring you add the '**bug**' label  with clear detail under the following:
+Should you find a bug and want to help us squash it. Please open an issue [here](https://github.com/LogisticBravo/retrodome/issues/new) ensuring you add the '**bug**' label  with clear detail under the following:
 * What you done?
 * Where you done it?
 * What you expected to happen?
 * What actually happened?
 	
-To request a new feature or function then please open an issue [here](https://github.com/LogisticBravo/Milestone-project-3/issues/new) ensuring you add the '**enhancement**' label  with proposed changes including snippets of how to do so.
+To request a new feature or function then please open an issue [here](https://github.com/LogisticBravo/retrodome/issues/new) ensuring you add the '**enhancement**' label  with proposed changes including snippets of how to do so.
 
 ## Credits
 
 ### Code
 * Bootstrap 5.0.0-beta-1: Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System and classes for padding, margins etc.
-* CSS Styling code and corresponding classes/id’s was largely that of the developer Jay Bradley. Additional code is commented within the stylesheet itself. Most notable of which is the code used for the `.cutout` class courtesy of [w3Schools](https://www.w3schools.com/howto/howto_css_cutout_text.asp) which was used to style RetroDome logo in the navbar and footer. 
-* With the exception of the following, all Javascript and JQuery code is that of the developer.
-    *  The onscroll trigger for the `newsletter()` function in review.js was inspired by [w3schools](https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onscroll3).
-    * The local storage aspect of the `newsletter()` function in review.js was inspired by [Stackoverflow](https://stackoverflow.com/questions/8123032/how-do-i-make-a-count-variable-persistent-across-sessions).
-    * The `.each(function())` within the `clearButton.onClick` in review.js was adapted from this [Codegrepper Post](https://www.codegrepper.com/code-examples/javascript/jquery+clear+all+input+fields).
-    * Initializers from the Bootstrap library to inititiate the modals and tooltips.
-* With exception of the authentication functionality to login using Werkzeug security helpers for salt & hash passwords and the basic structure of the CRUD functionality adapted from the Code Institute walkthrough projects of the Task manager, all other and additional Python code and logic is that of the developer Jay Bradley.
-* Jinja2 templating is used for dynamic rendering. All jinja logic is that of the developer Jay Bradley. 
-* [Python Tutor](http://pythontutor.com/) was used to troubleshoot logic when dealing with nested arrays on more than one occasion. 
-* The hero image callout was adapted by the [starbootstrap theme business casual](https://startbootstrap.com/previews/business-casual).
+* CSS Styling code and corresponding classes/id’s was largely that of the developer. Additional code is commented within the stylesheet itself.
+* With the exception of what was inherited from the Boutique Ado walkthrough project, all Javascript and Jquery code is that of the developer.
+* A significant amount of code for handling orders, stripe wbhooks and it's implementation was adapted from the Boutique Ado walkthrough project. 
+* Django templating and it's logic is that of the developer. 
+* Whilst all code for the implemntation of the signup and login page was that of the developer. The concept and .bg-colorgradient class was insipred by [Florin Pop](https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/)
 
 
 ### Content
-* The structure and concept were entirely that of the the developer Jay Bradley. 
-* All language and content is that of the developer Jay Bradley with the exception of reviews written by user 'Jay21' which were largely copied from the corresponding reviewed coffee's facebook. The developer cannot speak on behalf of reviews left by other users. 
+* The layout and concept were entirely that of the the developer Jay Bradley. 
+* The dataset used for the products population was pulled from [Kaggle](https://www.kaggle.com/deepann/4000-laptops-data-from-gadgets360)
 
 
 ### Media
-* The Callout image was used from [freepik.es](https://www.freepik.es/fotos-premium/primer-plano-granos-cafe-especial-atencion_11280504.htm) and inverted.
-* The navbar image was used from [shutterstock](https://www.shutterstock.com/image-photo/cup-coffee-beans-sack-on-dark-1037995396)
-* The fallback image uses [Pixabay CDN](https://pixabay.com/photos/coffee-coffee-beans-cup-coffee-cup-171653/)
-* The user profile image was used from [freesvg](https://freesvg.org/users-profile-icon)
-* the 404 page uses a gif from [Gifer](https://gifer.com/en/2ii7)
+* The images for each of the products were already included within the dataset and are pulled from gadgets360 cdn.
+* The image for the brand logo of RetroDome was created by screenshotting the logo itself after it had been created and styled by the developer. 
 
 ### Acknowledgements
-* My wife for her continued and tireless support as I worked through this project.
-* My Mentor, Seun for her great feedback and continously pushing me.
-* Fellow student [AideenM12](https://github.com/AideenM12) for her amazing feedback and encouragement and for giving me some useful ideas and direction with my README testing.
-* Fellow student and now a CI Mentor [Daisy McGirr](https://github.com/Daisy-McG) for helping to troubleshoot some of my console errors and given me the motivation to fixing them.
-* My work Colleague and fellow developer John O' Donoghue for breaking the site when I asked him too and giving some great feedback.
+* First and foremost, most importantly, my amazing wife, Lyndsey! For her continued support during the last 12 months, for her understanding of the effort and energy being put into this coursework. For single handedly managing a testing 4 year old on the toughest of days and proving dada with breathing room to put the head down and continue working. For her motivation when I felt that I could not get this final project over the line and pushing me to succeed. For continously checking in and being a staple in the possibility of achieveing the last 12 months. None of this would be possible without your love, care and support! Thank you!!
+* A very special thanks to 'Alexander' of Code Institute student support for checking in, sharing resources, being understanding and giving me hope to continue.
+* My fellow classmates of the springboard cohort, we've shared frustrations, we've shared celebrations. We were always there to bounce ideas and problems off and we understood one another. I hope that our paths cross again in the future.
+* My work Colleague and fellow developer John O' Donoghue for breaking the site when I asked him to and giving some great feedback.
+* My workplace for being understanding of my personal goals and providing time off to achive them without issue or question. 
 * [CSS Tricks](https://css-tricks.com/) for being a great place for inspiration and knowledge.
 * [W3 Schools](https://www.w3schools.com/) for the wealth of information thats available.
-* [Flask documentation](https://jinja.palletsprojects.com/en/3.0.x/) for all things related with troubleshooting. 
-* [MongoDB 5.0 Manual](https://docs.mongodb.com/manual/) for being a pillar stone of information for dealing with numerous queries to the database.
+* [Django documentation](https://docs.djangoproject.com/en/3.2/) for all things related with troubleshooting. 
 * [Stack Overflow](https://stackoverflow.com/) for always having something that would put you on the right track. 
-* [Pythontutor](http://pythontutor.com/) for an unbelievable visual of code execution allowing me to troublshoot querying dictionarys in arrays in arrays in disctionaries. 
-* [Code Institute](https://codeinstitute.net/) fro amazing couursework. The core CRUD from the Task Manager walkthrough project. The intorduction from the Thorin flask project. For challenging me beyond my limits and opening my up my inspiration. 
+* [Code Institute](https://codeinstitute.net/) for amazing coursework and a well structured learning environment.For challenging me beyond my limits and opening my up my inspiration. The course is intense and that is an understatement however it truly delivers on what it promises and regardless of the outcome of this project I thank Code Institute for the opportunity to be a part of it and inspiring me to continue to learn. 
