@@ -327,6 +327,8 @@ A copy of the Lighthouse report for each individual page can be found below:
 
 * A media query needs to be implemented for rendering the index page on original iPads in portrait mode as they casue the footer to be squeezed. 
 
+* In the final hour of submission. The social logins were tested which had once worked and it was found that the twitch and google login or sign up socials no longer worked. The twicth still odes however. As this was quite literally the final hour, the bug was lef tin play. 
+
 ## Deployment
 
 The website was created using Gitpod IDE. GitHub was used for hosting the repository and the environment is then deployed to Heroku for hosting. The following are the steps needed to set up your IDE, clone the repository and deploy to Heroku. In addition to those listed, AWS is used for storing of the static files and media files. SQL Lit3 is used for the DB in development. 
