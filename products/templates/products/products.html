@@ -146,7 +146,9 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td colspan="2" class="text-center text-yellow">{{ product.rating }}</td>
+                                        <td colspan="2" class="text-center text-yellow" id="rating-{{ product.id }}">
+                                            <span class="d-block">{{ product.rating }}/5</span>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -258,7 +260,9 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td colspan="2" class="text-center text-yellow">{{ product.rating }}</td>
+                                <td colspan="2" class="text-center text-yellow" id="rating-{{ product.id }}">
+                                    <span class="d-block">{{ product.rating }}/5</span>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

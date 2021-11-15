@@ -84,3 +84,14 @@ function backToTop() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+//Implements a FA star for each of the ratings on the product page. Rounds the rating to the nearest integer.
+var rating = document.querySelectorAll('[id^="rating-"]')
+
+for (let i = 0; i < rating.length; i++) {
+  let value = parseFloat(rating[i].innerText);
+  Math.round(value)
+  for (let j = 0; j < value; j++){
+    rating[i].insertAdjacentHTML('afterbegin', '<i class="fas fa-star"></i>')
+  }
+}

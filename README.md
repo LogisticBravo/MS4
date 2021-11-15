@@ -294,14 +294,14 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 Due to the extensiveness of testing User Stories. It's contens where moved to and can be found in [TESTING.MD file](TESTING.md)
 
 #### Further Testing
-Lighthouse, a Google Chrome web developement tool, was used extensively on the site in it's entirety. Every individual page was tested for desktop and mobile and received a score of average low to mid 90's across Performance, Accessability, Best Practices and SEO. The lowest score was 73 for Performance and the highest was 100 for best practices.   
+Lighthouse, a Google Chrome web developement tool, was used extensively on the site in it's entirety. Every individual page was tested for desktop and mobile and received a score of average low to mid 90's across Performance, Accessability, Best Practices and SEO. The lowest score was 71 for Performance and the highest was 100 for SEO.   
 ![Lighthouse Screenshot](mdassets/mdimages/lighthouseresult.png)    
 A copy of the Lighthouse report for each individual page can be found below:    
 * Index - [Lighthouse Desktop Result](mdassets/pdf/index-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/index-lighthouse-report-mobile.pdf)
-* reviews - [Lighthouse Desktop Result](mdassets/pdf/reviews-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/reviews-lighthouse-report-mobile.pdf)
-* signup - [Lighthouse Desktop Result](mdassets/pdf/signup-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/signup-lighthouse-report-mobile.pdf)
+* Products - [Lighthouse Desktop Result](mdassets/pdf/products-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/products-lighthouse-report-mobile.pdf)
+* Login/Signup - [Lighthouse Desktop Result](mdassets/pdf/login-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/login-lighthouse-report-mobile.pdf)
 * contact - [Lighthouse Desktop Result](mdassets/pdf/contact-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/contact-lighthouse-report-mobile.pdf)
-* privacy - [Lighthouse Desktop Result](mdassets/pdf/privacy-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/privacy-lighthouse-report-mobile.pdf)
+* blog - [Lighthouse Desktop Result](mdassets/pdf/blog-lighthouse-report-desktop.pdf) | [Lighthouse Mobile Result](mdassets/pdf/blog-lighthouse-report-mobile.pdf)
 
 #### Known Bugs
 * During the devlopment cycle, an issue was found when attempting to load the fixtures of the database. The JSON format of the product and category files was checked, doubled checked and checked again by student support adn it was found that the JSOn format was indeed as it should be. After much bouncing back and forth with student support, sharing of the workspace, reading of documentation and extensive StackOverflow reasearching. The developer found that the following line of code resolved the issue from within the gitpod terminal:    
