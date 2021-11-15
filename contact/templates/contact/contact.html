@@ -21,7 +21,7 @@
         </div>
     </div>
     <div class="row align-items-center justify-content-around mt-4">
-        <div class="col-lg-3">
+        <div class="col-lg-3 mb-4">
             <div class="card">
                 <div class="card-body bg-onyx text-yellow drop-shadow-pink rounded">
                     <h5 class="card-title">Address</h5>
@@ -43,7 +43,7 @@
             </div>
 
         </div>
-        <div class="col-lg-8 text-retro-pink">
+        <div class="col-lg-8 mb-4 text-retro-pink">
             <h2 class="text-vibrant-green text-center">Send us a message!</h2>
             <form action="{% url 'contact' %}" method="POST">
                 {% csrf_token %}
